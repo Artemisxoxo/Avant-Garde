@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Avant-Garde Wine & Spirits | Importer</title>
+<meta name="description" content="Avant-Garde Wine & Spirits — New York importer of terroir-driven, organic and biodynamic wines from France, Italy, Spain and the US."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --ink:       #0d0c0a;
+  --paper:     #f5f2ec;
+  --muted:     #8a8278;
+  --rule:      #d8d2c8;
+  --wine:      #6b1f2a;
+  --gold:      #b8975a;
+  --white:     #faf8f4;
+  --nav-h:     64px;
+  --max:       1200px;
+  --serif:     'Cormorant Garamond', Georgia, serif;
+  --sans:      'DM Sans', system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV ──────────────────────────────────────────────────── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2.5rem;
+  z-index: 100;
+  transition: background 0.4s;
+}
+nav.scrolled {
+  background: rgba(13,12,10,0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.nav-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  cursor: pointer;
+}
+.nav-brand-main {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--white);
+  line-height: 1;
+}
+.nav-brand-sub {
+  font-family: var(--sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+.nav-links button {
+  background: none;
+  border: none;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(245,242,236,0.7);
+  cursor: pointer;
+  transition: color 0.2s;
+  padding: 0;
+}
+.nav-links button:hover,
+.nav-links button.active { color: var(--white); }
+.nav-links button.active { border-bottom: 1px solid var(--gold); padding-bottom: 2px; }
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  padding: 4px;
+}
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 1px;
+  background: var(--white);
+  transition: all 0.3s;
+}
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: var(--ink);
+  z-index: 99;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu button {
+  background: none;
+  border: none;
+  font-family: var(--serif);
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--white);
+  cursor: pointer;
+  letter-spacing: 0.1em;
+}
+
+/* ── PAGES ─────────────────────────────────────────────────── */
+.page { display: none; }
+.page.active { display: block; }
+
+/* ── HOME ──────────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 2.5rem 5rem;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://static.wixstatic.com/media/f829c8_383e23835606497b844b8869568edbc6~mv2.jpg/v1/fill/w_1600,h_900,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Old%20Vine_edited.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.45) saturate(0.8);
+  transform: scale(1.02);
+  transition: transform 8s ease;
+}
+.hero-bg.loaded { transform: scale(1); }
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(13,12,10,0.9) 0%, rgba(13,12,10,0.2) 50%, transparent 100%);
+}
+.hero-content {
+  position: relative;
+  max-width: var(--max);
+  width: 100%;
+  margin: 0 auto;
+}
+.hero-eyebrow {
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.25rem;
+}
+.hero-title {
+  font-family: var(--serif);
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: 0.05em;
+  color: var(--white);
+  margin-bottom: 0.25rem;
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--paper);
+}
+.hero-subtitle {
+  font-family: var(--serif);
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(245,242,236,0.6);
+  margin-bottom: 2.5rem;
+}
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: none;
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 0.85rem 2rem;
+  cursor: pointer;
+  transition: border-color 0.3s, background 0.3s;
+}
+.hero-cta:hover {
+  border-color: var(--gold);
+  background: rgba(184,151,90,0.08);
+}
+.hero-cta::after {
+  content: '→';
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 300;
+}
+.hero-scroll {
+  position: absolute;
+  right: 2.5rem;
+  bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+.hero-scroll-line {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, transparent, var(--gold));
+  animation: scrollLine 2s ease infinite;
+}
+@keyframes scrollLine {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  51% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* Home intro section */
+.intro {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 7rem 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.intro-label {
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+}
+.intro-heading {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 300;
+  line-height: 1.2;
+  color: var(--white);
+}
+.intro-heading em { font-style: italic; color: var(--paper); }
+.intro-body {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: rgba(245,242,236,0.65);
+  line-height: 1.85;
+  margin-bottom: 2rem;
+}
+.intro-stat {
+  display: flex;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+.intro-stat-item {}
+.intro-stat-num {
+  font-family: var(--serif);
+  font-size: 2.8rem;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+}
+.intro-stat-label {
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 0.4rem;
+}
+
+/* Home regions */
+.regions {
+  padding: 6rem 2.5rem;
+  max-width: var(--max);
+  margin: 0 auto;
+}
+.regions-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding-bottom: 1.5rem;
+}
+.regions-title {
+  font-family: var(--serif);
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--white);
+}
+.regions-link {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.regions-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.06);
+}
+.region-card {
+  background: var(--ink);
+  padding: 2.5rem 2rem;
+  cursor: pointer;
+  transition: background 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.region-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 1px;
+  background: var(--gold);
+  transition: width 0.4s;
+}
+.region-card:hover::before { width: 100%; }
+.region-card:hover { background: rgba(255,255,255,0.03); }
+.region-flag {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+.region-name {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--white);
+  margin-bottom: 0.4rem;
+}
+.region-count {
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Home footer CTA */
+.home-contact {
+  padding: 7rem 2.5rem;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.home-contact-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+.home-contact-sub {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 2.5rem;
+}
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: none;
+  border: 1px solid rgba(255,255,255,0.25);
+  padding: 0.85rem 2rem;
+  cursor: pointer;
+  transition: border-color 0.3s, background 0.3s;
+}
+.btn-outline:hover {
+  border-color: var(--gold);
+  background: rgba(184,151,90,0.08);
+}
+
+/* ── PRODUCERS PAGE ─────────────────────────────────────────── */
+.producers-hero {
+  padding: calc(var(--nav-h) + 4rem) 2.5rem 3rem;
+  max-width: var(--max);
+  margin: 0 auto;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.producers-hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 300;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+.producers-hero h1 em { font-style: italic; }
+.producers-hero p {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Filter tabs */
+.filter-bar {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 2rem 2.5rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.filter-btn {
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: none;
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 0.5rem 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.filter-btn:hover { color: var(--white); border-color: rgba(255,255,255,0.3); }
+.filter-btn.active { color: var(--ink); background: var(--gold); border-color: var(--gold); }
+
+/* Producer grid */
+.producers-grid {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 3rem 2.5rem 6rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1px;
+  background: rgba(255,255,255,0.06);
+}
+.producer-card {
+  background: var(--ink);
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  transition: background 0.3s;
+}
+.producer-card:hover { background: rgba(255,255,255,0.03); }
+.producer-card-img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.75) saturate(0.85);
+  transition: filter 0.5s, transform 0.6s;
+}
+.producer-card:hover .producer-card-img {
+  filter: brightness(0.9) saturate(1);
+  transform: scale(1.04);
+}
+.producer-card-body {
+  padding: 1.5rem;
+}
+.producer-card-region {
+  font-family: var(--sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+.producer-card-name {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.2;
+}
+.producer-card-sub {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  color: var(--muted);
+  margin-top: 0.3rem;
+}
+
+/* ── PRODUCER DETAIL ─────────────────────────────────────────── */
+#producer-detail {
+  display: none;
+  min-height: 100vh;
+}
+#producer-detail.active { display: block; }
+
+.detail-hero {
+  position: relative;
+  height: 70vh;
+  overflow: hidden;
+}
+.detail-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.5) saturate(0.8);
+}
+.detail-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(13,12,10,1) 0%, rgba(13,12,10,0.3) 60%, transparent 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: 3rem 2.5rem;
+}
+.detail-hero-content {
+  max-width: var(--max);
+  width: 100%;
+  margin: 0 auto;
+}
+.detail-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(245,242,236,0.5);
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  transition: color 0.2s;
+}
+.detail-back:hover { color: var(--white); }
+.detail-region {
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+.detail-name {
+  font-family: var(--serif);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1;
+}
+.detail-body {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 4rem 2.5rem 6rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.detail-text {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: rgba(245,242,236,0.75);
+  line-height: 1.85;
+}
+.detail-meta {}
+.detail-meta-item {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.detail-meta-label {
+  font-family: var(--sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.3rem;
+}
+.detail-meta-value {
+  font-family: var(--serif);
+  font-size: 1rem;
+  color: var(--white);
+}
+
+/* ── FIND OUR WINES ─────────────────────────────────────────── */
+.wines-hero {
+  padding: calc(var(--nav-h) + 4rem) 2.5rem 3rem;
+  max-width: var(--max);
+  margin: 0 auto;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.wines-hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 300;
+  color: var(--white);
+}
+.wines-hero h1 em { font-style: italic; }
+.wines-content {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 4rem 2.5rem 6rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+}
+.wines-text {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: rgba(245,242,236,0.7);
+  line-height: 1.85;
+}
+.wines-text p { margin-bottom: 1.5rem; }
+.wines-states {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: rgba(255,255,255,0.06);
+  align-content: start;
+}
+.state-item {
+  background: var(--ink);
+  padding: 1.25rem 1.5rem;
+}
+.state-name {
+  font-family: var(--serif);
+  font-size: 1rem;
+  color: var(--white);
+}
+.state-note {
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  margin-top: 0.2rem;
+}
+
+/* ── CONTACT ─────────────────────────────────────────────────── */
+.contact-hero {
+  padding: calc(var(--nav-h) + 4rem) 2.5rem 3rem;
+  max-width: var(--max);
+  margin: 0 auto;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.contact-hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 300;
+  color: var(--white);
+}
+.contact-hero h1 em { font-style: italic; }
+.contact-body {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 5rem 2.5rem 6rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+}
+.contact-info-label {
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 2rem;
+}
+.contact-info-item {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.contact-info-item-label {
+  font-family: var(--sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.4rem;
+}
+.contact-info-item-value {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  color: var(--white);
+}
+.contact-info-item-value a {
+  color: var(--white);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.contact-info-item-value a:hover { color: var(--gold); }
+.contact-form-label {
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 2rem;
+}
+.form-group {
+  margin-bottom: 1.5rem;
+}
+.form-group label {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--white);
+  padding: 0.85rem 1rem;
+  font-family: var(--serif);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(--gold); }
+.form-group select option { background: #1a1a18; }
+.form-group textarea { height: 120px; resize: vertical; }
+.form-submit {
+  width: 100%;
+  background: var(--gold);
+  color: var(--ink);
+  border: none;
+  padding: 1rem;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  margin-top: 0.5rem;
+}
+.form-submit:hover { opacity: 0.85; }
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 3rem;
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  color: var(--gold);
+  font-style: italic;
+}
+
+/* ── FOOTER ──────────────────────────────────────────────────── */
+footer {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 3rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.footer-brand {
+  font-family: var(--serif);
+  font-size: 0.9rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+.footer-copy {
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+.footer-social {
+  display: flex;
+  gap: 1.5rem;
+}
+.footer-social a {
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-social a:hover { color: var(--gold); }
+
+/* ── RESPONSIVE ──────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
+  .intro { grid-template-columns: 1fr; gap: 3rem; }
+  .regions-grid { grid-template-columns: 1fr 1fr; }
+  .producers-grid { grid-template-columns: 1fr 1fr; }
+  .detail-body { grid-template-columns: 1fr; gap: 2rem; }
+  .wines-content { grid-template-columns: 1fr; gap: 3rem; }
+  .contact-body { grid-template-columns: 1fr; gap: 3rem; }
+  footer { flex-direction: column; align-items: flex-start; }
+  .detail-hero { height: 55vh; }
+}
+@media (max-width: 480px) {
+  nav { padding: 0 1.25rem; }
+  .hero { padding: 0 1.25rem 3rem; }
+  .regions-grid { grid-template-columns: 1fr; }
+  .producers-grid { grid-template-columns: 1fr; }
+  .intro, .regions, .producers-hero, .filter-bar, .producers-grid,
+  .wines-hero, .wines-content, .contact-hero, .contact-body, footer {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <div class="nav-brand" onclick="showPage('home')">
+    <span class="nav-brand-main">Avant-Garde</span>
+    <span class="nav-brand-sub">Wine & Spirits</span>
+  </div>
+  <ul class="nav-links">
+    <li><button onclick="showPage('home')" id="nav-home" class="active">Home</button></li>
+    <li><button onclick="showPage('producers')" id="nav-producers">Producers</button></li>
+    <li><button onclick="showPage('wines')" id="nav-wines">Find Our Wines</button></li>
+    <li><button onclick="showPage('contact')" id="nav-contact">Contact</button></li>
+  </ul>
+  <button class="nav-toggle" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <button onclick="showPage('home');toggleMenu()">Home</button>
+  <button onclick="showPage('producers');toggleMenu()">Producers</button>
+  <button onclick="showPage('wines');toggleMenu()">Find Our Wines</button>
+  <button onclick="showPage('contact');toggleMenu()">Contact</button>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ HOME -->
+<div class="page active" id="home">
+  <div class="hero">
+    <div class="hero-bg" id="hero-bg"></div>
+    <div class="hero-gradient"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">New York · Est. 2010</p>
+      <h1 class="hero-title"><em>Avant-</em><br>Garde</h1>
+      <p class="hero-subtitle">Wine & Spirits</p>
+      <button class="hero-cta" onclick="showPage('producers')">Our Producers</button>
+    </div>
+    <div class="hero-scroll">
+      <div class="hero-scroll-line"></div>
+    </div>
+  </div>
+
+  <div class="intro">
+    <div>
+      <p class="intro-label">About</p>
+      <h2 class="intro-heading">Terroir-driven wines, <em>honestly made</em></h2>
+    </div>
+    <div>
+      <p class="intro-body">Avant-Garde Wine & Spirits is a New York-based importer specializing in organic, biodynamic, and natural wines from France, Italy, Spain, and the US. We seek out producers who work with integrity in the vineyard and the cellar — people whose wines taste like where they come from.</p>
+      <div class="intro-stat">
+        <div class="intro-stat-item">
+          <div class="intro-stat-num">30+</div>
+          <div class="intro-stat-label">Producers</div>
+        </div>
+        <div class="intro-stat-item">
+          <div class="intro-stat-num">4</div>
+          <div class="intro-stat-label">Countries</div>
+        </div>
+        <div class="intro-stat-item">
+          <div class="intro-stat-num">15+</div>
+          <div class="intro-stat-label">Years</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="regions">
+    <div class="regions-header">
+      <h2 class="regions-title">By Country</h2>
+      <button class="regions-link" onclick="showPage('producers')">View all producers →</button>
+    </div>
+    <div class="regions-grid">
+      <div class="region-card" onclick="showPage('producers');filterProducers('France')">
+        <div class="region-flag">🇫🇷</div>
+        <div class="region-name">France</div>
+        <div class="region-count">20 Producers</div>
+      </div>
+      <div class="region-card" onclick="showPage('producers');filterProducers('Italy')">
+        <div class="region-flag">🇮🇹</div>
+        <div class="region-name">Italy</div>
+        <div class="region-count">6 Producers</div>
+      </div>
+      <div class="region-card" onclick="showPage('producers');filterProducers('Spain')">
+        <div class="region-flag">🇪🇸</div>
+        <div class="region-name">Spain</div>
+        <div class="region-count">3 Producers</div>
+      </div>
+      <div class="region-card" onclick="showPage('producers');filterProducers('USA')">
+        <div class="region-flag">🇺🇸</div>
+        <div class="region-name">USA</div>
+        <div class="region-count">2 Producers</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="home-contact">
+    <h2 class="home-contact-title">Become a customer</h2>
+    <p class="home-contact-sub">Trade inquiries welcome</p>
+    <button class="btn-outline" onclick="showPage('contact')">Get in touch →</button>
+  </div>
+
+  <footer>
+    <div class="footer-brand">Avant-Garde Wine & Spirits</div>
+    <div class="footer-copy">© 2025 Avant-Garde Wine & Spirits. All rights reserved.</div>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/avantgardews" target="_blank">Instagram</a>
+      <a href="https://www.facebook.com/profile.php?id=100054472420492" target="_blank">Facebook</a>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════════════════════════ PRODUCERS -->
+<div class="page" id="producers">
+
+  <!-- Producer Detail (hidden by default) -->
+  <div id="producer-detail">
+    <div class="detail-hero">
+      <img class="detail-hero-img" id="detail-img" src="" alt=""/>
+      <div class="detail-hero-overlay">
+        <div class="detail-hero-content">
+          <button class="detail-back" onclick="closeDetail()">← Back to Producers</button>
+          <div class="detail-region" id="detail-region"></div>
+          <h1 class="detail-name" id="detail-name"></h1>
+        </div>
+      </div>
+    </div>
+    <div class="detail-body">
+      <p class="detail-text" id="detail-text"></p>
+      <div class="detail-meta" id="detail-meta"></div>
+    </div>
+    <footer>
+      <div class="footer-brand">Avant-Garde Wine & Spirits</div>
+      <div class="footer-copy">© 2025 Avant-Garde Wine & Spirits.</div>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/avantgardews" target="_blank">Instagram</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Producer List -->
+  <div id="producer-list">
+    <div class="producers-hero">
+      <h1><em>Our</em> Producers</h1>
+      <p>Terroir-driven · Organic · Biodynamic</p>
+    </div>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterProducers('All')">All</button>
+      <button class="filter-btn" onclick="filterProducers('France')">France</button>
+      <button class="filter-btn" onclick="filterProducers('Italy')">Italy</button>
+      <button class="filter-btn" onclick="filterProducers('Spain')">Spain</button>
+      <button class="filter-btn" onclick="filterProducers('USA')">USA</button>
+    </div>
+
+    <div class="producers-grid" id="producers-grid"></div>
+
+    <footer>
+      <div class="footer-brand">Avant-Garde Wine & Spirits</div>
+      <div class="footer-copy">© 2025 Avant-Garde Wine & Spirits.</div>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/avantgardews" target="_blank">Instagram</a>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ FIND OUR WINES -->
+<div class="page" id="wines">
+  <div class="wines-hero">
+    <h1>Find Our <em>Wines</em></h1>
+  </div>
+  <div class="wines-content">
+    <div>
+      <p class="wines-text">
+        <p>Our wines are available through select retailers, restaurants, and wine bars across the United States. We work with distributors in key markets to ensure our producers' wines reach the right hands.</p>
+        <p>For trade inquiries, distribution opportunities, or to locate a specific wine, please reach out directly — we're happy to help.</p>
+        <p style="margin-top:2rem;"><button class="btn-outline" onclick="showPage('contact')">Contact us →</button></p>
+      </p>
+    </div>
+    <div>
+      <p style="font-family:var(--sans);font-size:0.65rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;">Available Markets</p>
+      <div class="wines-states">
+        <div class="state-item"><div class="state-name">New York</div><div class="state-note">Primary market</div></div>
+        <div class="state-item"><div class="state-name">New Jersey</div><div class="state-note">Select accounts</div></div>
+        <div class="state-item"><div class="state-name">Connecticut</div><div class="state-note">Select accounts</div></div>
+        <div class="state-item"><div class="state-name">California</div><div class="state-note">Select accounts</div></div>
+        <div class="state-item"><div class="state-name">Florida</div><div class="state-note">Select accounts</div></div>
+        <div class="state-item"><div class="state-name">Texas</div><div class="state-note">Select accounts</div></div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-brand">Avant-Garde Wine & Spirits</div>
+    <div class="footer-copy">© 2025 Avant-Garde Wine & Spirits.</div>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/avantgardews" target="_blank">Instagram</a>
+    </div>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════════════ CONTACT -->
+<div class="page" id="contact">
+  <div class="contact-hero">
+    <h1><em>Get in</em> Touch</h1>
+  </div>
+  <div class="contact-body">
+    <div>
+      <p class="contact-info-label">Direct Contact</p>
+      <div class="contact-info-item">
+        <div class="contact-info-item-label">Phone</div>
+        <div class="contact-info-item-value"><a href="tel:6466423386">646.642.3386</a></div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-info-item-label">Email</div>
+        <div class="contact-info-item-value"><a href="mailto:gducroux@avantgarde-ws.com">gducroux@avantgarde-ws.com</a></div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-info-item-label">Location</div>
+        <div class="contact-info-item-value">New York City, NY</div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-info-item-label">Follow</div>
+        <div class="contact-info-item-value">
+          <a href="https://www.instagram.com/avantgardews" target="_blank">@avantgardews</a>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p class="contact-form-label">Send a Message</p>
+      <div id="contact-form-wrap">
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" id="c-name" placeholder="Your name"/>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="c-email" placeholder="your@email.com"/>
+        </div>
+        <div class="form-group">
+          <label>Inquiry Type</label>
+          <select id="c-type">
+            <option value="">Select...</option>
+            <option>Become a Customer</option>
+            <option>Distribution Inquiry</option>
+            <option>Employment</option>
+            <option>General</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea id="c-message" placeholder="How can we help?"></textarea>
+        </div>
+        <button class="form-submit" onclick="submitContact()">Send Message</button>
+      </div>
+      <div class="form-success" id="contact-success">
+        Thank you — we'll be in touch shortly.
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-brand">Avant-Garde Wine & Spirits</div>
+    <div class="footer-copy">© 2025 Avant-Garde Wine & Spirits.</div>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/avantgardews" target="_blank">Instagram</a>
+    </div>
+  </footer>
+</div>
+
+<script>
+// ── PRODUCER DATA ─────────────────────────────────────────────
+const producers = [
+  // FRANCE - ALSACE
+  { name: "Valentin Zusslin", region: "Alsace", country: "France",
+    img: "https://static.wixstatic.com/media/f829c8_6a2360385bed45cb92c55934eb6979ba.jpg/v1/fill/w_800,h_600,al_c,q_85/f829c8_6a2360385bed45cb92c55934eb6979ba.jpg",
+    text: "From the Grand Cru vineyards of Alsace, Valentin Zusslin crafts biodynamic wines rooted in family tradition since 1691. "To observe is paramount," Ms. Zusslin has said — a key tenet of biodynamic viticulture. The wines are characterized by precision, acidity, and a deep connection to place.",
+    meta: [{ label: "Region", value: "Alsace, France" }, { label: "Practice", value: "Biodynamic" }, { label: "Since", value: "1691" }] },
+  { name: "La Grange de l'Oncle Charles", region: "Alsace", country: "France",
+    img: "https://static.wixstatic.com/media/f829c8_38d8a8168e9b497f90a564e4457c1a2d~mv2.jpg/v1/fill/w_800,h_600,al_c,q_85/f829c8_38d8a8168e9b497f90a564e4457c1a2d~mv2.jpg",
+    text: "A small, artisan domaine in Alsace producing honest, expressive wines from old vines. The estate embraces low-intervention winemaking, letting the terroir speak clearly.",
+    meta: [{ label: "Region", value: "Alsace, France" }, { label: "Practice", value: "Organic" }] },
+  // FRANCE - BEAUJOLAIS
+  { name: "Domaine Aux Ardents", region: "Beaujolais", country: "France",
+    img: "https://static.wixstatic.com/media/f829c8_383e23835606497b844b8869568edbc6~mv2.jpg/v1/fill/w_800,h_600,al_c,q_85/f829c8_383e23835606497b844b8869568edbc6~mv2.jpg",
+    text: "Based in Beaujolais, Domaine Aux Ardents crafts vibrant, terroir-expressive wines that showcase the best of the region's granite and schist soils.",
+    meta: [{ label: "Region", value: "Beaujolais, France" }, { label: "Practice", value: "Natural" }] },
+  // FRANCE - BORDEAUX
+  { name: "Domaine Uchida", region: "Bordeaux", country: "France",
+    img: "https://static.wixstatic.com/media/f829c8_2f65d64523b3404e8f78fa9f5c8ccef9~mv2.jpg/v1/fill/w_800,h_600,al_c,q_85/f829c8_2f65d64523b3404e8f78fa9f5c8ccef9~mv2.jpg",
+    text: "A unique Bordeaux property bringing a Japanese sensibility to classic French winemaking. Domaine Uchida produces small quantities of precise, elegant wines.",
+    meta: [{ label: "Region", value: "Bordeaux, France" }, { label: "Practice", value: "Organic" }] },
+  // FRANCE - BURGUNDY
+  { name: "Pierre-Henri Rougeot", region: "Burgundy", country: "France",
+    img: "https://static.wixstatic.com/media/f829c8_383e23835606497b844b8869568edbc6~mv2.jpg/v1/fill/w_800,h_600,al_c,q_85/f829c8_383e23835606497b844b8869568edbc6~mv2.jpg",
+    text: "From the heart of Burgundy, Pierre-Henri Rougeot crafts wines of remarkable precision from carefully tended village and premier cru vineyards.",
+    meta: [{ label: "Region", value: "Burgundy, France" }, { label: "Practice", value: "Organic" }] },
+  // FRANCE - CHAMPAGNE
+  { name: "Emmanuel Brochet", region: "Champagne", country: "France",
+    img: "https://static.wixstatic.com/media/f829c8_38d8a8168e9b497f90a564e4457c1a2d~mv2.jpg/v1/fill/w_800,h_600,al_c,q_85/f829c8_38d8a8168e9b497f90a564e4457c1a2d~mv2.jpg",
+    text: "A grower-producer in Montbre, Emmanuel Brochet farms just over two hectares of old-vine Pinot Meunier and Chardonnay, producing champagnes of extraordinary depth and finesse.",
+    meta: [{ label: "Region", value: "Champagne, France" }, { label: "Practice", value: "Organic" }, { label: "Grape", value: "Pinot Meunier · Chardonnay" }] },
+  { name: "Laurent Bénard", region: "Champagne", country: "France",
+    img: "https://static.wixstatic.com/media/f829c8_6a2360385bed45cb92c55934eb6979ba.jpg/v1/fill/w_800,h_600,al_c,q_85/f829c8_6a2360385bed45cb92c55934eb6979ba.jpg",
+    text: "A passionate vigneron in the Côte des Bar, Laurent Bénard produces champagnes rooted in the terroir of Pinot Noir country.",
+    meta: [{ label: "Region", value: "Champagne, France" }, { label: "Practice", value: "Sustainable" }] },
+  { name: "Vouette & Sorbée", region: "Champagne", country: "France",
+    img: "https://static.wixstatic.com/media/f829c8_2f65d64523b3404e8f78fa9f5c8ccef9~mv2.jpg/v1/fill/w_800,h_600,al_c,q_85/f829c8_2f65d64523b3404e8f78fa9f5c8ccef9~mv2.jpg",
+    text: "Bertrand Gautherot's Vouette & Sorbée is one of Champagne's most celebrated biodynamic estates, producing wines of crystalline purity from two distinct terroirs.",
+    meta: [{ label: "Region", value: "Champagne, France" }, { label: "Practice", value: "Biodynamic" }] },
+  { name: "Delalot", region: "Champagne", country: "France",
+    img: "https://static.wixstatic.com/media/f829c8_383e23835606497b844b8869568edbc6~mv2.jpg/v1/fill/w_800,h_600,al_c,q_85/f829c8_383e23835606497b844b8869568edbc6~mv2.jpg",
+    text: "A small grower champagne house producing elegant, terroir-focused cuvées from carefully farmed vineyards.",
+    meta: [{ label: "Region", value: "Champagne, France" }, { label: "Practice", value: "Organic" }] },
+  { name: "Maison Jérôme Lefèvre", region: "Champagne", country: "France",
+    img: "https://static.wixstatic.com/media/f829c8_38d8a8168e9b497f90a564e4457c1a2d~mv2.jpg/v1/fill/w_800,h_600,al_c,q_85/f829c8_38d8a8168e9b497f90a564e4457c1a2d~mv2.jpg",
+    text: "Jérôme Lefèvre produces champagne with a genuine sense of place, sourcing from well-tended family vineyards.",
+    meta: [{ label: "Region", value: "Champagne, France" }, { label: "Practice", value: "Sustainable" }] },
+  { name: "Thomas de Marne", region: "Champagne", country: "France",
+    img: "https://static.wixstatic.com/media/f829c8_6a2360385bed45cb92c55934eb6979ba.jpg/v1/fill/w_800,h_600,al_c,q_85/f829c8_6a2360385bed45cb92c55934eb6979ba.jpg",
+    text: "A rising voice in grower champagne, Thomas de Marne brings meticulous attention to viticulture and a clear sense of terroir.",
+    meta: [{ label: "Region", value: "Champagne, France" }, { label: "Practice", value: "Organic" }] },
+  // FRANCE - JURA
+  { name: "Domaine des Coteaux du Val du Sorne", region: "Jura", country: "France",
+    img: "https://static.wixstatic.com/media/f829c8_2f65d64523b3404e8f78fa9f5c8ccef9~mv2.jpg/v1/fill/w_800,h_600,al_c,q_85/f829c8_2f65d64523b3404e8f78fa9f5c8ccef9~mv2.jpg",
+    text: "From the wild, oxidative terroirs of the Jura, this domaine produces wines of striking individuality — savagnin and chardonnay shaped by altitude and time.",
+    meta: [{ label: "Region", value: "Jura, France" }, { label: "Practice", value: "Organic" }] },
+  { name: "Domaine La Patelle", region: "Jura", country: "France",
+    img: "https://static.wixstatic.com/media/f829c8_383e23835606497b844b8869568edbc6~mv2.jpg/v1/fill/w_800,h_600,al_c,q_85/f829c8_383e23835606497b844b8869568edbc6~mv2.jpg",
+    text: "A small Jura domaine producing authentic, low-intervention wines that showcase the singular character of the region.",
+    meta: [{ label: "Region", value: "Jura, France" }, { label: "Practice", value: "Natural" }] },
+  // FRANCE - LOIRE
+  { name: "Benoît Courault", region: "Loire", country: "France",
+    img: "https://static.wixstatic.com/media/f829c8_38d8a8168e9b497f90a564e4457c1a2d~mv2.jpg/v1/fill/w_800,h_600,al_c,q_85/f829c8_38d8a8168e9b497f90a564e4457c1a2d~mv2.jpg",
+    text: "In Anjou, Benoît Courault farms organically and produces wines of rare transparency — Cabernet Franc and Chenin Blanc from some of the region's finest schist soils.",
+    meta: [{ label: "Region", value: "Anjou, Loire, France" }, { label: "Practice", value: "Organic" }] },
+  { name: "Paul Cherrier", region: "Loire", country: "France",
+    img: "https://static.wixstatic.com/media/f829c8_6a2360385bed45cb92c55934eb6979ba.jpg/v1/fill/w_800,h_600,al_c,q_85/f829c8_6a2360385bed45cb92c55934eb6979ba.jpg",
+    text: "A Sancerre producer farming biodynamically, Paul Cherrier's wines are elegant expressions of Sauvignon Blanc from some of the appellation's finest flint and limestone soils.",
+    meta: [{ label: "Region", value: "Sancerre, Loire, France" }, { label: "Practice", value: "Biodynamic" }] },
+  { name: "La Porte Saint Jean", region: "Loire", country: "France",
+    img: "https://static.wixstatic.com/media/f829c8_2f65d64523b3404e8f78fa9f5c8ccef9~mv2.jpg/v1/fill/w_800,h_600,al_c,q_85/f829c8_2f65d64523b3404e8f78fa9f5c8ccef9~mv2.jpg",
+    text: "Loire Valley wines made with a light touch, emphasizing freshness and the vivid character of the region's grape varieties.",
+    meta: [{ label: "Region", value: "Loire, France" }, { label: "Practice", value: "Organic" }] },
+  { name: "Les Grandes Vignes", region: "Loire", country: "France",
+    img: "https://static.wixstatic.com/media/f829c8_383e23835606497b844b8869568edbc6~mv2.jpg/v1/fill/w_800,h_600,al_c,q_85/f829c8_383e23835606497b844b8869568edbc6~mv2.jpg",
+    text: "A family estate in Anjou producing a range of wines from Chenin Blanc and Cabernet Franc, with an emphasis on precision and authenticity.",
+    meta: [{ label: "Region", value: "Anjou, Loire, France" }, { label: "Practice", value: "Organic" }] },
+  { name: "Domaine des Frères", region: "Loire", country: "France",
+    img: "https://static.wixstatic.com/media/f829c8_38d8a8168e9b497f90a564e4457c1a2d~mv2.jpg/v1/fill/w_800,h_600,al_c,q_85/f829c8_38d8a8168e9b497f90a564e4457c1a2d~mv2.jpg",
+    text: "Isabelle & Bruno Perraud's domaine in Beaujolais and the Loire produces wines of real personality and charm.",
+    meta: [{ label: "Region", value: "Loire, France" }, { label: "Practice", value: "Organic" }] },
+  { name: "Domaine du Chapitre", region: "Loire", country: "France",
+    img: "https://static.wixstatic.com/media/f829c8_6a2360385bed45cb92c55934eb6979ba.jpg/v1/fill/w_800,h_600,al_c,q_85/f829c8_6a2360385bed45cb92c55934eb6979ba.jpg",
+    text: "An historic Loire estate producing wines of depth and elegance from some of the valley's most storied vineyards.",
+    meta: [{ label: "Region", value: "Loire, France" }, { label: "Practice", value: "Organic" }] },
+  // FRANCE - PROVENCE
+  { name: "Domaine Milan", region: "Provence", country: "France",
+    img: "https://static.wixstatic.com/media/f829c8_2f65d64523b3404e8f78fa9f5c8ccef9~mv2.jpg/v1/fill/w_800,h_600,al_c,q_85/f829c8_2f65d64523b3404e8f78fa9f5c8ccef9~mv2.jpg",
+    text: "Henri Milan is one of Provence's most singular producers, farming biodynamically and making wines of startling freshness and minerality from the Alpilles.",
+    meta: [{ label: "Region", value: "Provence, France" }, { label: "Practice", value: "Biodynamic" }] },
+  // FRANCE - RHÔNE
+  { name: "Gourt de Mautens", region: "Rhône Valley", country: "France",
+    img: "https://static.wixstatic.com/media/f829c8_383e23835606497b844b8869568edbc6~mv2.jpg/v1/fill/w_800,h_600,al_c,q_85/f829c8_383e23835606497b844b8869568edbc6~mv2.jpg",
+    text: "Jérôme Bressy's Gourt de Mautens in Rasteau is one of the Rhône's most revered addresses, producing Grenache-based wines of extraordinary complexity and age-worthiness.",
+    meta: [{ label: "Region", value: "Rasteau, Rhône, France" }, { label: "Practice", value: "Biodynamic" }] },
+  // FRANCE - SOUTH WEST
+  { name: "Mouthes Le Bihan", region: "South West", country: "France",
+    img: "https://static.wixstatic.com/media/f829c8_38d8a8168e9b497f90a564e4457c1a2d~mv2.jpg/v1/fill/w_800,h_600,al_c,q_85/f829c8_38d8a8168e9b497f90a564e4457c1a2d~mv2.jpg",
+    text: "In the Côtes de Duras, Mouthes Le Bihan farms biodynamically and produces wines of authenticity and regional character.",
+    meta: [{ label: "Region", value: "Côtes de Duras, France" }, { label: "Practice", value: "Biodynamic" }] },
+  // ITALY
+  { name: "Macchion dei Lupi", region: "Tuscany", country: "Italy",
+    img: "https://static.wixstatic.com/media/f829c8_6a2360385bed45cb92c55934eb6979ba.jpg/v1/fill/w_800,h_600,al_c,q_85/f829c8_6a2360385bed45cb92c55934eb6979ba.jpg",
+    text: "A small Tuscan estate producing wines of genuine character from old vines, with minimal intervention in the cellar.",
+    meta: [{ label: "Region", value: "Tuscany, Italy" }, { label: "Practice", value: "Organic" }] },
+  { name: "Tenuta La Novella", region: "Tuscany", country: "Italy",
+    img: "https://static.wixstatic.com/media/f829c8_2f65d64523b3404e8f78fa9f5c8ccef9~mv2.jpg/v1/fill/w_800,h_600,al_c,q_85/f829c8_2f65d64523b3404e8f78fa9f5c8ccef9~mv2.jpg",
+    text: "A Tuscan producer committed to organic viticulture and traditional winemaking methods, producing wines of elegance and longevity.",
+    meta: [{ label: "Region", value: "Tuscany, Italy" }, { label: "Practice", value: "Organic" }] },
+  { name: "Nicola Gatta", region: "Lombardy", country: "Italy",
+    img: "https://static.wixstatic.com/media/f829c8_383e23835606497b844b8869568edbc6~mv2.jpg/v1/fill/w_800,h_600,al_c,q_85/f829c8_383e23835606497b844b8869568edbc6~mv2.jpg",
+    text: "From Franciacorta in Lombardy, Nicola Gatta produces sparkling wines of exceptional precision and terroir expression.",
+    meta: [{ label: "Region", value: "Lombardy, Italy" }, { label: "Practice", value: "Organic" }] },
+  { name: "Cristiana Meggiolaro", region: "Veneto", country: "Italy",
+    img: "https://static.wixstatic.com/media/f829c8_38d8a8168e9b497f90a564e4457c1a2d~mv2.jpg/v1/fill/w_800,h_600,al_c,q_85/f829c8_38d8a8168e9b497f90a564e4457c1a2d~mv2.jpg",
+    text: "A dedicated vigneron in the Veneto, Cristiana Meggiolaro produces wines that capture the freshness and vibrancy of her unique terroir.",
+    meta: [{ label: "Region", value: "Veneto, Italy" }, { label: "Practice", value: "Organic" }] },
+  { name: "Castelvecchio", region: "Friuli", country: "Italy",
+    img: "https://static.wixstatic.com/media/f829c8_6a2360385bed45cb92c55934eb6979ba.jpg/v1/fill/w_800,h_600,al_c,q_85/f829c8_6a2360385bed45cb92c55934eb6979ba.jpg",
+    text: "An historic estate in Friuli producing wines that reflect the region's exceptional conditions for white wine production.",
+    meta: [{ label: "Region", value: "Friuli, Italy" }, { label: "Practice", value: "Sustainable" }] },
+  // SPAIN
+  { name: "Alta Alella Celler de Lea Aus", region: "Catalunya", country: "Spain",
+    img: "https://static.wixstatic.com/media/f829c8_2f65d64523b3404e8f78fa9f5c8ccef9~mv2.jpg/v1/fill/w_800,h_600,al_c,q_85/f829c8_2f65d64523b3404e8f78fa9f5c8ccef9~mv2.jpg",
+    text: "From the Alella appellation north of Barcelona, this producer crafts wines of freshness and elegance from old Pansa Blanca vines.",
+    meta: [{ label: "Region", value: "Alella, Catalunya, Spain" }, { label: "Practice", value: "Organic" }] },
+  { name: "Bodegas Fulcro", region: "Galicia", country: "Spain",
+    img: "https://static.wixstatic.com/media/f829c8_383e23835606497b844b8869568edbc6~mv2.jpg/v1/fill/w_800,h_600,al_c,q_85/f829c8_383e23835606497b844b8869568edbc6~mv2.jpg",
+    text: "In the verdant hills of Galicia, Bodegas Fulcro produces Albariño and other Atlantic varietals with purity and energy.",
+    meta: [{ label: "Region", value: "Galicia, Spain" }, { label: "Practice", value: "Organic" }] },
+  { name: "Fento", region: "Galicia", country: "Spain",
+    img: "https://static.wixstatic.com/media/f829c8_38d8a8168e9b497f90a564e4457c1a2d~mv2.jpg/v1/fill/w_800,h_600,al_c,q_85/f829c8_38d8a8168e9b497f90a564e4457c1a2d~mv2.jpg",
+    text: "A Galician producer making wines of remarkable freshness and salinity from Atlantic-influenced vineyards.",
+    meta: [{ label: "Region", value: "Galicia, Spain" }, { label: "Practice", value: "Organic" }] },
+  // USA
+  { name: "Nathan K — chëpìka", region: "New York", country: "USA",
+    img: "https://static.wixstatic.com/media/f829c8_6a2360385bed45cb92c55934eb6979ba.jpg/v1/fill/w_800,h_600,al_c,q_85/f829c8_6a2360385bed45cb92c55934eb6979ba.jpg",
+    text: "Nathan Kendall's chëpìka project produces New York wines of genuine originality — small production, vineyard-focused, and unlike anything else in the region.",
+    meta: [{ label: "Region", value: "New York, USA" }, { label: "Practice", value: "Organic" }] },
+  { name: "Outward", region: "California", country: "USA",
+    img: "https://static.wixstatic.com/media/f829c8_2f65d64523b3404e8f78fa9f5c8ccef9~mv2.jpg/v1/fill/w_800,h_600,al_c,q_85/f829c8_2f65d64523b3404e8f78fa9f5c8ccef9~mv2.jpg",
+    text: "A California project making wines with a European sensibility — restrained, site-specific, and built for the table.",
+    meta: [{ label: "Region", value: "California, USA" }, { label: "Practice", value: "Organic" }] },
+];
+
+let currentFilter = 'All';
+
+function renderProducers(filter) {
+  const grid = document.getElementById('producers-grid');
+  const filtered = filter === 'All' ? producers : producers.filter(p => p.country === filter);
+  grid.innerHTML = filtered.map((p, i) => `
+    <div class="producer-card" onclick="openDetail(${producers.indexOf(p)})">
+      <img class="producer-card-img" src="${p.img}" alt="${p.name}" loading="lazy"/>
+      <div class="producer-card-body">
+        <div class="producer-card-region">${p.country} · ${p.region}</div>
+        <div class="producer-card-name">${p.name}</div>
+        <div class="producer-card-sub">${p.meta[1] ? p.meta[1].value : ''}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterProducers(country) {
+  currentFilter = country;
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent === country || (country === 'All' && btn.textContent === 'All'));
+  });
+  renderProducers(country);
+}
+
+function openDetail(index) {
+  const p = producers[index];
+  document.getElementById('detail-img').src = p.img;
+  document.getElementById('detail-img').alt = p.name;
+  document.getElementById('detail-region').textContent = p.country + ' · ' + p.region;
+  document.getElementById('detail-name').textContent = p.name;
+  document.getElementById('detail-text').textContent = p.text;
+  document.getElementById('detail-meta').innerHTML = p.meta.map(m => `
+    <div class="detail-meta-item">
+      <div class="detail-meta-label">${m.label}</div>
+      <div class="detail-meta-value">${m.value}</div>
+    </div>
+  `).join('');
+  document.getElementById('producer-detail').classList.add('active');
+  document.getElementById('producer-list').style.display = 'none';
+  window.scrollTo({ top: 0, behavior: 'instant' });
+}
+
+function closeDetail() {
+  document.getElementById('producer-detail').classList.remove('active');
+  document.getElementById('producer-list').style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'instant' });
+}
+
+// ── PAGE ROUTING ──────────────────────────────────────────────
+const pages = ['home','producers','wines','contact'];
+const navIds = { home:'nav-home', producers:'nav-producers', wines:'nav-wines', contact:'nav-contact' };
+
+function showPage(id) {
+  pages.forEach(p => document.getElementById(p).classList.toggle('active', p === id));
+  Object.entries(navIds).forEach(([p, navId]) => {
+    const el = document.getElementById(navId);
+    if (el) el.classList.toggle('active', p === id);
+  });
+  if (id === 'producers') {
+    document.getElementById('producer-detail').classList.remove('active');
+    document.getElementById('producer-list').style.display = 'block';
+    renderProducers(currentFilter);
+  }
+  window.scrollTo({ top: 0, behavior: 'instant' });
+  history.pushState({ page: id }, '', id === 'home' ? '/' : '/' + id);
+}
+
+function toggleMenu() {
+  document.getElementById('mobile-menu').classList.toggle('open');
+}
+
+// Scroll nav
+window.addEventListener('scroll', () => {
+  document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// Hero parallax
+setTimeout(() => {
+  document.getElementById('hero-bg').classList.add('loaded');
+}, 100);
+
+// Contact form
+function submitContact() {
+  const name = document.getElementById('c-name').value.trim();
+  const email = document.getElementById('c-email').value.trim();
+  const msg = document.getElementById('c-message').value.trim();
+  if (!name || !email || !msg) { alert('Please fill in all fields.'); return; }
+  const subject = encodeURIComponent('Avant-Garde Inquiry');
+  const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + msg);
+  window.location.href = 'mailto:gducroux@avantgarde-ws.com?subject=' + subject + '&body=' + body;
+  document.getElementById('contact-form-wrap').style.display = 'none';
+  document.getElementById('contact-success').style.display = 'block';
+}
+
+// Init
+renderProducers('All');
+window.addEventListener('popstate', e => { if (e.state && e.state.page) showPage(e.state.page); });
+document.addEventListener('click', e => {
+  const menu = document.getElementById('mobile-menu');
+  if (menu.classList.contains('open') && !menu.contains(e.target) && !e.target.closest('.nav-toggle')) {
+    menu.classList.remove('open');
+  }
+});
+</script>
+</body>
+</html>
