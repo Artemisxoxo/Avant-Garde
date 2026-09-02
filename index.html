@@ -97,24 +97,37 @@
 
   .home-title {
     font-family: 'Playfair Display', serif;
-    font-size: 88px;
+    font-size: 92px;
     font-weight: 900;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--map-ink);
     line-height: 0.9;
-    text-shadow: 0 1px 0 rgba(244,237,216,0.6), 0 0 40px rgba(244,237,216,0.8);
+    text-shadow:
+      0 0 40px rgba(244,237,216,1),
+      0 0 80px rgba(244,237,216,0.9),
+      0 2px 4px rgba(244,237,216,0.8);
+    background: rgba(244,237,216,0.45);
+    padding: 0.12em 0.35em 0.15em;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
   }
 
   .home-subtitle {
     font-family: 'Playfair Display', serif;
-    font-size: 18px;
-    font-weight: 400;
+    font-size: 22px;
+    font-weight: 700;
     font-style: italic;
-    letter-spacing: 0.22em;
-    color: var(--map-brown);
-    margin-top: 0.6rem;
-    text-shadow: 0 0 20px rgba(244,237,216,0.9);
+    letter-spacing: 0.18em;
+    color: var(--map-ink);
+    margin-top: 0.75rem;
+    text-shadow:
+      0 0 30px rgba(244,237,216,1),
+      0 0 60px rgba(244,237,216,0.8);
+    background: rgba(244,237,216,0.4);
+    padding: 0.2em 0.6em;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
   }
 
   .home-divider {
@@ -126,9 +139,9 @@
   }
   .home-divider-line {
     flex: 1;
-    height: 1px;
+    height: 1.5px;
     background: var(--map-terra);
-    opacity: 0.5;
+    opacity: 0.75;
   }
   .home-divider-dot {
     width: 5px;
@@ -145,14 +158,14 @@
 
   .btn-map-primary {
     font-family: 'DM Sans', sans-serif;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 500;
-    letter-spacing: 0.28em;
+    letter-spacing: 0.24em;
     text-transform: uppercase;
     color: var(--map-cream);
     background: var(--map-terra);
     border: none;
-    padding: 1rem 2.5rem;
+    padding: 1.1rem 2.8rem;
     cursor: pointer;
     transition: background 0.2s;
     border-radius: 1px;
@@ -161,14 +174,14 @@
 
   .btn-map-outline {
     font-family: 'DM Sans', sans-serif;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 500;
-    letter-spacing: 0.28em;
+    letter-spacing: 0.24em;
     text-transform: uppercase;
     color: var(--map-ink);
-    background: rgba(244,237,216,0.75);
+    background: rgba(244,237,216,0.82);
     border: 1px solid var(--map-rule-dark);
-    padding: 1rem 2.5rem;
+    padding: 1.1rem 2.8rem;
     cursor: pointer;
     transition: all 0.2s;
     border-radius: 1px;
@@ -221,10 +234,10 @@
   }
   .home-strip-link {
     font-family: 'DM Sans', sans-serif;
-    font-size: 11px;
+    font-size: 13px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: rgba(244,237,216,0.5);
+    color: rgba(244,237,216,0.6);
     cursor: pointer;
     background: none;
     border: none;
