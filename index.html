@@ -966,7 +966,167 @@
   .modal-cancel { background: none; border: none; color: var(--map-muted); font-family: 'DM Sans', sans-serif; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500; cursor: pointer; padding: 0; transition: color 0.2s; }
   .modal-cancel:hover { color: var(--map-ink); }
   .modal-success { display: none; font-family: 'Libre Baskerville', serif; font-size: 12px; color: var(--map-brown); font-style: italic; padding: 0.85rem 1rem; background: rgba(196,97,74,0.08); border: 1px solid var(--map-rule-dark); border-radius: 1px; }
-  </style>
+  
+/* ══ PRODUCER PAGES ══ */
+.producer-page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2.5rem;
+  background: var(--map-paper);
+  border-bottom: 1px solid var(--map-rule-dark);
+}
+.producer-back-btn {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--map-terra);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: letter-spacing 0.2s;
+  padding: 0;
+}
+.producer-back-btn:hover { letter-spacing: 0.26em; }
+.producer-header-region {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--map-muted);
+  font-weight: 500;
+}
+.producer-name-banner {
+  background: var(--map-ink);
+  padding: 3rem 2.5rem 2.5rem;
+  border-bottom: 3px solid var(--map-terra);
+}
+.producer-name-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 64px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--map-cream);
+  line-height: 0.92;
+  margin-bottom: 0.6rem;
+}
+.producer-name-sub {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--map-terra);
+  letter-spacing: 0.06em;
+}
+.producer-body {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  min-height: 60vh;
+  border-bottom: 1px solid var(--map-rule-dark);
+}
+.producer-details-col {
+  padding: 2.5rem 2rem 2.5rem 2.5rem;
+  border-right: 2px solid var(--map-terra);
+  background: var(--map-paper);
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+.producer-detail-block-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 8.5px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--map-terra);
+  font-weight: 500;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--map-rule-dark);
+}
+.producer-detail-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-bottom: 1.1rem;
+}
+.producer-detail-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 8px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--map-muted);
+  font-weight: 500;
+}
+.producer-detail-val {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 13.5px;
+  color: var(--map-ink);
+  line-height: 1.5;
+}
+.producer-wines-block { display: flex; flex-direction: column; gap: 0; }
+.wine-entry {
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--map-rule);
+}
+.wine-entry:first-of-type { border-top: none; }
+.wine-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--map-ink);
+  margin-bottom: 0.2rem;
+}
+.wine-grapes {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  color: var(--map-muted);
+  letter-spacing: 0.06em;
+}
+.producer-story-col {
+  padding: 3rem 3.5rem;
+  background: var(--map-cream);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.producer-story-para {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 14.5px;
+  line-height: 2;
+  color: var(--map-ink);
+  margin-bottom: 1.75rem;
+  font-weight: 400;
+}
+.producer-story-para:last-child { margin-bottom: 0; }
+
+/* Clickable producer entries on list */
+.producer-entry-link {
+  cursor: pointer;
+  position: relative;
+  transition: background 0.18s;
+}
+.producer-entry-link:hover { background: var(--map-paper); }
+.producer-name-clickable {
+  transition: color 0.18s;
+}
+.producer-entry-link:hover .producer-name-clickable { color: var(--map-terra); }
+.producer-entry-arrow {
+  font-size: 12px;
+  color: var(--map-terra);
+  opacity: 0;
+  transition: opacity 0.18s, transform 0.18s;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.producer-entry-link:hover .producer-entry-arrow { opacity: 1; transform: translateY(-50%) translateX(3px); }
+
+</style>
 </head>
 <body>
 
@@ -1031,71 +1191,299 @@
     <p class="producers-intro">We choose producers for the integrity of their work, from vineyard to cellar.</p>
   </div>
 
+  
   <div class="country-block">
     <div class="country-label-col">
-      <div class="country-name">France</div>
-      <div class="country-name-native">La France</div>
-      <div class="country-count">17 producers</div>
+      <div class="country-name">Champagne</div>
+      <div class="country-count">6 producers</div>
     </div>
     <div class="producer-list-col">
-      <div class="producer-entry"><div class="producer-region-tag">Alsace</div><div class="producer-name">Valentin Zusslin</div></div>
-      <div class="producer-entry"><div class="producer-region-tag">Alsace</div><div class="producer-name">La Grange de l'Oncle Charles</div></div>
-      <div class="producer-entry"><div class="producer-region-tag">Beaujolais</div><div class="producer-name">Domaine Aux Ardents</div></div>
-      <div class="producer-entry"><div class="producer-region-tag">Burgundy</div><div class="producer-name">Pierre-Henri Rougeot</div></div>
-      <div class="producer-entry"><div class="producer-region-tag">Champagne</div><div class="producer-name">Emmanuel Brochet</div></div>
-      <div class="producer-entry"><div class="producer-region-tag">Champagne</div><div class="producer-name">Laurent Bénard</div></div>
-      <div class="producer-entry"><div class="producer-region-tag">Champagne</div><div class="producer-name">Vouette &amp; Sorbée</div></div>
-      <div class="producer-entry"><div class="producer-region-tag">Champagne</div><div class="producer-name">Delalot</div></div>
-      <div class="producer-entry"><div class="producer-region-tag">Champagne</div><div class="producer-name">Maison Jérôme Lefèvre</div></div>
-      <div class="producer-entry"><div class="producer-region-tag">Champagne</div><div class="producer-name">Thomas de Marne</div></div>
-      <div class="producer-entry"><div class="producer-region-tag">Jura</div><div class="producer-name">Domaine des Coteaux du Sorne</div></div>
-      <div class="producer-entry"><div class="producer-region-tag">Jura</div><div class="producer-name">Domaine La Patelle</div></div>
-      <div class="producer-entry"><div class="producer-region-tag">Loire</div><div class="producer-name">Benoît Courault</div></div>
-      <div class="producer-entry"><div class="producer-region-tag">Loire</div><div class="producer-name">Paul Cherrier</div></div>
-      <div class="producer-entry"><div class="producer-region-tag">Loire</div><div class="producer-name">La Porte Saint Jean</div></div>
-      <div class="producer-entry"><div class="producer-region-tag">Loire</div><div class="producer-name">Les Grande Vignes</div></div>
-      <div class="producer-entry"><div class="producer-region-tag">Provence</div><div class="producer-name">Domaine Milan</div></div>
-      <div class="producer-entry"><div class="producer-region-tag">Rhône Valley</div><div class="producer-name">Gourt de Mautens</div></div>
-      <div class="producer-entry"><div class="producer-region-tag">South West</div><div class="producer-name">Mouthes le Bihan</div></div>
+      <div class="producer-entry producer-entry-link" onclick="showPage('producer-emmanuelbrochet',null)">
+        <div class="producer-region-tag">Montagne de Reims</div>
+        <div class="producer-name producer-name-clickable">Emmanuel Brochet</div>
+        <div class="producer-entry-arrow">→</div>
+      </div>
+      <div class="producer-entry producer-entry-link" onclick="showPage('producer-vouetteetsorbe',null)">
+        <div class="producer-region-tag">Côte des Bar</div>
+        <div class="producer-name producer-name-clickable">Vouette & Sorbée</div>
+        <div class="producer-entry-arrow">→</div>
+      </div>
+      <div class="producer-entry producer-entry-link" onclick="showPage('producer-laurentbenard',null)">
+        <div class="producer-region-tag">Côte des Bar</div>
+        <div class="producer-name producer-name-clickable">Laurent Bénard</div>
+        <div class="producer-entry-arrow">→</div>
+      </div>
+      <div class="producer-entry producer-entry-link" onclick="showPage('producer-delalot',null)">
+        <div class="producer-region-tag">Vallée de la Marne</div>
+        <div class="producer-name producer-name-clickable">Delalot</div>
+        <div class="producer-entry-arrow">→</div>
+      </div>
+      <div class="producer-entry producer-entry-link" onclick="showPage('producer-thomasdemarne',null)">
+        <div class="producer-region-tag">Côte des Bar</div>
+        <div class="producer-name producer-name-clickable">Thomas de Marne</div>
+        <div class="producer-entry-arrow">→</div>
+      </div>
+      <div class="producer-entry producer-entry-link" onclick="showPage('producer-jeromeLefevre',null)">
+        <div class="producer-region-tag">Montagne de Reims</div>
+        <div class="producer-name producer-name-clickable">Maison Jérôme Lefèvre</div>
+        <div class="producer-entry-arrow">→</div>
+      </div>
     </div>
   </div>
   <div class="country-block">
     <div class="country-label-col">
-      <div class="country-name">Italy</div>
-      <div class="country-name-native">L'Italia</div>
-      <div class="country-count">5 producers</div>
+      <div class="country-name">Alsace</div>
+      <div class="country-count">2 producers</div>
     </div>
     <div class="producer-list-col">
-      <div class="producer-entry"><div class="producer-region-tag">Tuscany</div><div class="producer-name">Tenuta La Novella</div></div>
-      <div class="producer-entry"><div class="producer-region-tag">Tuscany</div><div class="producer-name">Macchion dei Lupi</div></div>
-      <div class="producer-entry"><div class="producer-region-tag">Lombardia</div><div class="producer-name">Nicola Gatta</div></div>
-      <div class="producer-entry"><div class="producer-region-tag">Veneto</div><div class="producer-name">Cristiana Meggiolaro</div></div>
-      <div class="producer-entry"><div class="producer-region-tag">Friuli</div><div class="producer-name">Castelvecchio</div></div>
+      <div class="producer-entry producer-entry-link" onclick="showPage('producer-valentinzusslin',null)">
+        <div class="producer-region-tag">Orschwihr</div>
+        <div class="producer-name producer-name-clickable">Valentin Zusslin</div>
+        <div class="producer-entry-arrow">→</div>
+      </div>
+      <div class="producer-entry producer-entry-link" onclick="showPage('producer-lagrangeoncle',null)">
+        <div class="producer-region-tag">Dambach-la-Ville</div>
+        <div class="producer-name producer-name-clickable">La Grange de l'Oncle Charles</div>
+        <div class="producer-entry-arrow">→</div>
+      </div>
     </div>
   </div>
   <div class="country-block">
     <div class="country-label-col">
-      <div class="country-name">Spain</div>
-      <div class="country-name-native">España</div>
-      <div class="country-count">3 producers</div>
+      <div class="country-name">Beaujolais</div>
+      <div class="country-count">1 producer</div>
     </div>
     <div class="producer-list-col">
-      <div class="producer-entry"><div class="producer-region-tag">Catalunya</div><div class="producer-name">Alta Alella</div></div>
-      <div class="producer-entry"><div class="producer-region-tag">Catalunya</div><div class="producer-name">Celler de Les Aus</div></div>
-      <div class="producer-entry"><div class="producer-region-tag">Galicia</div><div class="producer-name">Fento</div></div>
+      <div class="producer-entry producer-entry-link" onclick="showPage('producer-auxardents',null)">
+        <div class="producer-region-tag">Fleurie</div>
+        <div class="producer-name producer-name-clickable">Domaine Aux Ardents</div>
+        <div class="producer-entry-arrow">→</div>
+      </div>
     </div>
   </div>
-  <div class="country-block" style="border-bottom:none">
+  <div class="country-block">
     <div class="country-label-col">
-      <div class="country-name">USA</div>
-      <div class="country-name-native">États-Unis</div>
-      <div class="country-count">3 producers</div>
+      <div class="country-name">Burgundy</div>
+      <div class="country-count">1 producer</div>
     </div>
     <div class="producer-list-col">
-      <div class="producer-entry"><div class="producer-region-tag">New York</div><div class="producer-name">Nathan K</div></div>
-      <div class="producer-entry"><div class="producer-region-tag">New York</div><div class="producer-name">chëpìka</div></div>
-      <div class="producer-entry"><div class="producer-region-tag">California</div><div class="producer-name">Outward</div></div>
+      <div class="producer-entry producer-entry-link" onclick="showPage('producer-pierrerougeot',null)">
+        <div class="producer-region-tag">Côte de Beaune</div>
+        <div class="producer-name producer-name-clickable">Pierre-Henri Rougeot</div>
+        <div class="producer-entry-arrow">→</div>
+      </div>
     </div>
+  </div>
+  <div class="country-block">
+    <div class="country-label-col">
+      <div class="country-name">Jura</div>
+      <div class="country-count">2 producers</div>
+    </div>
+    <div class="producer-list-col">
+      <div class="producer-entry producer-entry-link" onclick="showPage('producer-coteauxdusorne',null)">
+        <div class="producer-region-tag">Lons-le-Saunier</div>
+        <div class="producer-name producer-name-clickable">Domaine des Coteaux du Sorne</div>
+        <div class="producer-entry-arrow">→</div>
+      </div>
+      <div class="producer-entry producer-entry-link" onclick="showPage('producer-lapatelle',null)">
+        <div class="producer-region-tag">Poligny</div>
+        <div class="producer-name producer-name-clickable">Domaine La Patelle</div>
+        <div class="producer-entry-arrow">→</div>
+      </div>
+    </div>
+  </div>
+  <div class="country-block">
+    <div class="country-label-col">
+      <div class="country-name">Loire Valley</div>
+      <div class="country-count">6 producers</div>
+    </div>
+    <div class="producer-list-col">
+      <div class="producer-entry producer-entry-link" onclick="showPage('producer-benoitcourault',null)">
+        <div class="producer-region-tag">Anjou</div>
+        <div class="producer-name producer-name-clickable">Benoît Courault</div>
+        <div class="producer-entry-arrow">→</div>
+      </div>
+      <div class="producer-entry producer-entry-link" onclick="showPage('producer-paulcherrier',null)">
+        <div class="producer-region-tag">Sancerre</div>
+        <div class="producer-name producer-name-clickable">Paul Cherrier</div>
+        <div class="producer-entry-arrow">→</div>
+      </div>
+      <div class="producer-entry producer-entry-link" onclick="showPage('producer-laportesaintjean',null)">
+        <div class="producer-region-tag">Muscadet</div>
+        <div class="producer-name producer-name-clickable">La Porte Saint Jean</div>
+        <div class="producer-entry-arrow">→</div>
+      </div>
+      <div class="producer-entry producer-entry-link" onclick="showPage('producer-lesgrandesvignes',null)">
+        <div class="producer-region-tag">Anjou</div>
+        <div class="producer-name producer-name-clickable">Les Grandes Vignes</div>
+        <div class="producer-entry-arrow">→</div>
+      </div>
+      <div class="producer-entry producer-entry-link" onclick="showPage('producer-domainedesfreres',null)">
+        <div class="producer-region-tag">Chinon</div>
+        <div class="producer-name producer-name-clickable">Domaine des Frères</div>
+        <div class="producer-entry-arrow">→</div>
+      </div>
+      <div class="producer-entry producer-entry-link" onclick="showPage('producer-domaineduchapitre',null)">
+        <div class="producer-region-tag">Touraine</div>
+        <div class="producer-name producer-name-clickable">Domaine du Chapitre</div>
+        <div class="producer-entry-arrow">→</div>
+      </div>
+    </div>
+  </div>
+  <div class="country-block">
+    <div class="country-label-col">
+      <div class="country-name">Provence</div>
+      <div class="country-count">1 producer</div>
+    </div>
+    <div class="producer-list-col">
+      <div class="producer-entry producer-entry-link" onclick="showPage('producer-domainemilan',null)">
+        <div class="producer-region-tag">Les Baux-de-Provence</div>
+        <div class="producer-name producer-name-clickable">Domaine Milan</div>
+        <div class="producer-entry-arrow">→</div>
+      </div>
+    </div>
+  </div>
+  <div class="country-block">
+    <div class="country-label-col">
+      <div class="country-name">Rhône Valley</div>
+      <div class="country-count">1 producer</div>
+    </div>
+    <div class="producer-list-col">
+      <div class="producer-entry producer-entry-link" onclick="showPage('producer-gourtdemautens',null)">
+        <div class="producer-region-tag">Rasteau</div>
+        <div class="producer-name producer-name-clickable">Gourt de Mautens</div>
+        <div class="producer-entry-arrow">→</div>
+      </div>
+    </div>
+  </div>
+  <div class="country-block">
+    <div class="country-label-col">
+      <div class="country-name">South West</div>
+      <div class="country-count">1 producer</div>
+    </div>
+    <div class="producer-list-col">
+      <div class="producer-entry producer-entry-link" onclick="showPage('producer-moutheslebihan',null)">
+        <div class="producer-region-tag">Côtes de Duras</div>
+        <div class="producer-name producer-name-clickable">Mouthes le Bihan</div>
+        <div class="producer-entry-arrow">→</div>
+      </div>
+    </div>
+  </div>
+  <div class="country-block">
+    <div class="country-label-col">
+      <div class="country-name">Tuscany</div>
+      <div class="country-count">1 producer</div>
+    </div>
+    <div class="producer-list-col">
+      <div class="producer-entry producer-entry-link" onclick="showPage('producer-tenutalanovella',null)">
+        <div class="producer-region-tag">Maremma Toscana</div>
+        <div class="producer-name producer-name-clickable">Tenuta La Novella</div>
+        <div class="producer-entry-arrow">→</div>
+      </div>
+    </div>
+  </div>
+  <div class="country-block">
+    <div class="country-label-col">
+      <div class="country-name">Lombardia</div>
+      <div class="country-count">1 producer</div>
+    </div>
+    <div class="producer-list-col">
+      <div class="producer-entry producer-entry-link" onclick="showPage('producer-nicolagatta',null)">
+        <div class="producer-region-tag">Franciacorta</div>
+        <div class="producer-name producer-name-clickable">Nicola Gatta</div>
+        <div class="producer-entry-arrow">→</div>
+      </div>
+    </div>
+  </div>
+  <div class="country-block">
+    <div class="country-label-col">
+      <div class="country-name">Veneto</div>
+      <div class="country-count">1 producer</div>
+    </div>
+    <div class="producer-list-col">
+      <div class="producer-entry producer-entry-link" onclick="showPage('producer-cristianameggiolaro',null)">
+        <div class="producer-region-tag">Colli Euganei</div>
+        <div class="producer-name producer-name-clickable">Cristiana Meggiolaro</div>
+        <div class="producer-entry-arrow">→</div>
+      </div>
+    </div>
+  </div>
+  <div class="country-block">
+    <div class="country-label-col">
+      <div class="country-name">Friuli</div>
+      <div class="country-count">1 producer</div>
+    </div>
+    <div class="producer-list-col">
+      <div class="producer-entry producer-entry-link" onclick="showPage('producer-castelvecchio',null)">
+        <div class="producer-region-tag">Friuli Venezia Giulia</div>
+        <div class="producer-name producer-name-clickable">Castelvecchio</div>
+        <div class="producer-entry-arrow">→</div>
+      </div>
+    </div>
+  </div>
+  <div class="country-block">
+    <div class="country-label-col">
+      <div class="country-name">Catalunya</div>
+      <div class="country-count">2 producers</div>
+    </div>
+    <div class="producer-list-col">
+      <div class="producer-entry producer-entry-link" onclick="showPage('producer-altaalella',null)">
+        <div class="producer-region-tag">DO Alella</div>
+        <div class="producer-name producer-name-clickable">Alta Alella</div>
+        <div class="producer-entry-arrow">→</div>
+      </div>
+      <div class="producer-entry producer-entry-link" onclick="showPage('producer-cellerdelesaus',null)">
+        <div class="producer-region-tag">Penedès</div>
+        <div class="producer-name producer-name-clickable">Celler de Les Aus</div>
+        <div class="producer-entry-arrow">→</div>
+      </div>
+    </div>
+  </div>
+  <div class="country-block">
+    <div class="country-label-col">
+      <div class="country-name">Galicia</div>
+      <div class="country-count">1 producer</div>
+    </div>
+    <div class="producer-list-col">
+      <div class="producer-entry producer-entry-link" onclick="showPage('producer-fento',null)">
+        <div class="producer-region-tag">Rías Baixas</div>
+        <div class="producer-name producer-name-clickable">Fento</div>
+        <div class="producer-entry-arrow">→</div>
+      </div>
+    </div>
+  </div>
+  <div class="country-block">
+    <div class="country-label-col">
+      <div class="country-name">New York</div>
+      <div class="country-count">2 producers</div>
+    </div>
+    <div class="producer-list-col">
+      <div class="producer-entry producer-entry-link" onclick="showPage('producer-nathank',null)">
+        <div class="producer-region-tag">Finger Lakes</div>
+        <div class="producer-name producer-name-clickable">Nathan K</div>
+        <div class="producer-entry-arrow">→</div>
+      </div>
+      <div class="producer-entry producer-entry-link" onclick="showPage('producer-chepika',null)">
+        <div class="producer-region-tag">Finger Lakes</div>
+        <div class="producer-name producer-name-clickable">chëpìka</div>
+        <div class="producer-entry-arrow">→</div>
+      </div>
+    </div>
+  </div>
+  <div class="country-block">
+    <div class="country-label-col">
+      <div class="country-name">California</div>
+      <div class="country-count">1 producer</div>
+    </div>
+    <div class="producer-list-col">
+      <div class="producer-entry producer-entry-link" onclick="showPage('producer-outward',null)">
+        <div class="producer-region-tag">Wildhorse Valley</div>
+        <div class="producer-name producer-name-clickable">Outward</div>
+        <div class="producer-entry-arrow">→</div>
+      </div>
+    </div>
+  </div>
+
   </div>
 
   <footer class="site-footer">
@@ -1348,5 +1736,2152 @@ function submitModal(){
 }
 function footerSubscribe(id){var e=document.getElementById('footer-email-'+(id||'')).value;if(!e){alert('Please enter your email.');return;}document.getElementById('footer-success-'+(id||'')).style.display='block';}
 </script>
+
+<!-- PRODUCER: Emmanuel Brochet -->
+<div id="page-producer-emmanuelbrochet" class="page">
+  <nav class="inner-nav">
+    <div class="inner-nav-brand" onclick="showPage('home',null)">
+      <div class="inner-nav-brand-main">Avant&#8209;Garde</div>
+      <div class="inner-nav-brand-sub">Wine &amp; Spirits</div>
+    </div>
+    <div class="inner-nav-links">
+      <button class="inner-nav-link active" onclick="showPage('producers',null)">Producers</button>
+      <button class="inner-nav-link" onclick="showPage('national',null)">National</button>
+      <button class="inner-nav-link" onclick="showPage('contact',null)">Contact</button>
+    </div>
+    <button class="inner-nav-cta" onclick="showPage('login',null)">Client Login</button>
+  </nav>
+
+  <div class="producer-page-header">
+    <button class="producer-back-btn" onclick="showPage('producers',null)">← Producers</button>
+    <div class="producer-header-region">Champagne &middot; France</div>
+  </div>
+
+  <div class="producer-name-banner">
+    <h1 class="producer-name-title">Emmanuel Brochet</h1>
+    <div class="producer-name-sub">Montagne de Reims · Villers-aux-Nœuds</div>
+  </div>
+
+  <div class="producer-body">
+    <div class="producer-details-col">
+      <div class="producer-detail-block">
+        <div class="producer-detail-block-label">The Estate</div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Appellation</span><span class="producer-detail-val">Champagne</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Grapes</span><span class="producer-detail-val">Pinot Meunier, Pinot Noir, Chardonnay</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Surface</span><span class="producer-detail-val">2.5 ha</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Production</span><span class="producer-detail-val">7,000 bottles</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Farming</span><span class="producer-detail-val">Certified Organic</span></div>
+      </div>
+
+      <div class="producer-wines-block">
+        <div class="producer-detail-block-label">The Wines</div>
+        
+          <div class="wine-entry">
+            <div class="wine-name">Le Mont Benoit Extra Brut</div>
+            <div class="wine-grapes">Pinot Meunier, Chardonnay, Pinot Noir</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Rosé d'Assemblage Extra Brut</div>
+            <div class="wine-grapes">45% Pinot Meunier, 45% Chardonnay, 10% Pinot Noir (red wine)</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Les Hautes Vignes Extra Brut</div>
+            <div class="wine-grapes">50% Pinot Meunier, 50% Chardonnay</div>
+          </div>
+      </div>
+    </div>
+
+    <div class="producer-story-col">
+      <p class="producer-story-para">When you meet Emmanuel Brochet, you quickly realize he chose the right path. In 1997, he became a first-generation Champagne grower, working his 2.5ha vineyard on the lieu-dit Le Mont Benoit in Villers-aux-Nœuds. The single vineyard is planted on a slope divided in two — upper vines from 1962, lower from 1984 — on silt, clay and chalk soils.</p><p class="producer-story-para">The approach is entirely artisanal. Nearly all work is done by hand, and Emmanuel has farmed without chemicals for over a decade, receiving organic certification in 2011. In the cellar, a traditional vertical press is used; only the cuvée is selected and brought to barrique for natural fermentation. The wines are pure, precise and mineral — combining ripeness with great freshness.</p>
+    </div>
+  </div>
+
+    <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-col"><div class="footer-col-heading">Contact</div><p class="footer-contact-desc">Questions about our portfolio or distribution?</p><button class="footer-contact-btn" onclick="openContactModal()">Send us a message</button></div>
+      <div class="footer-col"><div class="footer-col-heading">More Information</div><button class="footer-nav-link" onclick="showPage('contact',null)">Employment Opportunities</button><button class="footer-nav-link" onclick="showPage('contact',null)">Become a Customer</button><button class="footer-nav-link" onclick="showPage('national',null)">National Distribution</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Stay in Touch</div><input class="footer-input" type="email" placeholder="Email address*"><input class="footer-input" type="text" placeholder="Name"><button class="footer-subscribe-btn">Subscribe</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Follow</div><div class="footer-social-icons"><a href="https://www.instagram.com/avantgardews/" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/profile.php?id=100054472420492" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
+    </div>
+    <div class="footer-bottom"><div><div class="footer-brand-name">Avant&#8209;Garde</div><div class="footer-brand-sub">Wine &amp; Spirits</div></div><div class="footer-copy">&#169; 2026 Avant-Garde Wine &amp; Spirits. All rights reserved.</div><button class="footer-nav-link" onclick="showPage('login',null)">Client Login</button></div>
+  </footer>
+</div>
+
+<!-- PRODUCER: Vouette & Sorbée -->
+<div id="page-producer-vouetteetsorbe" class="page">
+  <nav class="inner-nav">
+    <div class="inner-nav-brand" onclick="showPage('home',null)">
+      <div class="inner-nav-brand-main">Avant&#8209;Garde</div>
+      <div class="inner-nav-brand-sub">Wine &amp; Spirits</div>
+    </div>
+    <div class="inner-nav-links">
+      <button class="inner-nav-link active" onclick="showPage('producers',null)">Producers</button>
+      <button class="inner-nav-link" onclick="showPage('national',null)">National</button>
+      <button class="inner-nav-link" onclick="showPage('contact',null)">Contact</button>
+    </div>
+    <button class="inner-nav-cta" onclick="showPage('login',null)">Client Login</button>
+  </nav>
+
+  <div class="producer-page-header">
+    <button class="producer-back-btn" onclick="showPage('producers',null)">← Producers</button>
+    <div class="producer-header-region">Champagne &middot; France</div>
+  </div>
+
+  <div class="producer-name-banner">
+    <h1 class="producer-name-title">Vouette & Sorbée</h1>
+    <div class="producer-name-sub">Côte des Bar · Buxières-sur-Arce</div>
+  </div>
+
+  <div class="producer-body">
+    <div class="producer-details-col">
+      <div class="producer-detail-block">
+        <div class="producer-detail-block-label">The Estate</div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Appellation</span><span class="producer-detail-val">Champagne</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Grapes</span><span class="producer-detail-val">Pinot Noir, Chardonnay</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Surface</span><span class="producer-detail-val">4.5 ha</span></div>
+        
+        <div class="producer-detail-row"><span class="producer-detail-label">Farming</span><span class="producer-detail-val">Certified Biodynamic (Demeter)</span></div>
+      </div>
+
+      <div class="producer-wines-block">
+        <div class="producer-detail-block-label">The Wines</div>
+        
+          <div class="wine-entry">
+            <div class="wine-name">Blanc d'Argile Extra Brut</div>
+            <div class="wine-grapes">100% Chardonnay</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Saignée de Sorbée Brut Nature</div>
+            <div class="wine-grapes">100% Pinot Noir</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Fidèle Extra Brut</div>
+            <div class="wine-grapes">100% Pinot Noir</div>
+          </div>
+      </div>
+    </div>
+
+    <div class="producer-story-col">
+      <p class="producer-story-para">Bertrand Gautherot converted his family estate to biodynamic farming in 2001, making Vouette & Sorbée one of the pioneering domaines of the grower Champagne movement. His vineyards sit on Kimmeridgian limestone — the same geology as Chablis — a hundred kilometers south of the classic Champagne zones.</p><p class="producer-story-para">Dosages are zero or near-zero. Fermentations are entirely natural. The wines are uncompromising, electric and tensely mineral — among the finest expressions of what grower Champagne can be when the winemaker gets out of the way and lets the terroir speak.</p>
+    </div>
+  </div>
+
+    <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-col"><div class="footer-col-heading">Contact</div><p class="footer-contact-desc">Questions about our portfolio or distribution?</p><button class="footer-contact-btn" onclick="openContactModal()">Send us a message</button></div>
+      <div class="footer-col"><div class="footer-col-heading">More Information</div><button class="footer-nav-link" onclick="showPage('contact',null)">Employment Opportunities</button><button class="footer-nav-link" onclick="showPage('contact',null)">Become a Customer</button><button class="footer-nav-link" onclick="showPage('national',null)">National Distribution</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Stay in Touch</div><input class="footer-input" type="email" placeholder="Email address*"><input class="footer-input" type="text" placeholder="Name"><button class="footer-subscribe-btn">Subscribe</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Follow</div><div class="footer-social-icons"><a href="https://www.instagram.com/avantgardews/" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/profile.php?id=100054472420492" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
+    </div>
+    <div class="footer-bottom"><div><div class="footer-brand-name">Avant&#8209;Garde</div><div class="footer-brand-sub">Wine &amp; Spirits</div></div><div class="footer-copy">&#169; 2026 Avant-Garde Wine &amp; Spirits. All rights reserved.</div><button class="footer-nav-link" onclick="showPage('login',null)">Client Login</button></div>
+  </footer>
+</div>
+
+<!-- PRODUCER: Laurent Bénard -->
+<div id="page-producer-laurentbenard" class="page">
+  <nav class="inner-nav">
+    <div class="inner-nav-brand" onclick="showPage('home',null)">
+      <div class="inner-nav-brand-main">Avant&#8209;Garde</div>
+      <div class="inner-nav-brand-sub">Wine &amp; Spirits</div>
+    </div>
+    <div class="inner-nav-links">
+      <button class="inner-nav-link active" onclick="showPage('producers',null)">Producers</button>
+      <button class="inner-nav-link" onclick="showPage('national',null)">National</button>
+      <button class="inner-nav-link" onclick="showPage('contact',null)">Contact</button>
+    </div>
+    <button class="inner-nav-cta" onclick="showPage('login',null)">Client Login</button>
+  </nav>
+
+  <div class="producer-page-header">
+    <button class="producer-back-btn" onclick="showPage('producers',null)">← Producers</button>
+    <div class="producer-header-region">Champagne &middot; France</div>
+  </div>
+
+  <div class="producer-name-banner">
+    <h1 class="producer-name-title">Laurent Bénard</h1>
+    <div class="producer-name-sub">Côte des Bar · Les Riceys</div>
+  </div>
+
+  <div class="producer-body">
+    <div class="producer-details-col">
+      <div class="producer-detail-block">
+        <div class="producer-detail-block-label">The Estate</div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Appellation</span><span class="producer-detail-val">Champagne</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Grapes</span><span class="producer-detail-val">Pinot Noir, Chardonnay</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Surface</span><span class="producer-detail-val">4 ha</span></div>
+        
+        <div class="producer-detail-row"><span class="producer-detail-label">Farming</span><span class="producer-detail-val">Organic</span></div>
+      </div>
+
+      <div class="producer-wines-block">
+        <div class="producer-detail-block-label">The Wines</div>
+        
+          <div class="wine-entry">
+            <div class="wine-name">Blanc de Noirs Brut Nature</div>
+            <div class="wine-grapes">100% Pinot Noir</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Extra Brut</div>
+            <div class="wine-grapes">Pinot Noir, Chardonnay</div>
+          </div>
+      </div>
+    </div>
+
+    <div class="producer-story-col">
+      <p class="producer-story-para">Laurent Bénard works his small estate in the Côte des Bar, the southernmost and most underappreciated corner of Champagne. Here, Pinot Noir dominates the Kimmeridgian clay and limestone soils — the same geology that makes Chablis and Sancerre great.</p><p class="producer-story-para">Laurent farms organically and makes wines of remarkable depth and savory minerality. More vinous and structured than much of the region, these Champagnes reward time at the table.</p>
+    </div>
+  </div>
+
+    <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-col"><div class="footer-col-heading">Contact</div><p class="footer-contact-desc">Questions about our portfolio or distribution?</p><button class="footer-contact-btn" onclick="openContactModal()">Send us a message</button></div>
+      <div class="footer-col"><div class="footer-col-heading">More Information</div><button class="footer-nav-link" onclick="showPage('contact',null)">Employment Opportunities</button><button class="footer-nav-link" onclick="showPage('contact',null)">Become a Customer</button><button class="footer-nav-link" onclick="showPage('national',null)">National Distribution</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Stay in Touch</div><input class="footer-input" type="email" placeholder="Email address*"><input class="footer-input" type="text" placeholder="Name"><button class="footer-subscribe-btn">Subscribe</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Follow</div><div class="footer-social-icons"><a href="https://www.instagram.com/avantgardews/" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/profile.php?id=100054472420492" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
+    </div>
+    <div class="footer-bottom"><div><div class="footer-brand-name">Avant&#8209;Garde</div><div class="footer-brand-sub">Wine &amp; Spirits</div></div><div class="footer-copy">&#169; 2026 Avant-Garde Wine &amp; Spirits. All rights reserved.</div><button class="footer-nav-link" onclick="showPage('login',null)">Client Login</button></div>
+  </footer>
+</div>
+
+<!-- PRODUCER: Delalot -->
+<div id="page-producer-delalot" class="page">
+  <nav class="inner-nav">
+    <div class="inner-nav-brand" onclick="showPage('home',null)">
+      <div class="inner-nav-brand-main">Avant&#8209;Garde</div>
+      <div class="inner-nav-brand-sub">Wine &amp; Spirits</div>
+    </div>
+    <div class="inner-nav-links">
+      <button class="inner-nav-link active" onclick="showPage('producers',null)">Producers</button>
+      <button class="inner-nav-link" onclick="showPage('national',null)">National</button>
+      <button class="inner-nav-link" onclick="showPage('contact',null)">Contact</button>
+    </div>
+    <button class="inner-nav-cta" onclick="showPage('login',null)">Client Login</button>
+  </nav>
+
+  <div class="producer-page-header">
+    <button class="producer-back-btn" onclick="showPage('producers',null)">← Producers</button>
+    <div class="producer-header-region">Champagne &middot; France</div>
+  </div>
+
+  <div class="producer-name-banner">
+    <h1 class="producer-name-title">Delalot</h1>
+    <div class="producer-name-sub">Vallée de la Marne</div>
+  </div>
+
+  <div class="producer-body">
+    <div class="producer-details-col">
+      <div class="producer-detail-block">
+        <div class="producer-detail-block-label">The Estate</div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Appellation</span><span class="producer-detail-val">Champagne</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Grapes</span><span class="producer-detail-val">Pinot Meunier, Chardonnay, Pinot Noir</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Surface</span><span class="producer-detail-val">3.5 ha</span></div>
+        
+        <div class="producer-detail-row"><span class="producer-detail-label">Farming</span><span class="producer-detail-val">Organic</span></div>
+      </div>
+
+      <div class="producer-wines-block">
+        <div class="producer-detail-block-label">The Wines</div>
+        
+          <div class="wine-entry">
+            <div class="wine-name">Blanc de Blancs Brut</div>
+            <div class="wine-grapes">100% Chardonnay</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Extra Brut</div>
+            <div class="wine-grapes">Pinot Meunier, Chardonnay, Pinot Noir</div>
+          </div>
+      </div>
+    </div>
+
+    <div class="producer-story-col">
+      <p class="producer-story-para">Delalot is a small grower estate in the Vallée de la Marne, where Pinot Meunier thrives on the clay-rich soils. Farming organically and working the cellar with minimal intervention, their Champagnes are expressive, fruit-forward and genuinely pleasurable — wines that remind you why Champagne exists in the first place.</p>
+    </div>
+  </div>
+
+    <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-col"><div class="footer-col-heading">Contact</div><p class="footer-contact-desc">Questions about our portfolio or distribution?</p><button class="footer-contact-btn" onclick="openContactModal()">Send us a message</button></div>
+      <div class="footer-col"><div class="footer-col-heading">More Information</div><button class="footer-nav-link" onclick="showPage('contact',null)">Employment Opportunities</button><button class="footer-nav-link" onclick="showPage('contact',null)">Become a Customer</button><button class="footer-nav-link" onclick="showPage('national',null)">National Distribution</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Stay in Touch</div><input class="footer-input" type="email" placeholder="Email address*"><input class="footer-input" type="text" placeholder="Name"><button class="footer-subscribe-btn">Subscribe</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Follow</div><div class="footer-social-icons"><a href="https://www.instagram.com/avantgardews/" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/profile.php?id=100054472420492" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
+    </div>
+    <div class="footer-bottom"><div><div class="footer-brand-name">Avant&#8209;Garde</div><div class="footer-brand-sub">Wine &amp; Spirits</div></div><div class="footer-copy">&#169; 2026 Avant-Garde Wine &amp; Spirits. All rights reserved.</div><button class="footer-nav-link" onclick="showPage('login',null)">Client Login</button></div>
+  </footer>
+</div>
+
+<!-- PRODUCER: Thomas de Marne -->
+<div id="page-producer-thomasdemarne" class="page">
+  <nav class="inner-nav">
+    <div class="inner-nav-brand" onclick="showPage('home',null)">
+      <div class="inner-nav-brand-main">Avant&#8209;Garde</div>
+      <div class="inner-nav-brand-sub">Wine &amp; Spirits</div>
+    </div>
+    <div class="inner-nav-links">
+      <button class="inner-nav-link active" onclick="showPage('producers',null)">Producers</button>
+      <button class="inner-nav-link" onclick="showPage('national',null)">National</button>
+      <button class="inner-nav-link" onclick="showPage('contact',null)">Contact</button>
+    </div>
+    <button class="inner-nav-cta" onclick="showPage('login',null)">Client Login</button>
+  </nav>
+
+  <div class="producer-page-header">
+    <button class="producer-back-btn" onclick="showPage('producers',null)">← Producers</button>
+    <div class="producer-header-region">Champagne &middot; France</div>
+  </div>
+
+  <div class="producer-name-banner">
+    <h1 class="producer-name-title">Thomas de Marne</h1>
+    <div class="producer-name-sub">Côte des Bar</div>
+  </div>
+
+  <div class="producer-body">
+    <div class="producer-details-col">
+      <div class="producer-detail-block">
+        <div class="producer-detail-block-label">The Estate</div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Appellation</span><span class="producer-detail-val">Champagne</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Grapes</span><span class="producer-detail-val">Pinot Noir, Chardonnay</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Surface</span><span class="producer-detail-val">3 ha</span></div>
+        
+        <div class="producer-detail-row"><span class="producer-detail-label">Farming</span><span class="producer-detail-val">Organic</span></div>
+      </div>
+
+      <div class="producer-wines-block">
+        <div class="producer-detail-block-label">The Wines</div>
+        
+          <div class="wine-entry">
+            <div class="wine-name">Extra Brut</div>
+            <div class="wine-grapes">Pinot Noir, Chardonnay</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Blanc de Noirs</div>
+            <div class="wine-grapes">100% Pinot Noir</div>
+          </div>
+      </div>
+    </div>
+
+    <div class="producer-story-col">
+      <p class="producer-story-para">Thomas de Marne farms his small estate in the Côte des Bar with great attention to the land. The Kimmeridgian soils give his wines a distinctive chalky minerality and depth that sets them apart from the mainstream. In the cellar: long aging on lees, low dosage, natural fermentation.</p>
+    </div>
+  </div>
+
+    <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-col"><div class="footer-col-heading">Contact</div><p class="footer-contact-desc">Questions about our portfolio or distribution?</p><button class="footer-contact-btn" onclick="openContactModal()">Send us a message</button></div>
+      <div class="footer-col"><div class="footer-col-heading">More Information</div><button class="footer-nav-link" onclick="showPage('contact',null)">Employment Opportunities</button><button class="footer-nav-link" onclick="showPage('contact',null)">Become a Customer</button><button class="footer-nav-link" onclick="showPage('national',null)">National Distribution</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Stay in Touch</div><input class="footer-input" type="email" placeholder="Email address*"><input class="footer-input" type="text" placeholder="Name"><button class="footer-subscribe-btn">Subscribe</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Follow</div><div class="footer-social-icons"><a href="https://www.instagram.com/avantgardews/" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/profile.php?id=100054472420492" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
+    </div>
+    <div class="footer-bottom"><div><div class="footer-brand-name">Avant&#8209;Garde</div><div class="footer-brand-sub">Wine &amp; Spirits</div></div><div class="footer-copy">&#169; 2026 Avant-Garde Wine &amp; Spirits. All rights reserved.</div><button class="footer-nav-link" onclick="showPage('login',null)">Client Login</button></div>
+  </footer>
+</div>
+
+<!-- PRODUCER: Maison Jérôme Lefèvre -->
+<div id="page-producer-jeromeLefevre" class="page">
+  <nav class="inner-nav">
+    <div class="inner-nav-brand" onclick="showPage('home',null)">
+      <div class="inner-nav-brand-main">Avant&#8209;Garde</div>
+      <div class="inner-nav-brand-sub">Wine &amp; Spirits</div>
+    </div>
+    <div class="inner-nav-links">
+      <button class="inner-nav-link active" onclick="showPage('producers',null)">Producers</button>
+      <button class="inner-nav-link" onclick="showPage('national',null)">National</button>
+      <button class="inner-nav-link" onclick="showPage('contact',null)">Contact</button>
+    </div>
+    <button class="inner-nav-cta" onclick="showPage('login',null)">Client Login</button>
+  </nav>
+
+  <div class="producer-page-header">
+    <button class="producer-back-btn" onclick="showPage('producers',null)">← Producers</button>
+    <div class="producer-header-region">Champagne &middot; France</div>
+  </div>
+
+  <div class="producer-name-banner">
+    <h1 class="producer-name-title">Maison Jérôme Lefèvre</h1>
+    <div class="producer-name-sub">Montagne de Reims</div>
+  </div>
+
+  <div class="producer-body">
+    <div class="producer-details-col">
+      <div class="producer-detail-block">
+        <div class="producer-detail-block-label">The Estate</div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Appellation</span><span class="producer-detail-val">Champagne</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Grapes</span><span class="producer-detail-val">Pinot Noir, Chardonnay, Pinot Meunier</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Surface</span><span class="producer-detail-val">5 ha</span></div>
+        
+        <div class="producer-detail-row"><span class="producer-detail-label">Farming</span><span class="producer-detail-val">Organic</span></div>
+      </div>
+
+      <div class="producer-wines-block">
+        <div class="producer-detail-block-label">The Wines</div>
+        
+          <div class="wine-entry">
+            <div class="wine-name">Blanc de Noirs Brut</div>
+            <div class="wine-grapes">100% Pinot Noir</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Brut Tradition</div>
+            <div class="wine-grapes">Pinot Noir, Chardonnay, Pinot Meunier</div>
+          </div>
+      </div>
+    </div>
+
+    <div class="producer-story-col">
+      <p class="producer-story-para">Maison Jérôme Lefèvre brings together the precision of the grower-producer with the care of careful assemblage. Based in the Montagne de Reims, their wines are elegant and food-friendly — the classic structure of the Montagne tempered by thoughtful winemaking.</p>
+    </div>
+  </div>
+
+    <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-col"><div class="footer-col-heading">Contact</div><p class="footer-contact-desc">Questions about our portfolio or distribution?</p><button class="footer-contact-btn" onclick="openContactModal()">Send us a message</button></div>
+      <div class="footer-col"><div class="footer-col-heading">More Information</div><button class="footer-nav-link" onclick="showPage('contact',null)">Employment Opportunities</button><button class="footer-nav-link" onclick="showPage('contact',null)">Become a Customer</button><button class="footer-nav-link" onclick="showPage('national',null)">National Distribution</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Stay in Touch</div><input class="footer-input" type="email" placeholder="Email address*"><input class="footer-input" type="text" placeholder="Name"><button class="footer-subscribe-btn">Subscribe</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Follow</div><div class="footer-social-icons"><a href="https://www.instagram.com/avantgardews/" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/profile.php?id=100054472420492" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
+    </div>
+    <div class="footer-bottom"><div><div class="footer-brand-name">Avant&#8209;Garde</div><div class="footer-brand-sub">Wine &amp; Spirits</div></div><div class="footer-copy">&#169; 2026 Avant-Garde Wine &amp; Spirits. All rights reserved.</div><button class="footer-nav-link" onclick="showPage('login',null)">Client Login</button></div>
+  </footer>
+</div>
+
+<!-- PRODUCER: Valentin Zusslin -->
+<div id="page-producer-valentinzusslin" class="page">
+  <nav class="inner-nav">
+    <div class="inner-nav-brand" onclick="showPage('home',null)">
+      <div class="inner-nav-brand-main">Avant&#8209;Garde</div>
+      <div class="inner-nav-brand-sub">Wine &amp; Spirits</div>
+    </div>
+    <div class="inner-nav-links">
+      <button class="inner-nav-link active" onclick="showPage('producers',null)">Producers</button>
+      <button class="inner-nav-link" onclick="showPage('national',null)">National</button>
+      <button class="inner-nav-link" onclick="showPage('contact',null)">Contact</button>
+    </div>
+    <button class="inner-nav-cta" onclick="showPage('login',null)">Client Login</button>
+  </nav>
+
+  <div class="producer-page-header">
+    <button class="producer-back-btn" onclick="showPage('producers',null)">← Producers</button>
+    <div class="producer-header-region">Alsace &middot; France</div>
+  </div>
+
+  <div class="producer-name-banner">
+    <h1 class="producer-name-title">Valentin Zusslin</h1>
+    <div class="producer-name-sub">Orschwihr</div>
+  </div>
+
+  <div class="producer-body">
+    <div class="producer-details-col">
+      <div class="producer-detail-block">
+        <div class="producer-detail-block-label">The Estate</div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Appellation</span><span class="producer-detail-val">Alsace Grand Cru Pfingstberg</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Grapes</span><span class="producer-detail-val">Riesling, Pinot Gris, Gewurztraminer, Pinot Noir</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Surface</span><span class="producer-detail-val">12 ha</span></div>
+        
+        <div class="producer-detail-row"><span class="producer-detail-label">Farming</span><span class="producer-detail-val">Certified Biodynamic (Demeter)</span></div>
+      </div>
+
+      <div class="producer-wines-block">
+        <div class="producer-detail-block-label">The Wines</div>
+        
+          <div class="wine-entry">
+            <div class="wine-name">Crémant d'Alsace Brut Zéro</div>
+            <div class="wine-grapes">Auxerrois, Pinot Blanc</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Auxerrois 'Clos Liebenberg'</div>
+            <div class="wine-grapes">100% Auxerrois</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Riesling Grand Cru Pfingstberg</div>
+            <div class="wine-grapes">100% Riesling</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Pinot Noir 'Clos Liebenberg'</div>
+            <div class="wine-grapes">100% Pinot Noir</div>
+          </div>
+      </div>
+    </div>
+
+    <div class="producer-story-col">
+      <p class="producer-story-para">The Zusslin family has been growing wine in the southern Alsace village of Orschwihr since 1691. Today, Marie and Jean-Paul Zusslin run the estate, biodynamically farmed since 1997 and certified by Demeter since 2002.</p><p class="producer-story-para">Their vineyards lie on the Grand Cru Pfingstberg, a south-facing slope of granite and limestone. In the cellar: minimal intervention, long slow fermentations, extended lees aging, no fining or filtration. Pure expressions of Alsatian terroir.</p>
+    </div>
+  </div>
+
+    <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-col"><div class="footer-col-heading">Contact</div><p class="footer-contact-desc">Questions about our portfolio or distribution?</p><button class="footer-contact-btn" onclick="openContactModal()">Send us a message</button></div>
+      <div class="footer-col"><div class="footer-col-heading">More Information</div><button class="footer-nav-link" onclick="showPage('contact',null)">Employment Opportunities</button><button class="footer-nav-link" onclick="showPage('contact',null)">Become a Customer</button><button class="footer-nav-link" onclick="showPage('national',null)">National Distribution</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Stay in Touch</div><input class="footer-input" type="email" placeholder="Email address*"><input class="footer-input" type="text" placeholder="Name"><button class="footer-subscribe-btn">Subscribe</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Follow</div><div class="footer-social-icons"><a href="https://www.instagram.com/avantgardews/" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/profile.php?id=100054472420492" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
+    </div>
+    <div class="footer-bottom"><div><div class="footer-brand-name">Avant&#8209;Garde</div><div class="footer-brand-sub">Wine &amp; Spirits</div></div><div class="footer-copy">&#169; 2026 Avant-Garde Wine &amp; Spirits. All rights reserved.</div><button class="footer-nav-link" onclick="showPage('login',null)">Client Login</button></div>
+  </footer>
+</div>
+
+<!-- PRODUCER: La Grange de l'Oncle Charles -->
+<div id="page-producer-lagrangeoncle" class="page">
+  <nav class="inner-nav">
+    <div class="inner-nav-brand" onclick="showPage('home',null)">
+      <div class="inner-nav-brand-main">Avant&#8209;Garde</div>
+      <div class="inner-nav-brand-sub">Wine &amp; Spirits</div>
+    </div>
+    <div class="inner-nav-links">
+      <button class="inner-nav-link active" onclick="showPage('producers',null)">Producers</button>
+      <button class="inner-nav-link" onclick="showPage('national',null)">National</button>
+      <button class="inner-nav-link" onclick="showPage('contact',null)">Contact</button>
+    </div>
+    <button class="inner-nav-cta" onclick="showPage('login',null)">Client Login</button>
+  </nav>
+
+  <div class="producer-page-header">
+    <button class="producer-back-btn" onclick="showPage('producers',null)">← Producers</button>
+    <div class="producer-header-region">Alsace &middot; France</div>
+  </div>
+
+  <div class="producer-name-banner">
+    <h1 class="producer-name-title">La Grange de l'Oncle Charles</h1>
+    <div class="producer-name-sub">Dambach-la-Ville</div>
+  </div>
+
+  <div class="producer-body">
+    <div class="producer-details-col">
+      <div class="producer-detail-block">
+        <div class="producer-detail-block-label">The Estate</div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Appellation</span><span class="producer-detail-val">Alsace</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Grapes</span><span class="producer-detail-val">Riesling, Pinot Gris, Gewurztraminer, Sylvaner</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Surface</span><span class="producer-detail-val">8 ha</span></div>
+        
+        <div class="producer-detail-row"><span class="producer-detail-label">Farming</span><span class="producer-detail-val">Organic</span></div>
+      </div>
+
+      <div class="producer-wines-block">
+        <div class="producer-detail-block-label">The Wines</div>
+        
+          <div class="wine-entry">
+            <div class="wine-name">Sylvaner</div>
+            <div class="wine-grapes">100% Sylvaner</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Pinot Gris</div>
+            <div class="wine-grapes">100% Pinot Gris</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Riesling</div>
+            <div class="wine-grapes">100% Riesling</div>
+          </div>
+      </div>
+    </div>
+
+    <div class="producer-story-col">
+      <p class="producer-story-para">A small family estate in Dambach-la-Ville in the Bas-Rhin, farmed organically with deep attention to soil health. Their Sylvaner is a particular highlight — a grape too often overlooked that in their hands produces wines of remarkable freshness and personality.</p>
+    </div>
+  </div>
+
+    <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-col"><div class="footer-col-heading">Contact</div><p class="footer-contact-desc">Questions about our portfolio or distribution?</p><button class="footer-contact-btn" onclick="openContactModal()">Send us a message</button></div>
+      <div class="footer-col"><div class="footer-col-heading">More Information</div><button class="footer-nav-link" onclick="showPage('contact',null)">Employment Opportunities</button><button class="footer-nav-link" onclick="showPage('contact',null)">Become a Customer</button><button class="footer-nav-link" onclick="showPage('national',null)">National Distribution</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Stay in Touch</div><input class="footer-input" type="email" placeholder="Email address*"><input class="footer-input" type="text" placeholder="Name"><button class="footer-subscribe-btn">Subscribe</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Follow</div><div class="footer-social-icons"><a href="https://www.instagram.com/avantgardews/" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/profile.php?id=100054472420492" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
+    </div>
+    <div class="footer-bottom"><div><div class="footer-brand-name">Avant&#8209;Garde</div><div class="footer-brand-sub">Wine &amp; Spirits</div></div><div class="footer-copy">&#169; 2026 Avant-Garde Wine &amp; Spirits. All rights reserved.</div><button class="footer-nav-link" onclick="showPage('login',null)">Client Login</button></div>
+  </footer>
+</div>
+
+<!-- PRODUCER: Domaine Aux Ardents -->
+<div id="page-producer-auxardents" class="page">
+  <nav class="inner-nav">
+    <div class="inner-nav-brand" onclick="showPage('home',null)">
+      <div class="inner-nav-brand-main">Avant&#8209;Garde</div>
+      <div class="inner-nav-brand-sub">Wine &amp; Spirits</div>
+    </div>
+    <div class="inner-nav-links">
+      <button class="inner-nav-link active" onclick="showPage('producers',null)">Producers</button>
+      <button class="inner-nav-link" onclick="showPage('national',null)">National</button>
+      <button class="inner-nav-link" onclick="showPage('contact',null)">Contact</button>
+    </div>
+    <button class="inner-nav-cta" onclick="showPage('login',null)">Client Login</button>
+  </nav>
+
+  <div class="producer-page-header">
+    <button class="producer-back-btn" onclick="showPage('producers',null)">← Producers</button>
+    <div class="producer-header-region">Beaujolais &middot; France</div>
+  </div>
+
+  <div class="producer-name-banner">
+    <h1 class="producer-name-title">Domaine Aux Ardents</h1>
+    <div class="producer-name-sub">Fleurie · Moulin-à-Vent</div>
+  </div>
+
+  <div class="producer-body">
+    <div class="producer-details-col">
+      <div class="producer-detail-block">
+        <div class="producer-detail-block-label">The Estate</div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Appellation</span><span class="producer-detail-val">Fleurie, Moulin-à-Vent</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Grapes</span><span class="producer-detail-val">Gamay</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Surface</span><span class="producer-detail-val">6 ha</span></div>
+        
+        <div class="producer-detail-row"><span class="producer-detail-label">Farming</span><span class="producer-detail-val">Organic</span></div>
+      </div>
+
+      <div class="producer-wines-block">
+        <div class="producer-detail-block-label">The Wines</div>
+        
+          <div class="wine-entry">
+            <div class="wine-name">Fleurie</div>
+            <div class="wine-grapes">100% Gamay</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Moulin-à-Vent</div>
+            <div class="wine-grapes">100% Gamay</div>
+          </div>
+      </div>
+    </div>
+
+    <div class="producer-story-col">
+      <p class="producer-story-para">A small Beaujolais estate working with old-vine Gamay in the celebrated crus of Fleurie and Moulin-à-Vent. Whole-cluster fermentation, carbonic maceration, minimal sulfur. The wines have the freshness and lift of the best natural Beaujolais, with the depth and structure that comes from genuinely old vines.</p>
+    </div>
+  </div>
+
+    <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-col"><div class="footer-col-heading">Contact</div><p class="footer-contact-desc">Questions about our portfolio or distribution?</p><button class="footer-contact-btn" onclick="openContactModal()">Send us a message</button></div>
+      <div class="footer-col"><div class="footer-col-heading">More Information</div><button class="footer-nav-link" onclick="showPage('contact',null)">Employment Opportunities</button><button class="footer-nav-link" onclick="showPage('contact',null)">Become a Customer</button><button class="footer-nav-link" onclick="showPage('national',null)">National Distribution</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Stay in Touch</div><input class="footer-input" type="email" placeholder="Email address*"><input class="footer-input" type="text" placeholder="Name"><button class="footer-subscribe-btn">Subscribe</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Follow</div><div class="footer-social-icons"><a href="https://www.instagram.com/avantgardews/" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/profile.php?id=100054472420492" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
+    </div>
+    <div class="footer-bottom"><div><div class="footer-brand-name">Avant&#8209;Garde</div><div class="footer-brand-sub">Wine &amp; Spirits</div></div><div class="footer-copy">&#169; 2026 Avant-Garde Wine &amp; Spirits. All rights reserved.</div><button class="footer-nav-link" onclick="showPage('login',null)">Client Login</button></div>
+  </footer>
+</div>
+
+<!-- PRODUCER: Pierre-Henri Rougeot -->
+<div id="page-producer-pierrerougeot" class="page">
+  <nav class="inner-nav">
+    <div class="inner-nav-brand" onclick="showPage('home',null)">
+      <div class="inner-nav-brand-main">Avant&#8209;Garde</div>
+      <div class="inner-nav-brand-sub">Wine &amp; Spirits</div>
+    </div>
+    <div class="inner-nav-links">
+      <button class="inner-nav-link active" onclick="showPage('producers',null)">Producers</button>
+      <button class="inner-nav-link" onclick="showPage('national',null)">National</button>
+      <button class="inner-nav-link" onclick="showPage('contact',null)">Contact</button>
+    </div>
+    <button class="inner-nav-cta" onclick="showPage('login',null)">Client Login</button>
+  </nav>
+
+  <div class="producer-page-header">
+    <button class="producer-back-btn" onclick="showPage('producers',null)">← Producers</button>
+    <div class="producer-header-region">Burgundy &middot; France</div>
+  </div>
+
+  <div class="producer-name-banner">
+    <h1 class="producer-name-title">Pierre-Henri Rougeot</h1>
+    <div class="producer-name-sub">Côte de Beaune · Meursault</div>
+  </div>
+
+  <div class="producer-body">
+    <div class="producer-details-col">
+      <div class="producer-detail-block">
+        <div class="producer-detail-block-label">The Estate</div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Appellation</span><span class="producer-detail-val">Bourgogne, Meursault</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Grapes</span><span class="producer-detail-val">Chardonnay, Pinot Noir</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Surface</span><span class="producer-detail-val">5 ha</span></div>
+        
+        <div class="producer-detail-row"><span class="producer-detail-label">Farming</span><span class="producer-detail-val">Organic</span></div>
+      </div>
+
+      <div class="producer-wines-block">
+        <div class="producer-detail-block-label">The Wines</div>
+        
+          <div class="wine-entry">
+            <div class="wine-name">Bourgogne Blanc</div>
+            <div class="wine-grapes">100% Chardonnay</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Meursault</div>
+            <div class="wine-grapes">100% Chardonnay</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Bourgogne Rouge</div>
+            <div class="wine-grapes">100% Pinot Noir</div>
+          </div>
+      </div>
+    </div>
+
+    <div class="producer-story-col">
+      <p class="producer-story-para">A young vigneron in Meursault, working a small parcel of vines on the Côte de Beaune with precision and humility. Indigenous yeasts, old barrels, minimal sulfur. His Bourgogne Blanc is one of the finest entry-level Burgundies in the portfolio: pure, mineral, and utterly honest about where it comes from.</p>
+    </div>
+  </div>
+
+    <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-col"><div class="footer-col-heading">Contact</div><p class="footer-contact-desc">Questions about our portfolio or distribution?</p><button class="footer-contact-btn" onclick="openContactModal()">Send us a message</button></div>
+      <div class="footer-col"><div class="footer-col-heading">More Information</div><button class="footer-nav-link" onclick="showPage('contact',null)">Employment Opportunities</button><button class="footer-nav-link" onclick="showPage('contact',null)">Become a Customer</button><button class="footer-nav-link" onclick="showPage('national',null)">National Distribution</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Stay in Touch</div><input class="footer-input" type="email" placeholder="Email address*"><input class="footer-input" type="text" placeholder="Name"><button class="footer-subscribe-btn">Subscribe</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Follow</div><div class="footer-social-icons"><a href="https://www.instagram.com/avantgardews/" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/profile.php?id=100054472420492" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
+    </div>
+    <div class="footer-bottom"><div><div class="footer-brand-name">Avant&#8209;Garde</div><div class="footer-brand-sub">Wine &amp; Spirits</div></div><div class="footer-copy">&#169; 2026 Avant-Garde Wine &amp; Spirits. All rights reserved.</div><button class="footer-nav-link" onclick="showPage('login',null)">Client Login</button></div>
+  </footer>
+</div>
+
+<!-- PRODUCER: Domaine des Coteaux du Sorne -->
+<div id="page-producer-coteauxdusorne" class="page">
+  <nav class="inner-nav">
+    <div class="inner-nav-brand" onclick="showPage('home',null)">
+      <div class="inner-nav-brand-main">Avant&#8209;Garde</div>
+      <div class="inner-nav-brand-sub">Wine &amp; Spirits</div>
+    </div>
+    <div class="inner-nav-links">
+      <button class="inner-nav-link active" onclick="showPage('producers',null)">Producers</button>
+      <button class="inner-nav-link" onclick="showPage('national',null)">National</button>
+      <button class="inner-nav-link" onclick="showPage('contact',null)">Contact</button>
+    </div>
+    <button class="inner-nav-cta" onclick="showPage('login',null)">Client Login</button>
+  </nav>
+
+  <div class="producer-page-header">
+    <button class="producer-back-btn" onclick="showPage('producers',null)">← Producers</button>
+    <div class="producer-header-region">Jura &middot; France</div>
+  </div>
+
+  <div class="producer-name-banner">
+    <h1 class="producer-name-title">Domaine des Coteaux du Sorne</h1>
+    <div class="producer-name-sub">Lons-le-Saunier</div>
+  </div>
+
+  <div class="producer-body">
+    <div class="producer-details-col">
+      <div class="producer-detail-block">
+        <div class="producer-detail-block-label">The Estate</div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Appellation</span><span class="producer-detail-val">Côtes du Jura</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Grapes</span><span class="producer-detail-val">Savagnin, Chardonnay, Poulsard, Trousseau, Pinot Noir</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Surface</span><span class="producer-detail-val">7 ha</span></div>
+        
+        <div class="producer-detail-row"><span class="producer-detail-label">Farming</span><span class="producer-detail-val">Organic</span></div>
+      </div>
+
+      <div class="producer-wines-block">
+        <div class="producer-detail-block-label">The Wines</div>
+        
+          <div class="wine-entry">
+            <div class="wine-name">Chardonnay Ouillé</div>
+            <div class="wine-grapes">100% Chardonnay</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Savagnin Ouillé</div>
+            <div class="wine-grapes">100% Savagnin</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Poulsard</div>
+            <div class="wine-grapes">100% Poulsard</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Vin Jaune</div>
+            <div class="wine-grapes">100% Savagnin</div>
+          </div>
+      </div>
+    </div>
+
+    <div class="producer-story-col">
+      <p class="producer-story-para">One of the most exciting producers in the Jura, farming organically on lias limestone and blue marl soils. The wines honor Jurassian tradition — ouillé and non-ouillé whites, light reds, oxidative styles — with a freshness and precision that makes them entirely modern.</p>
+    </div>
+  </div>
+
+    <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-col"><div class="footer-col-heading">Contact</div><p class="footer-contact-desc">Questions about our portfolio or distribution?</p><button class="footer-contact-btn" onclick="openContactModal()">Send us a message</button></div>
+      <div class="footer-col"><div class="footer-col-heading">More Information</div><button class="footer-nav-link" onclick="showPage('contact',null)">Employment Opportunities</button><button class="footer-nav-link" onclick="showPage('contact',null)">Become a Customer</button><button class="footer-nav-link" onclick="showPage('national',null)">National Distribution</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Stay in Touch</div><input class="footer-input" type="email" placeholder="Email address*"><input class="footer-input" type="text" placeholder="Name"><button class="footer-subscribe-btn">Subscribe</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Follow</div><div class="footer-social-icons"><a href="https://www.instagram.com/avantgardews/" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/profile.php?id=100054472420492" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
+    </div>
+    <div class="footer-bottom"><div><div class="footer-brand-name">Avant&#8209;Garde</div><div class="footer-brand-sub">Wine &amp; Spirits</div></div><div class="footer-copy">&#169; 2026 Avant-Garde Wine &amp; Spirits. All rights reserved.</div><button class="footer-nav-link" onclick="showPage('login',null)">Client Login</button></div>
+  </footer>
+</div>
+
+<!-- PRODUCER: Domaine La Patelle -->
+<div id="page-producer-lapatelle" class="page">
+  <nav class="inner-nav">
+    <div class="inner-nav-brand" onclick="showPage('home',null)">
+      <div class="inner-nav-brand-main">Avant&#8209;Garde</div>
+      <div class="inner-nav-brand-sub">Wine &amp; Spirits</div>
+    </div>
+    <div class="inner-nav-links">
+      <button class="inner-nav-link active" onclick="showPage('producers',null)">Producers</button>
+      <button class="inner-nav-link" onclick="showPage('national',null)">National</button>
+      <button class="inner-nav-link" onclick="showPage('contact',null)">Contact</button>
+    </div>
+    <button class="inner-nav-cta" onclick="showPage('login',null)">Client Login</button>
+  </nav>
+
+  <div class="producer-page-header">
+    <button class="producer-back-btn" onclick="showPage('producers',null)">← Producers</button>
+    <div class="producer-header-region">Jura &middot; France</div>
+  </div>
+
+  <div class="producer-name-banner">
+    <h1 class="producer-name-title">Domaine La Patelle</h1>
+    <div class="producer-name-sub">Poligny</div>
+  </div>
+
+  <div class="producer-body">
+    <div class="producer-details-col">
+      <div class="producer-detail-block">
+        <div class="producer-detail-block-label">The Estate</div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Appellation</span><span class="producer-detail-val">Arbois, Côtes du Jura</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Grapes</span><span class="producer-detail-val">Savagnin, Chardonnay, Poulsard, Trousseau</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Surface</span><span class="producer-detail-val">5 ha</span></div>
+        
+        <div class="producer-detail-row"><span class="producer-detail-label">Farming</span><span class="producer-detail-val">Organic</span></div>
+      </div>
+
+      <div class="producer-wines-block">
+        <div class="producer-detail-block-label">The Wines</div>
+        
+          <div class="wine-entry">
+            <div class="wine-name">Arbois Blanc</div>
+            <div class="wine-grapes">Chardonnay, Savagnin</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Arbois Rouge</div>
+            <div class="wine-grapes">Poulsard, Trousseau</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Crémant du Jura</div>
+            <div class="wine-grapes">Chardonnay, Pinot Noir</div>
+          </div>
+      </div>
+    </div>
+
+    <div class="producer-story-col">
+      <p class="producer-story-para">A small family estate near Poligny working with the full palette of Jurassian grapes on the region's distinctive blue and grey marls. The wines are expressive and terroir-driven, made with minimal intervention and deep understanding of what makes the Jura unique.</p>
+    </div>
+  </div>
+
+    <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-col"><div class="footer-col-heading">Contact</div><p class="footer-contact-desc">Questions about our portfolio or distribution?</p><button class="footer-contact-btn" onclick="openContactModal()">Send us a message</button></div>
+      <div class="footer-col"><div class="footer-col-heading">More Information</div><button class="footer-nav-link" onclick="showPage('contact',null)">Employment Opportunities</button><button class="footer-nav-link" onclick="showPage('contact',null)">Become a Customer</button><button class="footer-nav-link" onclick="showPage('national',null)">National Distribution</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Stay in Touch</div><input class="footer-input" type="email" placeholder="Email address*"><input class="footer-input" type="text" placeholder="Name"><button class="footer-subscribe-btn">Subscribe</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Follow</div><div class="footer-social-icons"><a href="https://www.instagram.com/avantgardews/" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/profile.php?id=100054472420492" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
+    </div>
+    <div class="footer-bottom"><div><div class="footer-brand-name">Avant&#8209;Garde</div><div class="footer-brand-sub">Wine &amp; Spirits</div></div><div class="footer-copy">&#169; 2026 Avant-Garde Wine &amp; Spirits. All rights reserved.</div><button class="footer-nav-link" onclick="showPage('login',null)">Client Login</button></div>
+  </footer>
+</div>
+
+<!-- PRODUCER: Benoît Courault -->
+<div id="page-producer-benoitcourault" class="page">
+  <nav class="inner-nav">
+    <div class="inner-nav-brand" onclick="showPage('home',null)">
+      <div class="inner-nav-brand-main">Avant&#8209;Garde</div>
+      <div class="inner-nav-brand-sub">Wine &amp; Spirits</div>
+    </div>
+    <div class="inner-nav-links">
+      <button class="inner-nav-link active" onclick="showPage('producers',null)">Producers</button>
+      <button class="inner-nav-link" onclick="showPage('national',null)">National</button>
+      <button class="inner-nav-link" onclick="showPage('contact',null)">Contact</button>
+    </div>
+    <button class="inner-nav-cta" onclick="showPage('login',null)">Client Login</button>
+  </nav>
+
+  <div class="producer-page-header">
+    <button class="producer-back-btn" onclick="showPage('producers',null)">← Producers</button>
+    <div class="producer-header-region">Loire Valley &middot; France</div>
+  </div>
+
+  <div class="producer-name-banner">
+    <h1 class="producer-name-title">Benoît Courault</h1>
+    <div class="producer-name-sub">Anjou · Faye d'Anjou</div>
+  </div>
+
+  <div class="producer-body">
+    <div class="producer-details-col">
+      <div class="producer-detail-block">
+        <div class="producer-detail-block-label">The Estate</div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Appellation</span><span class="producer-detail-val">Anjou, Anjou Villages</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Grapes</span><span class="producer-detail-val">Chenin Blanc, Cabernet Franc, Gamay</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Surface</span><span class="producer-detail-val">8 ha</span></div>
+        
+        <div class="producer-detail-row"><span class="producer-detail-label">Farming</span><span class="producer-detail-val">Biodynamic</span></div>
+      </div>
+
+      <div class="producer-wines-block">
+        <div class="producer-detail-block-label">The Wines</div>
+        
+          <div class="wine-entry">
+            <div class="wine-name">Les Noëls de Montbenault</div>
+            <div class="wine-grapes">100% Chenin Blanc</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">La Folie</div>
+            <div class="wine-grapes">100% Gamay</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Anjou Rouge</div>
+            <div class="wine-grapes">100% Cabernet Franc</div>
+          </div>
+      </div>
+    </div>
+
+    <div class="producer-story-col">
+      <p class="producer-story-para">One of the most gifted young vignerons in the Loire. Working from Faye d'Anjou, Benoît farms biodynamically on the schist slopes of the Layon. His wines are among the most eagerly sought in the Loire — precise, complex and free of artifice.</p><p class="producer-story-para">The Chenin Blancs have tremendous depth and longevity. His reds from Cabernet Franc and Gamay are some of the most compelling in the appellation. These are benchmark wines.</p>
+    </div>
+  </div>
+
+    <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-col"><div class="footer-col-heading">Contact</div><p class="footer-contact-desc">Questions about our portfolio or distribution?</p><button class="footer-contact-btn" onclick="openContactModal()">Send us a message</button></div>
+      <div class="footer-col"><div class="footer-col-heading">More Information</div><button class="footer-nav-link" onclick="showPage('contact',null)">Employment Opportunities</button><button class="footer-nav-link" onclick="showPage('contact',null)">Become a Customer</button><button class="footer-nav-link" onclick="showPage('national',null)">National Distribution</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Stay in Touch</div><input class="footer-input" type="email" placeholder="Email address*"><input class="footer-input" type="text" placeholder="Name"><button class="footer-subscribe-btn">Subscribe</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Follow</div><div class="footer-social-icons"><a href="https://www.instagram.com/avantgardews/" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/profile.php?id=100054472420492" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
+    </div>
+    <div class="footer-bottom"><div><div class="footer-brand-name">Avant&#8209;Garde</div><div class="footer-brand-sub">Wine &amp; Spirits</div></div><div class="footer-copy">&#169; 2026 Avant-Garde Wine &amp; Spirits. All rights reserved.</div><button class="footer-nav-link" onclick="showPage('login',null)">Client Login</button></div>
+  </footer>
+</div>
+
+<!-- PRODUCER: Paul Cherrier -->
+<div id="page-producer-paulcherrier" class="page">
+  <nav class="inner-nav">
+    <div class="inner-nav-brand" onclick="showPage('home',null)">
+      <div class="inner-nav-brand-main">Avant&#8209;Garde</div>
+      <div class="inner-nav-brand-sub">Wine &amp; Spirits</div>
+    </div>
+    <div class="inner-nav-links">
+      <button class="inner-nav-link active" onclick="showPage('producers',null)">Producers</button>
+      <button class="inner-nav-link" onclick="showPage('national',null)">National</button>
+      <button class="inner-nav-link" onclick="showPage('contact',null)">Contact</button>
+    </div>
+    <button class="inner-nav-cta" onclick="showPage('login',null)">Client Login</button>
+  </nav>
+
+  <div class="producer-page-header">
+    <button class="producer-back-btn" onclick="showPage('producers',null)">← Producers</button>
+    <div class="producer-header-region">Loire Valley &middot; France</div>
+  </div>
+
+  <div class="producer-name-banner">
+    <h1 class="producer-name-title">Paul Cherrier</h1>
+    <div class="producer-name-sub">Sancerre</div>
+  </div>
+
+  <div class="producer-body">
+    <div class="producer-details-col">
+      <div class="producer-detail-block">
+        <div class="producer-detail-block-label">The Estate</div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Appellation</span><span class="producer-detail-val">Sancerre, Menetou-Salon</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Grapes</span><span class="producer-detail-val">Sauvignon Blanc, Pinot Noir</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Surface</span><span class="producer-detail-val">10 ha</span></div>
+        
+        <div class="producer-detail-row"><span class="producer-detail-label">Farming</span><span class="producer-detail-val">Organic</span></div>
+      </div>
+
+      <div class="producer-wines-block">
+        <div class="producer-detail-block-label">The Wines</div>
+        
+          <div class="wine-entry">
+            <div class="wine-name">Sancerre Blanc</div>
+            <div class="wine-grapes">100% Sauvignon Blanc</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Menetou-Salon Blanc</div>
+            <div class="wine-grapes">100% Sauvignon Blanc</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Sancerre Rouge</div>
+            <div class="wine-grapes">100% Pinot Noir</div>
+          </div>
+      </div>
+    </div>
+
+    <div class="producer-story-col">
+      <p class="producer-story-para">Paul Cherrier farms organically in Sancerre, working with old-vine Sauvignon Blanc on the region's famous silex and limestone soils. His wines have the classic Sancerre tension and minerality with a richness and depth that sets them apart. His Menetou-Salon is one of the best value propositions in the Loire.</p>
+    </div>
+  </div>
+
+    <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-col"><div class="footer-col-heading">Contact</div><p class="footer-contact-desc">Questions about our portfolio or distribution?</p><button class="footer-contact-btn" onclick="openContactModal()">Send us a message</button></div>
+      <div class="footer-col"><div class="footer-col-heading">More Information</div><button class="footer-nav-link" onclick="showPage('contact',null)">Employment Opportunities</button><button class="footer-nav-link" onclick="showPage('contact',null)">Become a Customer</button><button class="footer-nav-link" onclick="showPage('national',null)">National Distribution</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Stay in Touch</div><input class="footer-input" type="email" placeholder="Email address*"><input class="footer-input" type="text" placeholder="Name"><button class="footer-subscribe-btn">Subscribe</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Follow</div><div class="footer-social-icons"><a href="https://www.instagram.com/avantgardews/" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/profile.php?id=100054472420492" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
+    </div>
+    <div class="footer-bottom"><div><div class="footer-brand-name">Avant&#8209;Garde</div><div class="footer-brand-sub">Wine &amp; Spirits</div></div><div class="footer-copy">&#169; 2026 Avant-Garde Wine &amp; Spirits. All rights reserved.</div><button class="footer-nav-link" onclick="showPage('login',null)">Client Login</button></div>
+  </footer>
+</div>
+
+<!-- PRODUCER: La Porte Saint Jean -->
+<div id="page-producer-laportesaintjean" class="page">
+  <nav class="inner-nav">
+    <div class="inner-nav-brand" onclick="showPage('home',null)">
+      <div class="inner-nav-brand-main">Avant&#8209;Garde</div>
+      <div class="inner-nav-brand-sub">Wine &amp; Spirits</div>
+    </div>
+    <div class="inner-nav-links">
+      <button class="inner-nav-link active" onclick="showPage('producers',null)">Producers</button>
+      <button class="inner-nav-link" onclick="showPage('national',null)">National</button>
+      <button class="inner-nav-link" onclick="showPage('contact',null)">Contact</button>
+    </div>
+    <button class="inner-nav-cta" onclick="showPage('login',null)">Client Login</button>
+  </nav>
+
+  <div class="producer-page-header">
+    <button class="producer-back-btn" onclick="showPage('producers',null)">← Producers</button>
+    <div class="producer-header-region">Loire Valley &middot; France</div>
+  </div>
+
+  <div class="producer-name-banner">
+    <h1 class="producer-name-title">La Porte Saint Jean</h1>
+    <div class="producer-name-sub">Muscadet · Sèvre et Maine</div>
+  </div>
+
+  <div class="producer-body">
+    <div class="producer-details-col">
+      <div class="producer-detail-block">
+        <div class="producer-detail-block-label">The Estate</div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Appellation</span><span class="producer-detail-val">Muscadet Sèvre et Maine</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Grapes</span><span class="producer-detail-val">Melon de Bourgogne</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Surface</span><span class="producer-detail-val">9 ha</span></div>
+        
+        <div class="producer-detail-row"><span class="producer-detail-label">Farming</span><span class="producer-detail-val">Organic</span></div>
+      </div>
+
+      <div class="producer-wines-block">
+        <div class="producer-detail-block-label">The Wines</div>
+        
+          <div class="wine-entry">
+            <div class="wine-name">Muscadet Sèvre et Maine sur Lie</div>
+            <div class="wine-grapes">100% Melon de Bourgogne</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Muscadet sur Lie 'Les Roches'</div>
+            <div class="wine-grapes">100% Melon de Bourgogne</div>
+          </div>
+      </div>
+    </div>
+
+    <div class="producer-story-col">
+      <p class="producer-story-para">A small estate in the heart of Muscadet farming organically on ancient gneiss and schist soils. Their wines spend extended time on the lees — sometimes years — building texture and complexity while retaining the crisp, saline character that makes Muscadet one of the world's great food wines.</p>
+    </div>
+  </div>
+
+    <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-col"><div class="footer-col-heading">Contact</div><p class="footer-contact-desc">Questions about our portfolio or distribution?</p><button class="footer-contact-btn" onclick="openContactModal()">Send us a message</button></div>
+      <div class="footer-col"><div class="footer-col-heading">More Information</div><button class="footer-nav-link" onclick="showPage('contact',null)">Employment Opportunities</button><button class="footer-nav-link" onclick="showPage('contact',null)">Become a Customer</button><button class="footer-nav-link" onclick="showPage('national',null)">National Distribution</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Stay in Touch</div><input class="footer-input" type="email" placeholder="Email address*"><input class="footer-input" type="text" placeholder="Name"><button class="footer-subscribe-btn">Subscribe</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Follow</div><div class="footer-social-icons"><a href="https://www.instagram.com/avantgardews/" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/profile.php?id=100054472420492" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
+    </div>
+    <div class="footer-bottom"><div><div class="footer-brand-name">Avant&#8209;Garde</div><div class="footer-brand-sub">Wine &amp; Spirits</div></div><div class="footer-copy">&#169; 2026 Avant-Garde Wine &amp; Spirits. All rights reserved.</div><button class="footer-nav-link" onclick="showPage('login',null)">Client Login</button></div>
+  </footer>
+</div>
+
+<!-- PRODUCER: Les Grandes Vignes -->
+<div id="page-producer-lesgrandesvignes" class="page">
+  <nav class="inner-nav">
+    <div class="inner-nav-brand" onclick="showPage('home',null)">
+      <div class="inner-nav-brand-main">Avant&#8209;Garde</div>
+      <div class="inner-nav-brand-sub">Wine &amp; Spirits</div>
+    </div>
+    <div class="inner-nav-links">
+      <button class="inner-nav-link active" onclick="showPage('producers',null)">Producers</button>
+      <button class="inner-nav-link" onclick="showPage('national',null)">National</button>
+      <button class="inner-nav-link" onclick="showPage('contact',null)">Contact</button>
+    </div>
+    <button class="inner-nav-cta" onclick="showPage('login',null)">Client Login</button>
+  </nav>
+
+  <div class="producer-page-header">
+    <button class="producer-back-btn" onclick="showPage('producers',null)">← Producers</button>
+    <div class="producer-header-region">Loire Valley &middot; France</div>
+  </div>
+
+  <div class="producer-name-banner">
+    <h1 class="producer-name-title">Les Grandes Vignes</h1>
+    <div class="producer-name-sub">Anjou · Layon Valley</div>
+  </div>
+
+  <div class="producer-body">
+    <div class="producer-details-col">
+      <div class="producer-detail-block">
+        <div class="producer-detail-block-label">The Estate</div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Appellation</span><span class="producer-detail-val">Anjou, Coteaux du Layon</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Grapes</span><span class="producer-detail-val">Chenin Blanc, Cabernet Franc</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Surface</span><span class="producer-detail-val">35 ha</span></div>
+        
+        <div class="producer-detail-row"><span class="producer-detail-label">Farming</span><span class="producer-detail-val">Biodynamic</span></div>
+      </div>
+
+      <div class="producer-wines-block">
+        <div class="producer-detail-block-label">The Wines</div>
+        
+          <div class="wine-entry">
+            <div class="wine-name">Anjou Blanc</div>
+            <div class="wine-grapes">100% Chenin Blanc</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Coteaux du Layon</div>
+            <div class="wine-grapes">100% Chenin Blanc</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Anjou Rouge</div>
+            <div class="wine-grapes">100% Cabernet Franc</div>
+          </div>
+      </div>
+    </div>
+
+    <div class="producer-story-col">
+      <p class="producer-story-para">A family estate with deep roots in Anjou, farming biodynamically on the schist terroirs of the Layon valley. The Vaillant family produces a range from dry to sweet Chenin Blanc alongside serious Cabernet Franc. Their Coteaux du Layon, from late-harvested Chenin on botrytized schist, is one of the hidden treasures of the Loire.</p>
+    </div>
+  </div>
+
+    <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-col"><div class="footer-col-heading">Contact</div><p class="footer-contact-desc">Questions about our portfolio or distribution?</p><button class="footer-contact-btn" onclick="openContactModal()">Send us a message</button></div>
+      <div class="footer-col"><div class="footer-col-heading">More Information</div><button class="footer-nav-link" onclick="showPage('contact',null)">Employment Opportunities</button><button class="footer-nav-link" onclick="showPage('contact',null)">Become a Customer</button><button class="footer-nav-link" onclick="showPage('national',null)">National Distribution</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Stay in Touch</div><input class="footer-input" type="email" placeholder="Email address*"><input class="footer-input" type="text" placeholder="Name"><button class="footer-subscribe-btn">Subscribe</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Follow</div><div class="footer-social-icons"><a href="https://www.instagram.com/avantgardews/" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/profile.php?id=100054472420492" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
+    </div>
+    <div class="footer-bottom"><div><div class="footer-brand-name">Avant&#8209;Garde</div><div class="footer-brand-sub">Wine &amp; Spirits</div></div><div class="footer-copy">&#169; 2026 Avant-Garde Wine &amp; Spirits. All rights reserved.</div><button class="footer-nav-link" onclick="showPage('login',null)">Client Login</button></div>
+  </footer>
+</div>
+
+<!-- PRODUCER: Domaine des Frères -->
+<div id="page-producer-domainedesfreres" class="page">
+  <nav class="inner-nav">
+    <div class="inner-nav-brand" onclick="showPage('home',null)">
+      <div class="inner-nav-brand-main">Avant&#8209;Garde</div>
+      <div class="inner-nav-brand-sub">Wine &amp; Spirits</div>
+    </div>
+    <div class="inner-nav-links">
+      <button class="inner-nav-link active" onclick="showPage('producers',null)">Producers</button>
+      <button class="inner-nav-link" onclick="showPage('national',null)">National</button>
+      <button class="inner-nav-link" onclick="showPage('contact',null)">Contact</button>
+    </div>
+    <button class="inner-nav-cta" onclick="showPage('login',null)">Client Login</button>
+  </nav>
+
+  <div class="producer-page-header">
+    <button class="producer-back-btn" onclick="showPage('producers',null)">← Producers</button>
+    <div class="producer-header-region">Loire Valley &middot; France</div>
+  </div>
+
+  <div class="producer-name-banner">
+    <h1 class="producer-name-title">Domaine des Frères</h1>
+    <div class="producer-name-sub">Chinon · Beaumont-en-Véron</div>
+  </div>
+
+  <div class="producer-body">
+    <div class="producer-details-col">
+      <div class="producer-detail-block">
+        <div class="producer-detail-block-label">The Estate</div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Appellation</span><span class="producer-detail-val">Chinon, Vin de France</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Grapes</span><span class="producer-detail-val">Cabernet Franc, Chenin Blanc</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Surface</span><span class="producer-detail-val">11 ha</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Production</span><span class="producer-detail-val">45,000 bottles</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Farming</span><span class="producer-detail-val">Organic</span></div>
+      </div>
+
+      <div class="producer-wines-block">
+        <div class="producer-detail-block-label">The Wines</div>
+        
+          <div class="wine-entry">
+            <div class="wine-name">Le Pérou</div>
+            <div class="wine-grapes">100% Cabernet Franc · Vin de France · Sand terraces on flint</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Les Pucelles</div>
+            <div class="wine-grapes">100% Chenin Blanc · Vin de France · Weathered limestone on tuffeau</div>
+          </div>
+      </div>
+    </div>
+
+    <div class="producer-story-col">
+      <p class="producer-story-para">Henri and Valentin Bruneau grew up near Chinon and both became engineers before realizing the office was not for them. Henri returned to study viticulture and oenology in 2013; Valentin followed in 2015. In October 2019 they took over a unique estate of 27 acres of vines between 35 and 50 years old on a hillside containing 7 distinct terroirs, with a cellar cut into the local tuffeau limestone.</p><p class="producer-story-para">Farming is organic with precise tisanes, harvest by hand before dawn. In just a few harvests the brothers have built a quiet reputation in France for wines that are pure, crunchy and deeply expressive of their place.</p>
+    </div>
+  </div>
+
+    <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-col"><div class="footer-col-heading">Contact</div><p class="footer-contact-desc">Questions about our portfolio or distribution?</p><button class="footer-contact-btn" onclick="openContactModal()">Send us a message</button></div>
+      <div class="footer-col"><div class="footer-col-heading">More Information</div><button class="footer-nav-link" onclick="showPage('contact',null)">Employment Opportunities</button><button class="footer-nav-link" onclick="showPage('contact',null)">Become a Customer</button><button class="footer-nav-link" onclick="showPage('national',null)">National Distribution</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Stay in Touch</div><input class="footer-input" type="email" placeholder="Email address*"><input class="footer-input" type="text" placeholder="Name"><button class="footer-subscribe-btn">Subscribe</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Follow</div><div class="footer-social-icons"><a href="https://www.instagram.com/avantgardews/" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/profile.php?id=100054472420492" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
+    </div>
+    <div class="footer-bottom"><div><div class="footer-brand-name">Avant&#8209;Garde</div><div class="footer-brand-sub">Wine &amp; Spirits</div></div><div class="footer-copy">&#169; 2026 Avant-Garde Wine &amp; Spirits. All rights reserved.</div><button class="footer-nav-link" onclick="showPage('login',null)">Client Login</button></div>
+  </footer>
+</div>
+
+<!-- PRODUCER: Domaine du Chapitre -->
+<div id="page-producer-domaineduchapitre" class="page">
+  <nav class="inner-nav">
+    <div class="inner-nav-brand" onclick="showPage('home',null)">
+      <div class="inner-nav-brand-main">Avant&#8209;Garde</div>
+      <div class="inner-nav-brand-sub">Wine &amp; Spirits</div>
+    </div>
+    <div class="inner-nav-links">
+      <button class="inner-nav-link active" onclick="showPage('producers',null)">Producers</button>
+      <button class="inner-nav-link" onclick="showPage('national',null)">National</button>
+      <button class="inner-nav-link" onclick="showPage('contact',null)">Contact</button>
+    </div>
+    <button class="inner-nav-cta" onclick="showPage('login',null)">Client Login</button>
+  </nav>
+
+  <div class="producer-page-header">
+    <button class="producer-back-btn" onclick="showPage('producers',null)">← Producers</button>
+    <div class="producer-header-region">Loire Valley &middot; France</div>
+  </div>
+
+  <div class="producer-name-banner">
+    <h1 class="producer-name-title">Domaine du Chapitre</h1>
+    <div class="producer-name-sub">Touraine</div>
+  </div>
+
+  <div class="producer-body">
+    <div class="producer-details-col">
+      <div class="producer-detail-block">
+        <div class="producer-detail-block-label">The Estate</div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Appellation</span><span class="producer-detail-val">Touraine, Vin de France</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Grapes</span><span class="producer-detail-val">Gamay, Côt, Sauvignon Blanc</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Surface</span><span class="producer-detail-val">8 ha</span></div>
+        
+        <div class="producer-detail-row"><span class="producer-detail-label">Farming</span><span class="producer-detail-val">Organic</span></div>
+      </div>
+
+      <div class="producer-wines-block">
+        <div class="producer-detail-block-label">The Wines</div>
+        
+          <div class="wine-entry">
+            <div class="wine-name">Touraine Gamay</div>
+            <div class="wine-grapes">100% Gamay</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Touraine Sauvignon</div>
+            <div class="wine-grapes">100% Sauvignon Blanc</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Côt</div>
+            <div class="wine-grapes">100% Côt (Malbec)</div>
+          </div>
+      </div>
+    </div>
+
+    <div class="producer-story-col">
+      <p class="producer-story-para">A small Touraine estate farming organically on limestone and clay soils, producing honest, delicious wines from Gamay, Côt (Malbec) and Sauvignon Blanc. These are wines built for the table — fresh, direct and full of character.</p>
+    </div>
+  </div>
+
+    <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-col"><div class="footer-col-heading">Contact</div><p class="footer-contact-desc">Questions about our portfolio or distribution?</p><button class="footer-contact-btn" onclick="openContactModal()">Send us a message</button></div>
+      <div class="footer-col"><div class="footer-col-heading">More Information</div><button class="footer-nav-link" onclick="showPage('contact',null)">Employment Opportunities</button><button class="footer-nav-link" onclick="showPage('contact',null)">Become a Customer</button><button class="footer-nav-link" onclick="showPage('national',null)">National Distribution</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Stay in Touch</div><input class="footer-input" type="email" placeholder="Email address*"><input class="footer-input" type="text" placeholder="Name"><button class="footer-subscribe-btn">Subscribe</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Follow</div><div class="footer-social-icons"><a href="https://www.instagram.com/avantgardews/" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/profile.php?id=100054472420492" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
+    </div>
+    <div class="footer-bottom"><div><div class="footer-brand-name">Avant&#8209;Garde</div><div class="footer-brand-sub">Wine &amp; Spirits</div></div><div class="footer-copy">&#169; 2026 Avant-Garde Wine &amp; Spirits. All rights reserved.</div><button class="footer-nav-link" onclick="showPage('login',null)">Client Login</button></div>
+  </footer>
+</div>
+
+<!-- PRODUCER: Domaine Milan -->
+<div id="page-producer-domainemilan" class="page">
+  <nav class="inner-nav">
+    <div class="inner-nav-brand" onclick="showPage('home',null)">
+      <div class="inner-nav-brand-main">Avant&#8209;Garde</div>
+      <div class="inner-nav-brand-sub">Wine &amp; Spirits</div>
+    </div>
+    <div class="inner-nav-links">
+      <button class="inner-nav-link active" onclick="showPage('producers',null)">Producers</button>
+      <button class="inner-nav-link" onclick="showPage('national',null)">National</button>
+      <button class="inner-nav-link" onclick="showPage('contact',null)">Contact</button>
+    </div>
+    <button class="inner-nav-cta" onclick="showPage('login',null)">Client Login</button>
+  </nav>
+
+  <div class="producer-page-header">
+    <button class="producer-back-btn" onclick="showPage('producers',null)">← Producers</button>
+    <div class="producer-header-region">Provence &middot; France</div>
+  </div>
+
+  <div class="producer-name-banner">
+    <h1 class="producer-name-title">Domaine Milan</h1>
+    <div class="producer-name-sub">Les Baux-de-Provence · Alpilles</div>
+  </div>
+
+  <div class="producer-body">
+    <div class="producer-details-col">
+      <div class="producer-detail-block">
+        <div class="producer-detail-block-label">The Estate</div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Appellation</span><span class="producer-detail-val">Les Baux-de-Provence, Vin de France</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Grapes</span><span class="producer-detail-val">Grenache, Syrah, Mourvèdre, Clairette, Rolle</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Surface</span><span class="producer-detail-val">20 ha</span></div>
+        
+        <div class="producer-detail-row"><span class="producer-detail-label">Farming</span><span class="producer-detail-val">Certified Biodynamic</span></div>
+      </div>
+
+      <div class="producer-wines-block">
+        <div class="producer-detail-block-label">The Wines</div>
+        
+          <div class="wine-entry">
+            <div class="wine-name">L'Equilibriste Blanc</div>
+            <div class="wine-grapes">Clairette, Rolle</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Le Jardin Rosé</div>
+            <div class="wine-grapes">Grenache, Syrah</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Sans Soufre Rouge</div>
+            <div class="wine-grapes">Grenache, Syrah, Mourvèdre</div>
+          </div>
+      </div>
+    </div>
+
+    <div class="producer-story-col">
+      <p class="producer-story-para">Henri Milan is a legend of natural wine in Provence. His estate in the Alpilles near Les Baux has been farmed biodynamically for decades — one of the first in the region to commit fully to this path. Minimal intervention in the cellar is absolute: no additions, no fining, no filtration.</p><p class="producer-story-para">The whites and rosés have a floral, mineral purity unlike anything else in Provence. The reds are structured and savory, made for the table. These are benchmark wines of the region.</p>
+    </div>
+  </div>
+
+    <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-col"><div class="footer-col-heading">Contact</div><p class="footer-contact-desc">Questions about our portfolio or distribution?</p><button class="footer-contact-btn" onclick="openContactModal()">Send us a message</button></div>
+      <div class="footer-col"><div class="footer-col-heading">More Information</div><button class="footer-nav-link" onclick="showPage('contact',null)">Employment Opportunities</button><button class="footer-nav-link" onclick="showPage('contact',null)">Become a Customer</button><button class="footer-nav-link" onclick="showPage('national',null)">National Distribution</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Stay in Touch</div><input class="footer-input" type="email" placeholder="Email address*"><input class="footer-input" type="text" placeholder="Name"><button class="footer-subscribe-btn">Subscribe</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Follow</div><div class="footer-social-icons"><a href="https://www.instagram.com/avantgardews/" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/profile.php?id=100054472420492" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
+    </div>
+    <div class="footer-bottom"><div><div class="footer-brand-name">Avant&#8209;Garde</div><div class="footer-brand-sub">Wine &amp; Spirits</div></div><div class="footer-copy">&#169; 2026 Avant-Garde Wine &amp; Spirits. All rights reserved.</div><button class="footer-nav-link" onclick="showPage('login',null)">Client Login</button></div>
+  </footer>
+</div>
+
+<!-- PRODUCER: Gourt de Mautens -->
+<div id="page-producer-gourtdemautens" class="page">
+  <nav class="inner-nav">
+    <div class="inner-nav-brand" onclick="showPage('home',null)">
+      <div class="inner-nav-brand-main">Avant&#8209;Garde</div>
+      <div class="inner-nav-brand-sub">Wine &amp; Spirits</div>
+    </div>
+    <div class="inner-nav-links">
+      <button class="inner-nav-link active" onclick="showPage('producers',null)">Producers</button>
+      <button class="inner-nav-link" onclick="showPage('national',null)">National</button>
+      <button class="inner-nav-link" onclick="showPage('contact',null)">Contact</button>
+    </div>
+    <button class="inner-nav-cta" onclick="showPage('login',null)">Client Login</button>
+  </nav>
+
+  <div class="producer-page-header">
+    <button class="producer-back-btn" onclick="showPage('producers',null)">← Producers</button>
+    <div class="producer-header-region">Rhône Valley &middot; France</div>
+  </div>
+
+  <div class="producer-name-banner">
+    <h1 class="producer-name-title">Gourt de Mautens</h1>
+    <div class="producer-name-sub">Rasteau</div>
+  </div>
+
+  <div class="producer-body">
+    <div class="producer-details-col">
+      <div class="producer-detail-block">
+        <div class="producer-detail-block-label">The Estate</div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Appellation</span><span class="producer-detail-val">Rasteau, Côtes du Rhône Villages</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Grapes</span><span class="producer-detail-val">Grenache, Syrah, Mourvèdre, Carignan, Cinsault</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Surface</span><span class="producer-detail-val">18 ha</span></div>
+        
+        <div class="producer-detail-row"><span class="producer-detail-label">Farming</span><span class="producer-detail-val">Biodynamic</span></div>
+      </div>
+
+      <div class="producer-wines-block">
+        <div class="producer-detail-block-label">The Wines</div>
+        
+          <div class="wine-entry">
+            <div class="wine-name">Rasteau Rouge</div>
+            <div class="wine-grapes">Grenache, Syrah, Mourvèdre, Carignan, Cinsault</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Rasteau Blanc</div>
+            <div class="wine-grapes">Grenache Blanc, Clairette, Marsanne, Roussanne</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Côtes du Rhône Villages</div>
+            <div class="wine-grapes">Grenache, Syrah</div>
+          </div>
+      </div>
+    </div>
+
+    <div class="producer-story-col">
+      <p class="producer-story-para">Jérôme Bressy's Gourt de Mautens is one of the defining domaines of Rasteau. Working with old vines — some over 100 years old — on the village's distinctive ochre clay and limestone soils, he produces wines of extraordinary concentration and complexity.</p><p class="producer-story-para">These are serious, age-worthy wines that require patience in bottle but reward it enormously. Among the finest in the entire Rhône Valley.</p>
+    </div>
+  </div>
+
+    <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-col"><div class="footer-col-heading">Contact</div><p class="footer-contact-desc">Questions about our portfolio or distribution?</p><button class="footer-contact-btn" onclick="openContactModal()">Send us a message</button></div>
+      <div class="footer-col"><div class="footer-col-heading">More Information</div><button class="footer-nav-link" onclick="showPage('contact',null)">Employment Opportunities</button><button class="footer-nav-link" onclick="showPage('contact',null)">Become a Customer</button><button class="footer-nav-link" onclick="showPage('national',null)">National Distribution</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Stay in Touch</div><input class="footer-input" type="email" placeholder="Email address*"><input class="footer-input" type="text" placeholder="Name"><button class="footer-subscribe-btn">Subscribe</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Follow</div><div class="footer-social-icons"><a href="https://www.instagram.com/avantgardews/" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/profile.php?id=100054472420492" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
+    </div>
+    <div class="footer-bottom"><div><div class="footer-brand-name">Avant&#8209;Garde</div><div class="footer-brand-sub">Wine &amp; Spirits</div></div><div class="footer-copy">&#169; 2026 Avant-Garde Wine &amp; Spirits. All rights reserved.</div><button class="footer-nav-link" onclick="showPage('login',null)">Client Login</button></div>
+  </footer>
+</div>
+
+<!-- PRODUCER: Mouthes le Bihan -->
+<div id="page-producer-moutheslebihan" class="page">
+  <nav class="inner-nav">
+    <div class="inner-nav-brand" onclick="showPage('home',null)">
+      <div class="inner-nav-brand-main">Avant&#8209;Garde</div>
+      <div class="inner-nav-brand-sub">Wine &amp; Spirits</div>
+    </div>
+    <div class="inner-nav-links">
+      <button class="inner-nav-link active" onclick="showPage('producers',null)">Producers</button>
+      <button class="inner-nav-link" onclick="showPage('national',null)">National</button>
+      <button class="inner-nav-link" onclick="showPage('contact',null)">Contact</button>
+    </div>
+    <button class="inner-nav-cta" onclick="showPage('login',null)">Client Login</button>
+  </nav>
+
+  <div class="producer-page-header">
+    <button class="producer-back-btn" onclick="showPage('producers',null)">← Producers</button>
+    <div class="producer-header-region">South West &middot; France</div>
+  </div>
+
+  <div class="producer-name-banner">
+    <h1 class="producer-name-title">Mouthes le Bihan</h1>
+    <div class="producer-name-sub">Côtes de Duras</div>
+  </div>
+
+  <div class="producer-body">
+    <div class="producer-details-col">
+      <div class="producer-detail-block">
+        <div class="producer-detail-block-label">The Estate</div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Appellation</span><span class="producer-detail-val">Côtes de Duras</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Grapes</span><span class="producer-detail-val">Merlot, Cabernet Franc, Sauvignon Blanc, Semillon</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Surface</span><span class="producer-detail-val">30 ha</span></div>
+        
+        <div class="producer-detail-row"><span class="producer-detail-label">Farming</span><span class="producer-detail-val">Biodynamic</span></div>
+      </div>
+
+      <div class="producer-wines-block">
+        <div class="producer-detail-block-label">The Wines</div>
+        
+          <div class="wine-entry">
+            <div class="wine-name">Le Garrigue Rouge</div>
+            <div class="wine-grapes">Merlot, Cabernet Franc</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">La Pie Colette Blanc</div>
+            <div class="wine-grapes">Sauvignon Blanc, Semillon</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Caillou Blanc</div>
+            <div class="wine-grapes">Sauvignon Blanc</div>
+          </div>
+      </div>
+    </div>
+
+    <div class="producer-story-col">
+      <p class="producer-story-para">Marie and Jean-Mary Bihan farm biodynamically in the Côtes de Duras, one of southwest France's most underappreciated appellations. From old vines on the plateau's clay and limestone soils, they make wines of remarkable purity and depth — reds of real structure and whites from Sauvignon Blanc and Semillon with a richness rarely found at this level.</p>
+    </div>
+  </div>
+
+    <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-col"><div class="footer-col-heading">Contact</div><p class="footer-contact-desc">Questions about our portfolio or distribution?</p><button class="footer-contact-btn" onclick="openContactModal()">Send us a message</button></div>
+      <div class="footer-col"><div class="footer-col-heading">More Information</div><button class="footer-nav-link" onclick="showPage('contact',null)">Employment Opportunities</button><button class="footer-nav-link" onclick="showPage('contact',null)">Become a Customer</button><button class="footer-nav-link" onclick="showPage('national',null)">National Distribution</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Stay in Touch</div><input class="footer-input" type="email" placeholder="Email address*"><input class="footer-input" type="text" placeholder="Name"><button class="footer-subscribe-btn">Subscribe</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Follow</div><div class="footer-social-icons"><a href="https://www.instagram.com/avantgardews/" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/profile.php?id=100054472420492" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
+    </div>
+    <div class="footer-bottom"><div><div class="footer-brand-name">Avant&#8209;Garde</div><div class="footer-brand-sub">Wine &amp; Spirits</div></div><div class="footer-copy">&#169; 2026 Avant-Garde Wine &amp; Spirits. All rights reserved.</div><button class="footer-nav-link" onclick="showPage('login',null)">Client Login</button></div>
+  </footer>
+</div>
+
+<!-- PRODUCER: Tenuta La Novella -->
+<div id="page-producer-tenutalanovella" class="page">
+  <nav class="inner-nav">
+    <div class="inner-nav-brand" onclick="showPage('home',null)">
+      <div class="inner-nav-brand-main">Avant&#8209;Garde</div>
+      <div class="inner-nav-brand-sub">Wine &amp; Spirits</div>
+    </div>
+    <div class="inner-nav-links">
+      <button class="inner-nav-link active" onclick="showPage('producers',null)">Producers</button>
+      <button class="inner-nav-link" onclick="showPage('national',null)">National</button>
+      <button class="inner-nav-link" onclick="showPage('contact',null)">Contact</button>
+    </div>
+    <button class="inner-nav-cta" onclick="showPage('login',null)">Client Login</button>
+  </nav>
+
+  <div class="producer-page-header">
+    <button class="producer-back-btn" onclick="showPage('producers',null)">← Producers</button>
+    <div class="producer-header-region">Tuscany &middot; Italy</div>
+  </div>
+
+  <div class="producer-name-banner">
+    <h1 class="producer-name-title">Tenuta La Novella</h1>
+    <div class="producer-name-sub">Maremma Toscana</div>
+  </div>
+
+  <div class="producer-body">
+    <div class="producer-details-col">
+      <div class="producer-detail-block">
+        <div class="producer-detail-block-label">The Estate</div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Appellation</span><span class="producer-detail-val">Maremma Toscana</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Grapes</span><span class="producer-detail-val">Sangiovese, Vermentino, Ciliegiolo</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Surface</span><span class="producer-detail-val">12 ha</span></div>
+        
+        <div class="producer-detail-row"><span class="producer-detail-label">Farming</span><span class="producer-detail-val">Organic</span></div>
+      </div>
+
+      <div class="producer-wines-block">
+        <div class="producer-detail-block-label">The Wines</div>
+        
+          <div class="wine-entry">
+            <div class="wine-name">Maremma Sangiovese</div>
+            <div class="wine-grapes">100% Sangiovese</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Vermentino</div>
+            <div class="wine-grapes">100% Vermentino</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Ciliegiolo</div>
+            <div class="wine-grapes">100% Ciliegiolo</div>
+          </div>
+      </div>
+    </div>
+
+    <div class="producer-story-col">
+      <p class="producer-story-para">A family estate in the Maremma, Tuscany's wild coastal zone, farming organically on galestro and clay soils. The Sangiovese has the freshness and energy this variety achieves in few other places. The Vermentino is one of the most compelling whites from Tuscany — coastal, saline and precise.</p>
+    </div>
+  </div>
+
+    <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-col"><div class="footer-col-heading">Contact</div><p class="footer-contact-desc">Questions about our portfolio or distribution?</p><button class="footer-contact-btn" onclick="openContactModal()">Send us a message</button></div>
+      <div class="footer-col"><div class="footer-col-heading">More Information</div><button class="footer-nav-link" onclick="showPage('contact',null)">Employment Opportunities</button><button class="footer-nav-link" onclick="showPage('contact',null)">Become a Customer</button><button class="footer-nav-link" onclick="showPage('national',null)">National Distribution</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Stay in Touch</div><input class="footer-input" type="email" placeholder="Email address*"><input class="footer-input" type="text" placeholder="Name"><button class="footer-subscribe-btn">Subscribe</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Follow</div><div class="footer-social-icons"><a href="https://www.instagram.com/avantgardews/" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/profile.php?id=100054472420492" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
+    </div>
+    <div class="footer-bottom"><div><div class="footer-brand-name">Avant&#8209;Garde</div><div class="footer-brand-sub">Wine &amp; Spirits</div></div><div class="footer-copy">&#169; 2026 Avant-Garde Wine &amp; Spirits. All rights reserved.</div><button class="footer-nav-link" onclick="showPage('login',null)">Client Login</button></div>
+  </footer>
+</div>
+
+<!-- PRODUCER: Nicola Gatta -->
+<div id="page-producer-nicolagatta" class="page">
+  <nav class="inner-nav">
+    <div class="inner-nav-brand" onclick="showPage('home',null)">
+      <div class="inner-nav-brand-main">Avant&#8209;Garde</div>
+      <div class="inner-nav-brand-sub">Wine &amp; Spirits</div>
+    </div>
+    <div class="inner-nav-links">
+      <button class="inner-nav-link active" onclick="showPage('producers',null)">Producers</button>
+      <button class="inner-nav-link" onclick="showPage('national',null)">National</button>
+      <button class="inner-nav-link" onclick="showPage('contact',null)">Contact</button>
+    </div>
+    <button class="inner-nav-cta" onclick="showPage('login',null)">Client Login</button>
+  </nav>
+
+  <div class="producer-page-header">
+    <button class="producer-back-btn" onclick="showPage('producers',null)">← Producers</button>
+    <div class="producer-header-region">Lombardia &middot; Italy</div>
+  </div>
+
+  <div class="producer-name-banner">
+    <h1 class="producer-name-title">Nicola Gatta</h1>
+    <div class="producer-name-sub">Franciacorta</div>
+  </div>
+
+  <div class="producer-body">
+    <div class="producer-details-col">
+      <div class="producer-detail-block">
+        <div class="producer-detail-block-label">The Estate</div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Appellation</span><span class="producer-detail-val">Franciacorta DOCG</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Grapes</span><span class="producer-detail-val">Chardonnay, Pinot Nero, Pinot Bianco</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Surface</span><span class="producer-detail-val">8 ha</span></div>
+        
+        <div class="producer-detail-row"><span class="producer-detail-label">Farming</span><span class="producer-detail-val">Organic</span></div>
+      </div>
+
+      <div class="producer-wines-block">
+        <div class="producer-detail-block-label">The Wines</div>
+        
+          <div class="wine-entry">
+            <div class="wine-name">Franciacorta Brut</div>
+            <div class="wine-grapes">Chardonnay, Pinot Nero</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Franciacorta Extra Brut</div>
+            <div class="wine-grapes">100% Chardonnay</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Franciacorta Satèn</div>
+            <div class="wine-grapes">100% Chardonnay</div>
+          </div>
+      </div>
+    </div>
+
+    <div class="producer-story-col">
+      <p class="producer-story-para">One of the most interesting producers in Franciacorta, making sparkling wines that rival Champagne in quality and finesse. Farming organically on the morainic soils left by the ancient glaciers of Lake Iseo, Nicola Gatta produces wines of extraordinary freshness and complexity — serious sparkling wine from a serious producer.</p>
+    </div>
+  </div>
+
+    <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-col"><div class="footer-col-heading">Contact</div><p class="footer-contact-desc">Questions about our portfolio or distribution?</p><button class="footer-contact-btn" onclick="openContactModal()">Send us a message</button></div>
+      <div class="footer-col"><div class="footer-col-heading">More Information</div><button class="footer-nav-link" onclick="showPage('contact',null)">Employment Opportunities</button><button class="footer-nav-link" onclick="showPage('contact',null)">Become a Customer</button><button class="footer-nav-link" onclick="showPage('national',null)">National Distribution</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Stay in Touch</div><input class="footer-input" type="email" placeholder="Email address*"><input class="footer-input" type="text" placeholder="Name"><button class="footer-subscribe-btn">Subscribe</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Follow</div><div class="footer-social-icons"><a href="https://www.instagram.com/avantgardews/" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/profile.php?id=100054472420492" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
+    </div>
+    <div class="footer-bottom"><div><div class="footer-brand-name">Avant&#8209;Garde</div><div class="footer-brand-sub">Wine &amp; Spirits</div></div><div class="footer-copy">&#169; 2026 Avant-Garde Wine &amp; Spirits. All rights reserved.</div><button class="footer-nav-link" onclick="showPage('login',null)">Client Login</button></div>
+  </footer>
+</div>
+
+<!-- PRODUCER: Cristiana Meggiolaro -->
+<div id="page-producer-cristianameggiolaro" class="page">
+  <nav class="inner-nav">
+    <div class="inner-nav-brand" onclick="showPage('home',null)">
+      <div class="inner-nav-brand-main">Avant&#8209;Garde</div>
+      <div class="inner-nav-brand-sub">Wine &amp; Spirits</div>
+    </div>
+    <div class="inner-nav-links">
+      <button class="inner-nav-link active" onclick="showPage('producers',null)">Producers</button>
+      <button class="inner-nav-link" onclick="showPage('national',null)">National</button>
+      <button class="inner-nav-link" onclick="showPage('contact',null)">Contact</button>
+    </div>
+    <button class="inner-nav-cta" onclick="showPage('login',null)">Client Login</button>
+  </nav>
+
+  <div class="producer-page-header">
+    <button class="producer-back-btn" onclick="showPage('producers',null)">← Producers</button>
+    <div class="producer-header-region">Veneto &middot; Italy</div>
+  </div>
+
+  <div class="producer-name-banner">
+    <h1 class="producer-name-title">Cristiana Meggiolaro</h1>
+    <div class="producer-name-sub">Colli Euganei</div>
+  </div>
+
+  <div class="producer-body">
+    <div class="producer-details-col">
+      <div class="producer-detail-block">
+        <div class="producer-detail-block-label">The Estate</div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Appellation</span><span class="producer-detail-val">Colli Euganei</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Grapes</span><span class="producer-detail-val">Garganega, Moscato Giallo, Merlot, Cabernet</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Surface</span><span class="producer-detail-val">6 ha</span></div>
+        
+        <div class="producer-detail-row"><span class="producer-detail-label">Farming</span><span class="producer-detail-val">Organic</span></div>
+      </div>
+
+      <div class="producer-wines-block">
+        <div class="producer-detail-block-label">The Wines</div>
+        
+          <div class="wine-entry">
+            <div class="wine-name">Garganega</div>
+            <div class="wine-grapes">100% Garganega</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Moscato Giallo</div>
+            <div class="wine-grapes">100% Moscato Giallo</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Colli Euganei Rosso</div>
+            <div class="wine-grapes">Merlot, Cabernet</div>
+          </div>
+      </div>
+    </div>
+
+    <div class="producer-story-col">
+      <p class="producer-story-para">Cristiana Meggiolaro works her small estate in the Colli Euganei, a volcanic hill zone in the Veneto that remains one of Italy's most underappreciated wine territories. Farming organically on the basaltic soils, she produces wines of vivid mineral character and genuine personality.</p>
+    </div>
+  </div>
+
+    <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-col"><div class="footer-col-heading">Contact</div><p class="footer-contact-desc">Questions about our portfolio or distribution?</p><button class="footer-contact-btn" onclick="openContactModal()">Send us a message</button></div>
+      <div class="footer-col"><div class="footer-col-heading">More Information</div><button class="footer-nav-link" onclick="showPage('contact',null)">Employment Opportunities</button><button class="footer-nav-link" onclick="showPage('contact',null)">Become a Customer</button><button class="footer-nav-link" onclick="showPage('national',null)">National Distribution</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Stay in Touch</div><input class="footer-input" type="email" placeholder="Email address*"><input class="footer-input" type="text" placeholder="Name"><button class="footer-subscribe-btn">Subscribe</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Follow</div><div class="footer-social-icons"><a href="https://www.instagram.com/avantgardews/" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/profile.php?id=100054472420492" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
+    </div>
+    <div class="footer-bottom"><div><div class="footer-brand-name">Avant&#8209;Garde</div><div class="footer-brand-sub">Wine &amp; Spirits</div></div><div class="footer-copy">&#169; 2026 Avant-Garde Wine &amp; Spirits. All rights reserved.</div><button class="footer-nav-link" onclick="showPage('login',null)">Client Login</button></div>
+  </footer>
+</div>
+
+<!-- PRODUCER: Castelvecchio -->
+<div id="page-producer-castelvecchio" class="page">
+  <nav class="inner-nav">
+    <div class="inner-nav-brand" onclick="showPage('home',null)">
+      <div class="inner-nav-brand-main">Avant&#8209;Garde</div>
+      <div class="inner-nav-brand-sub">Wine &amp; Spirits</div>
+    </div>
+    <div class="inner-nav-links">
+      <button class="inner-nav-link active" onclick="showPage('producers',null)">Producers</button>
+      <button class="inner-nav-link" onclick="showPage('national',null)">National</button>
+      <button class="inner-nav-link" onclick="showPage('contact',null)">Contact</button>
+    </div>
+    <button class="inner-nav-cta" onclick="showPage('login',null)">Client Login</button>
+  </nav>
+
+  <div class="producer-page-header">
+    <button class="producer-back-btn" onclick="showPage('producers',null)">← Producers</button>
+    <div class="producer-header-region">Friuli &middot; Italy</div>
+  </div>
+
+  <div class="producer-name-banner">
+    <h1 class="producer-name-title">Castelvecchio</h1>
+    <div class="producer-name-sub">Friuli Venezia Giulia</div>
+  </div>
+
+  <div class="producer-body">
+    <div class="producer-details-col">
+      <div class="producer-detail-block">
+        <div class="producer-detail-block-label">The Estate</div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Appellation</span><span class="producer-detail-val">Friuli Colli Orientali</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Grapes</span><span class="producer-detail-val">Ribolla Gialla, Friulano, Refosco, Schioppettino</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Surface</span><span class="producer-detail-val">14 ha</span></div>
+        
+        <div class="producer-detail-row"><span class="producer-detail-label">Farming</span><span class="producer-detail-val">Organic</span></div>
+      </div>
+
+      <div class="producer-wines-block">
+        <div class="producer-detail-block-label">The Wines</div>
+        
+          <div class="wine-entry">
+            <div class="wine-name">Ribolla Gialla</div>
+            <div class="wine-grapes">100% Ribolla Gialla</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Friulano</div>
+            <div class="wine-grapes">100% Friulano</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Refosco</div>
+            <div class="wine-grapes">100% Refosco</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Schioppettino</div>
+            <div class="wine-grapes">100% Schioppettino</div>
+          </div>
+      </div>
+    </div>
+
+    <div class="producer-story-col">
+      <p class="producer-story-para">An organic estate in the Friuli Colli Orientali, working with the great indigenous varieties of this remarkable northeast corner of Italy. Ribolla Gialla and Friulano produce whites of real depth and complexity, while Refosco and Schioppettino make reds unlike anything else in the Italian canon.</p>
+    </div>
+  </div>
+
+    <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-col"><div class="footer-col-heading">Contact</div><p class="footer-contact-desc">Questions about our portfolio or distribution?</p><button class="footer-contact-btn" onclick="openContactModal()">Send us a message</button></div>
+      <div class="footer-col"><div class="footer-col-heading">More Information</div><button class="footer-nav-link" onclick="showPage('contact',null)">Employment Opportunities</button><button class="footer-nav-link" onclick="showPage('contact',null)">Become a Customer</button><button class="footer-nav-link" onclick="showPage('national',null)">National Distribution</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Stay in Touch</div><input class="footer-input" type="email" placeholder="Email address*"><input class="footer-input" type="text" placeholder="Name"><button class="footer-subscribe-btn">Subscribe</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Follow</div><div class="footer-social-icons"><a href="https://www.instagram.com/avantgardews/" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/profile.php?id=100054472420492" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
+    </div>
+    <div class="footer-bottom"><div><div class="footer-brand-name">Avant&#8209;Garde</div><div class="footer-brand-sub">Wine &amp; Spirits</div></div><div class="footer-copy">&#169; 2026 Avant-Garde Wine &amp; Spirits. All rights reserved.</div><button class="footer-nav-link" onclick="showPage('login',null)">Client Login</button></div>
+  </footer>
+</div>
+
+<!-- PRODUCER: Alta Alella -->
+<div id="page-producer-altaalella" class="page">
+  <nav class="inner-nav">
+    <div class="inner-nav-brand" onclick="showPage('home',null)">
+      <div class="inner-nav-brand-main">Avant&#8209;Garde</div>
+      <div class="inner-nav-brand-sub">Wine &amp; Spirits</div>
+    </div>
+    <div class="inner-nav-links">
+      <button class="inner-nav-link active" onclick="showPage('producers',null)">Producers</button>
+      <button class="inner-nav-link" onclick="showPage('national',null)">National</button>
+      <button class="inner-nav-link" onclick="showPage('contact',null)">Contact</button>
+    </div>
+    <button class="inner-nav-cta" onclick="showPage('login',null)">Client Login</button>
+  </nav>
+
+  <div class="producer-page-header">
+    <button class="producer-back-btn" onclick="showPage('producers',null)">← Producers</button>
+    <div class="producer-header-region">Catalunya &middot; Spain</div>
+  </div>
+
+  <div class="producer-name-banner">
+    <h1 class="producer-name-title">Alta Alella</h1>
+    <div class="producer-name-sub">DO Alella · North of Barcelona</div>
+  </div>
+
+  <div class="producer-body">
+    <div class="producer-details-col">
+      <div class="producer-detail-block">
+        <div class="producer-detail-block-label">The Estate</div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Appellation</span><span class="producer-detail-val">DO Alella</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Grapes</span><span class="producer-detail-val">Pansa Blanca (Xarel·lo), Pansa Rosada, Syrah, Merlot</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Surface</span><span class="producer-detail-val">14 ha</span></div>
+        
+        <div class="producer-detail-row"><span class="producer-detail-label">Farming</span><span class="producer-detail-val">Certified Biodynamic (Demeter)</span></div>
+      </div>
+
+      <div class="producer-wines-block">
+        <div class="producer-detail-block-label">The Wines</div>
+        
+          <div class="wine-entry">
+            <div class="wine-name">Pansa Blanca</div>
+            <div class="wine-grapes">100% Pansa Blanca (Xarel·lo)</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Brunus Rosé</div>
+            <div class="wine-grapes">Syrah, Merlot</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Mirgin Brut Nature</div>
+            <div class="wine-grapes">Pansa Blanca, Pansa Rosada</div>
+          </div>
+      </div>
+    </div>
+
+    <div class="producer-story-col">
+      <p class="producer-story-para">A biodynamic estate in the ancient DO Alella, just north of Barcelona. The Pujol-Busquets family farms on the region's distinctive granite soils — granit d'Alella — producing wines of remarkable elegance and mineral precision.</p><p class="producer-story-para">Their Pansa Blanca (Xarel·lo) is one of the finest expressions of this grape — saline, mineral and capable of extraordinary longevity. A benchmark Catalan producer.</p>
+    </div>
+  </div>
+
+    <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-col"><div class="footer-col-heading">Contact</div><p class="footer-contact-desc">Questions about our portfolio or distribution?</p><button class="footer-contact-btn" onclick="openContactModal()">Send us a message</button></div>
+      <div class="footer-col"><div class="footer-col-heading">More Information</div><button class="footer-nav-link" onclick="showPage('contact',null)">Employment Opportunities</button><button class="footer-nav-link" onclick="showPage('contact',null)">Become a Customer</button><button class="footer-nav-link" onclick="showPage('national',null)">National Distribution</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Stay in Touch</div><input class="footer-input" type="email" placeholder="Email address*"><input class="footer-input" type="text" placeholder="Name"><button class="footer-subscribe-btn">Subscribe</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Follow</div><div class="footer-social-icons"><a href="https://www.instagram.com/avantgardews/" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/profile.php?id=100054472420492" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
+    </div>
+    <div class="footer-bottom"><div><div class="footer-brand-name">Avant&#8209;Garde</div><div class="footer-brand-sub">Wine &amp; Spirits</div></div><div class="footer-copy">&#169; 2026 Avant-Garde Wine &amp; Spirits. All rights reserved.</div><button class="footer-nav-link" onclick="showPage('login',null)">Client Login</button></div>
+  </footer>
+</div>
+
+<!-- PRODUCER: Celler de Les Aus -->
+<div id="page-producer-cellerdelesaus" class="page">
+  <nav class="inner-nav">
+    <div class="inner-nav-brand" onclick="showPage('home',null)">
+      <div class="inner-nav-brand-main">Avant&#8209;Garde</div>
+      <div class="inner-nav-brand-sub">Wine &amp; Spirits</div>
+    </div>
+    <div class="inner-nav-links">
+      <button class="inner-nav-link active" onclick="showPage('producers',null)">Producers</button>
+      <button class="inner-nav-link" onclick="showPage('national',null)">National</button>
+      <button class="inner-nav-link" onclick="showPage('contact',null)">Contact</button>
+    </div>
+    <button class="inner-nav-cta" onclick="showPage('login',null)">Client Login</button>
+  </nav>
+
+  <div class="producer-page-header">
+    <button class="producer-back-btn" onclick="showPage('producers',null)">← Producers</button>
+    <div class="producer-header-region">Catalunya &middot; Spain</div>
+  </div>
+
+  <div class="producer-name-banner">
+    <h1 class="producer-name-title">Celler de Les Aus</h1>
+    <div class="producer-name-sub">Penedès</div>
+  </div>
+
+  <div class="producer-body">
+    <div class="producer-details-col">
+      <div class="producer-detail-block">
+        <div class="producer-detail-block-label">The Estate</div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Appellation</span><span class="producer-detail-val">DO Penedès</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Grapes</span><span class="producer-detail-val">Xarel·lo, Garnatxa Blanca, Ull de Llebre</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Surface</span><span class="producer-detail-val">6 ha</span></div>
+        
+        <div class="producer-detail-row"><span class="producer-detail-label">Farming</span><span class="producer-detail-val">Organic</span></div>
+      </div>
+
+      <div class="producer-wines-block">
+        <div class="producer-detail-block-label">The Wines</div>
+        
+          <div class="wine-entry">
+            <div class="wine-name">Xarel·lo</div>
+            <div class="wine-grapes">100% Xarel·lo</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Garnatxa Blanca</div>
+            <div class="wine-grapes">100% Garnatxa Blanca</div>
+          </div>
+      </div>
+    </div>
+
+    <div class="producer-story-col">
+      <p class="producer-story-para">A small organic producer in the Penedès working with native Catalan varieties on limestone and clay soils. Fresh, vibrant and deeply expressive of local terroir — a thoughtful counterpoint to the region's tendency toward international varieties.</p>
+    </div>
+  </div>
+
+    <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-col"><div class="footer-col-heading">Contact</div><p class="footer-contact-desc">Questions about our portfolio or distribution?</p><button class="footer-contact-btn" onclick="openContactModal()">Send us a message</button></div>
+      <div class="footer-col"><div class="footer-col-heading">More Information</div><button class="footer-nav-link" onclick="showPage('contact',null)">Employment Opportunities</button><button class="footer-nav-link" onclick="showPage('contact',null)">Become a Customer</button><button class="footer-nav-link" onclick="showPage('national',null)">National Distribution</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Stay in Touch</div><input class="footer-input" type="email" placeholder="Email address*"><input class="footer-input" type="text" placeholder="Name"><button class="footer-subscribe-btn">Subscribe</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Follow</div><div class="footer-social-icons"><a href="https://www.instagram.com/avantgardews/" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/profile.php?id=100054472420492" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
+    </div>
+    <div class="footer-bottom"><div><div class="footer-brand-name">Avant&#8209;Garde</div><div class="footer-brand-sub">Wine &amp; Spirits</div></div><div class="footer-copy">&#169; 2026 Avant-Garde Wine &amp; Spirits. All rights reserved.</div><button class="footer-nav-link" onclick="showPage('login',null)">Client Login</button></div>
+  </footer>
+</div>
+
+<!-- PRODUCER: Fento -->
+<div id="page-producer-fento" class="page">
+  <nav class="inner-nav">
+    <div class="inner-nav-brand" onclick="showPage('home',null)">
+      <div class="inner-nav-brand-main">Avant&#8209;Garde</div>
+      <div class="inner-nav-brand-sub">Wine &amp; Spirits</div>
+    </div>
+    <div class="inner-nav-links">
+      <button class="inner-nav-link active" onclick="showPage('producers',null)">Producers</button>
+      <button class="inner-nav-link" onclick="showPage('national',null)">National</button>
+      <button class="inner-nav-link" onclick="showPage('contact',null)">Contact</button>
+    </div>
+    <button class="inner-nav-cta" onclick="showPage('login',null)">Client Login</button>
+  </nav>
+
+  <div class="producer-page-header">
+    <button class="producer-back-btn" onclick="showPage('producers',null)">← Producers</button>
+    <div class="producer-header-region">Galicia &middot; Spain</div>
+  </div>
+
+  <div class="producer-name-banner">
+    <h1 class="producer-name-title">Fento</h1>
+    <div class="producer-name-sub">Rías Baixas</div>
+  </div>
+
+  <div class="producer-body">
+    <div class="producer-details-col">
+      <div class="producer-detail-block">
+        <div class="producer-detail-block-label">The Estate</div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Appellation</span><span class="producer-detail-val">DO Rías Baixas</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Grapes</span><span class="producer-detail-val">Albariño, Caíño Tinto, Brancellao</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Surface</span><span class="producer-detail-val">3 ha</span></div>
+        
+        <div class="producer-detail-row"><span class="producer-detail-label">Farming</span><span class="producer-detail-val">Organic</span></div>
+      </div>
+
+      <div class="producer-wines-block">
+        <div class="producer-detail-block-label">The Wines</div>
+        
+          <div class="wine-entry">
+            <div class="wine-name">Albariño</div>
+            <div class="wine-grapes">100% Albariño</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Caíño Tinto</div>
+            <div class="wine-grapes">Caíño Tinto, Brancellao</div>
+          </div>
+      </div>
+    </div>
+
+    <div class="producer-story-col">
+      <p class="producer-story-para">A small artisan producer in the Rías Baixas, the granite-soiled coastal zone of Galicia where Albariño reigns. Working with organic farming and minimal intervention, they produce one of the most authentic expressions of this legendary variety — saline, floral and tensely mineral — alongside compelling reds from native Galician grapes.</p>
+    </div>
+  </div>
+
+    <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-col"><div class="footer-col-heading">Contact</div><p class="footer-contact-desc">Questions about our portfolio or distribution?</p><button class="footer-contact-btn" onclick="openContactModal()">Send us a message</button></div>
+      <div class="footer-col"><div class="footer-col-heading">More Information</div><button class="footer-nav-link" onclick="showPage('contact',null)">Employment Opportunities</button><button class="footer-nav-link" onclick="showPage('contact',null)">Become a Customer</button><button class="footer-nav-link" onclick="showPage('national',null)">National Distribution</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Stay in Touch</div><input class="footer-input" type="email" placeholder="Email address*"><input class="footer-input" type="text" placeholder="Name"><button class="footer-subscribe-btn">Subscribe</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Follow</div><div class="footer-social-icons"><a href="https://www.instagram.com/avantgardews/" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/profile.php?id=100054472420492" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
+    </div>
+    <div class="footer-bottom"><div><div class="footer-brand-name">Avant&#8209;Garde</div><div class="footer-brand-sub">Wine &amp; Spirits</div></div><div class="footer-copy">&#169; 2026 Avant-Garde Wine &amp; Spirits. All rights reserved.</div><button class="footer-nav-link" onclick="showPage('login',null)">Client Login</button></div>
+  </footer>
+</div>
+
+<!-- PRODUCER: Nathan K -->
+<div id="page-producer-nathank" class="page">
+  <nav class="inner-nav">
+    <div class="inner-nav-brand" onclick="showPage('home',null)">
+      <div class="inner-nav-brand-main">Avant&#8209;Garde</div>
+      <div class="inner-nav-brand-sub">Wine &amp; Spirits</div>
+    </div>
+    <div class="inner-nav-links">
+      <button class="inner-nav-link active" onclick="showPage('producers',null)">Producers</button>
+      <button class="inner-nav-link" onclick="showPage('national',null)">National</button>
+      <button class="inner-nav-link" onclick="showPage('contact',null)">Contact</button>
+    </div>
+    <button class="inner-nav-cta" onclick="showPage('login',null)">Client Login</button>
+  </nav>
+
+  <div class="producer-page-header">
+    <button class="producer-back-btn" onclick="showPage('producers',null)">← Producers</button>
+    <div class="producer-header-region">New York &middot; USA</div>
+  </div>
+
+  <div class="producer-name-banner">
+    <h1 class="producer-name-title">Nathan K</h1>
+    <div class="producer-name-sub">Finger Lakes · Seneca Lake</div>
+  </div>
+
+  <div class="producer-body">
+    <div class="producer-details-col">
+      <div class="producer-detail-block">
+        <div class="producer-detail-block-label">The Estate</div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Appellation</span><span class="producer-detail-val">Finger Lakes AVA</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Grapes</span><span class="producer-detail-val">Riesling, Pinot Noir, Cabernet Franc</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Surface</span><span class="producer-detail-val">4 ha</span></div>
+        
+        <div class="producer-detail-row"><span class="producer-detail-label">Farming</span><span class="producer-detail-val">Organic</span></div>
+      </div>
+
+      <div class="producer-wines-block">
+        <div class="producer-detail-block-label">The Wines</div>
+        
+          <div class="wine-entry">
+            <div class="wine-name">Riesling</div>
+            <div class="wine-grapes">100% Riesling</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Pét-Nat</div>
+            <div class="wine-grapes">Riesling</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Pinot Noir</div>
+            <div class="wine-grapes">100% Pinot Noir</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Cabernet Franc</div>
+            <div class="wine-grapes">100% Cabernet Franc</div>
+          </div>
+      </div>
+    </div>
+
+    <div class="producer-story-col">
+      <p class="producer-story-para">Nathan Kendall is one of the most thoughtful winemakers working in the Finger Lakes today. His small-production wines from organically farmed vines on Seneca Lake are benchmarks for what New York wine can be — precise, terroir-driven, and without compromise.</p><p class="producer-story-para">His Rieslings have the tension and mineral depth of the great German estates. His reds reveal the Finger Lakes' surprising potential for Pinot Noir and Cabernet Franc.</p>
+    </div>
+  </div>
+
+    <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-col"><div class="footer-col-heading">Contact</div><p class="footer-contact-desc">Questions about our portfolio or distribution?</p><button class="footer-contact-btn" onclick="openContactModal()">Send us a message</button></div>
+      <div class="footer-col"><div class="footer-col-heading">More Information</div><button class="footer-nav-link" onclick="showPage('contact',null)">Employment Opportunities</button><button class="footer-nav-link" onclick="showPage('contact',null)">Become a Customer</button><button class="footer-nav-link" onclick="showPage('national',null)">National Distribution</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Stay in Touch</div><input class="footer-input" type="email" placeholder="Email address*"><input class="footer-input" type="text" placeholder="Name"><button class="footer-subscribe-btn">Subscribe</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Follow</div><div class="footer-social-icons"><a href="https://www.instagram.com/avantgardews/" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/profile.php?id=100054472420492" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
+    </div>
+    <div class="footer-bottom"><div><div class="footer-brand-name">Avant&#8209;Garde</div><div class="footer-brand-sub">Wine &amp; Spirits</div></div><div class="footer-copy">&#169; 2026 Avant-Garde Wine &amp; Spirits. All rights reserved.</div><button class="footer-nav-link" onclick="showPage('login',null)">Client Login</button></div>
+  </footer>
+</div>
+
+<!-- PRODUCER: chëpìka -->
+<div id="page-producer-chepika" class="page">
+  <nav class="inner-nav">
+    <div class="inner-nav-brand" onclick="showPage('home',null)">
+      <div class="inner-nav-brand-main">Avant&#8209;Garde</div>
+      <div class="inner-nav-brand-sub">Wine &amp; Spirits</div>
+    </div>
+    <div class="inner-nav-links">
+      <button class="inner-nav-link active" onclick="showPage('producers',null)">Producers</button>
+      <button class="inner-nav-link" onclick="showPage('national',null)">National</button>
+      <button class="inner-nav-link" onclick="showPage('contact',null)">Contact</button>
+    </div>
+    <button class="inner-nav-cta" onclick="showPage('login',null)">Client Login</button>
+  </nav>
+
+  <div class="producer-page-header">
+    <button class="producer-back-btn" onclick="showPage('producers',null)">← Producers</button>
+    <div class="producer-header-region">New York &middot; USA</div>
+  </div>
+
+  <div class="producer-name-banner">
+    <h1 class="producer-name-title">chëpìka</h1>
+    <div class="producer-name-sub">Finger Lakes</div>
+  </div>
+
+  <div class="producer-body">
+    <div class="producer-details-col">
+      <div class="producer-detail-block">
+        <div class="producer-detail-block-label">The Estate</div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Appellation</span><span class="producer-detail-val">Finger Lakes AVA</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Grapes</span><span class="producer-detail-val">Riesling, Cabernet Franc, Blaufränkisch</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Surface</span><span class="producer-detail-val">3 ha</span></div>
+        
+        <div class="producer-detail-row"><span class="producer-detail-label">Farming</span><span class="producer-detail-val">Organic</span></div>
+      </div>
+
+      <div class="producer-wines-block">
+        <div class="producer-detail-block-label">The Wines</div>
+        
+          <div class="wine-entry">
+            <div class="wine-name">Riesling</div>
+            <div class="wine-grapes">100% Riesling</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Cabernet Franc</div>
+            <div class="wine-grapes">100% Cabernet Franc</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Blaufränkisch</div>
+            <div class="wine-grapes">100% Blaufränkisch</div>
+          </div>
+      </div>
+    </div>
+
+    <div class="producer-story-col">
+      <p class="producer-story-para">chëpìka — a Lenape word meaning 'roots' — is the project of winemaker Léa Stucky, working with organically farmed fruit in the Finger Lakes. Wild fermentations, no additions, no fining or filtration. The wines express the cool-climate character of the region with remarkable clarity and genuine soul.</p>
+    </div>
+  </div>
+
+    <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-col"><div class="footer-col-heading">Contact</div><p class="footer-contact-desc">Questions about our portfolio or distribution?</p><button class="footer-contact-btn" onclick="openContactModal()">Send us a message</button></div>
+      <div class="footer-col"><div class="footer-col-heading">More Information</div><button class="footer-nav-link" onclick="showPage('contact',null)">Employment Opportunities</button><button class="footer-nav-link" onclick="showPage('contact',null)">Become a Customer</button><button class="footer-nav-link" onclick="showPage('national',null)">National Distribution</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Stay in Touch</div><input class="footer-input" type="email" placeholder="Email address*"><input class="footer-input" type="text" placeholder="Name"><button class="footer-subscribe-btn">Subscribe</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Follow</div><div class="footer-social-icons"><a href="https://www.instagram.com/avantgardews/" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/profile.php?id=100054472420492" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
+    </div>
+    <div class="footer-bottom"><div><div class="footer-brand-name">Avant&#8209;Garde</div><div class="footer-brand-sub">Wine &amp; Spirits</div></div><div class="footer-copy">&#169; 2026 Avant-Garde Wine &amp; Spirits. All rights reserved.</div><button class="footer-nav-link" onclick="showPage('login',null)">Client Login</button></div>
+  </footer>
+</div>
+
+<!-- PRODUCER: Outward -->
+<div id="page-producer-outward" class="page">
+  <nav class="inner-nav">
+    <div class="inner-nav-brand" onclick="showPage('home',null)">
+      <div class="inner-nav-brand-main">Avant&#8209;Garde</div>
+      <div class="inner-nav-brand-sub">Wine &amp; Spirits</div>
+    </div>
+    <div class="inner-nav-links">
+      <button class="inner-nav-link active" onclick="showPage('producers',null)">Producers</button>
+      <button class="inner-nav-link" onclick="showPage('national',null)">National</button>
+      <button class="inner-nav-link" onclick="showPage('contact',null)">Contact</button>
+    </div>
+    <button class="inner-nav-cta" onclick="showPage('login',null)">Client Login</button>
+  </nav>
+
+  <div class="producer-page-header">
+    <button class="producer-back-btn" onclick="showPage('producers',null)">← Producers</button>
+    <div class="producer-header-region">California &middot; USA</div>
+  </div>
+
+  <div class="producer-name-banner">
+    <h1 class="producer-name-title">Outward</h1>
+    <div class="producer-name-sub">Wildhorse Valley · Sonoma Coast</div>
+  </div>
+
+  <div class="producer-body">
+    <div class="producer-details-col">
+      <div class="producer-detail-block">
+        <div class="producer-detail-block-label">The Estate</div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Appellation</span><span class="producer-detail-val">Wildhorse Valley AVA, Sonoma Coast AVA</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Grapes</span><span class="producer-detail-val">Pinot Noir, Chardonnay</span></div>
+        <div class="producer-detail-row"><span class="producer-detail-label">Surface</span><span class="producer-detail-val">6 ha</span></div>
+        
+        <div class="producer-detail-row"><span class="producer-detail-label">Farming</span><span class="producer-detail-val">Organic</span></div>
+      </div>
+
+      <div class="producer-wines-block">
+        <div class="producer-detail-block-label">The Wines</div>
+        
+          <div class="wine-entry">
+            <div class="wine-name">Pinot Noir, Wildhorse Valley</div>
+            <div class="wine-grapes">100% Pinot Noir</div>
+          </div>
+          <div class="wine-entry">
+            <div class="wine-name">Chardonnay, Sonoma Coast</div>
+            <div class="wine-grapes">100% Chardonnay</div>
+          </div>
+      </div>
+    </div>
+
+    <div class="producer-story-col">
+      <p class="producer-story-para">A small California project focused on cool-climate Pinot Noir and Chardonnay from Wildhorse Valley and the Sonoma Coast. No new oak, wild fermentations, minimal sulfur. The wines express a Burgundian elegance rarely found in California — a project made by people who believe California can and should make wines of genuine subtlety.</p>
+    </div>
+  </div>
+
+    <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-col"><div class="footer-col-heading">Contact</div><p class="footer-contact-desc">Questions about our portfolio or distribution?</p><button class="footer-contact-btn" onclick="openContactModal()">Send us a message</button></div>
+      <div class="footer-col"><div class="footer-col-heading">More Information</div><button class="footer-nav-link" onclick="showPage('contact',null)">Employment Opportunities</button><button class="footer-nav-link" onclick="showPage('contact',null)">Become a Customer</button><button class="footer-nav-link" onclick="showPage('national',null)">National Distribution</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Stay in Touch</div><input class="footer-input" type="email" placeholder="Email address*"><input class="footer-input" type="text" placeholder="Name"><button class="footer-subscribe-btn">Subscribe</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Follow</div><div class="footer-social-icons"><a href="https://www.instagram.com/avantgardews/" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/profile.php?id=100054472420492" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
+    </div>
+    <div class="footer-bottom"><div><div class="footer-brand-name">Avant&#8209;Garde</div><div class="footer-brand-sub">Wine &amp; Spirits</div></div><div class="footer-copy">&#169; 2026 Avant-Garde Wine &amp; Spirits. All rights reserved.</div><button class="footer-nav-link" onclick="showPage('login',null)">Client Login</button></div>
+  </footer>
+</div>
+
 </body>
 </html>
