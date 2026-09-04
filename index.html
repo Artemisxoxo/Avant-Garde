@@ -396,6 +396,7 @@
     grid-template-columns: repeat(2, 1fr);
     background: var(--map-cream);
     align-content: start;
+    min-height: 80px;
   }
   .producer-entry {
     padding: 1rem 2rem 1rem 0;
@@ -1783,7 +1784,7 @@
       </div>
       <div class="producer-entry producer-entry-link" onclick="showPage('producer-vouetteetsorbe',null)">
         <div class="producer-region-tag">Côte des Bar</div>
-        <div class="producer-name producer-name-clickable">Vouette & Sorbée</div>
+        <div class="producer-name producer-name-clickable">Vouette &amp; Sorbée</div>
         <div class="producer-entry-arrow">&#8594;</div>
       </div>
       <div class="producer-entry producer-entry-link" onclick="showPage('producer-laurentbenard',null)">
@@ -1835,11 +1836,12 @@
     </div>
     <div class="producer-list-col">
       <div class="producer-entry producer-entry-link" onclick="showPage('producer-auxardents',null)">
-        <div class="producer-region-tag">Fleurie</div>
+        <div class="producer-region-tag">Fleurie · Moulin-à-Vent</div>
         <div class="producer-name producer-name-clickable">Domaine Aux Ardents</div>
         <div class="producer-entry-arrow">&#8594;</div>
       </div>
     </div>
+  </div>
   <div class="country-block">
     <div class="country-label-col">
       <div class="country-name">Bordeaux</div>
@@ -1848,12 +1850,11 @@
     </div>
     <div class="producer-list-col">
       <div class="producer-entry producer-entry-link" onclick="showPage('producer-uchida',null)">
-        <div class="producer-region-tag">Haut-M&eacute;doc</div>
+        <div class="producer-region-tag">Haut-Médoc</div>
         <div class="producer-name producer-name-clickable">Domaine Uchida</div>
         <div class="producer-entry-arrow">&#8594;</div>
       </div>
     </div>
-  </div>
   </div>
   <div class="country-block">
     <div class="country-label-col">
@@ -1911,7 +1912,7 @@
         <div class="producer-entry-arrow">&#8594;</div>
       </div>
       <div class="producer-entry producer-entry-link" onclick="showPage('producer-lesgrandesvignes',null)">
-        <div class="producer-region-tag">Anjou</div>
+        <div class="producer-region-tag">Anjou · Layon</div>
         <div class="producer-name producer-name-clickable">Les Grandes Vignes</div>
         <div class="producer-entry-arrow">&#8594;</div>
       </div>
@@ -1971,62 +1972,42 @@
   </div>
   <div class="country-block">
     <div class="country-label-col">
-      <div class="country-name">Tuscany</div>
-      <div class="country-name-native">La Toscana</div>
-      <div class="country-count">1 producer</div>
+      <div class="country-name">Italy</div>
+      <div class="country-name-native">L'Italia</div>
+      <div class="country-count">2 producers</div>
     </div>
     <div class="producer-list-col">
       <div class="producer-entry producer-entry-link" onclick="showPage('producer-tenutalanovella',null)">
-        <div class="producer-region-tag">Maremma Toscana</div>
+        <div class="producer-region-tag">Maremma, Tuscany</div>
         <div class="producer-name producer-name-clickable">Tenuta La Novella</div>
         <div class="producer-entry-arrow">&#8594;</div>
       </div>
-    </div>
-  </div>
-  <div class="country-block">
-    <div class="country-label-col">
-      <div class="country-name">Lombardia</div>
-      <div class="country-name-native">La Lombardia</div>
-      <div class="country-count">1 producer</div>
-    </div>
-    <div class="producer-list-col">
       <div class="producer-entry producer-entry-link" onclick="showPage('producer-nicolagatta',null)">
-        <div class="producer-region-tag">Franciacorta</div>
+        <div class="producer-region-tag">Franciacorta, Lombardia</div>
         <div class="producer-name producer-name-clickable">Nicola Gatta</div>
         <div class="producer-entry-arrow">&#8594;</div>
       </div>
     </div>
   </div>
-  </div>
-  </div>
   <div class="country-block">
     <div class="country-label-col">
-      <div class="country-name">Catalunya</div>
-      <div class="country-name-native">Catalunya</div>
-      <div class="country-count">2 producers</div>
+      <div class="country-name">Spain</div>
+      <div class="country-name-native">España</div>
+      <div class="country-count">3 producers</div>
     </div>
     <div class="producer-list-col">
       <div class="producer-entry producer-entry-link" onclick="showPage('producer-altaalella',null)">
-        <div class="producer-region-tag">DO Alella</div>
+        <div class="producer-region-tag">DO Alella, Catalunya</div>
         <div class="producer-name producer-name-clickable">Alta Alella</div>
         <div class="producer-entry-arrow">&#8594;</div>
       </div>
       <div class="producer-entry producer-entry-link" onclick="showPage('producer-cellerdelesaus',null)">
-        <div class="producer-region-tag">DO Penedès</div>
+        <div class="producer-region-tag">DO Penedès, Catalunya</div>
         <div class="producer-name producer-name-clickable">Celler de Les Aus</div>
         <div class="producer-entry-arrow">&#8594;</div>
       </div>
-    </div>
-  </div>
-  <div class="country-block">
-    <div class="country-label-col">
-      <div class="country-name">Galicia</div>
-      <div class="country-name-native">Galicia</div>
-      <div class="country-count">1 producer</div>
-    </div>
-    <div class="producer-list-col">
       <div class="producer-entry producer-entry-link" onclick="showPage('producer-fento',null)">
-        <div class="producer-region-tag">Rías Baixas</div>
+        <div class="producer-region-tag">Rías Baixas, Galicia</div>
         <div class="producer-name producer-name-clickable">Fento</div>
         <div class="producer-entry-arrow">&#8594;</div>
       </div>
@@ -2034,32 +2015,23 @@
   </div>
   <div class="country-block">
     <div class="country-label-col">
-      <div class="country-name">New York</div>
-      <div class="country-name-native">New York</div>
-      <div class="country-count">2 producers</div>
+      <div class="country-name">United States</div>
+      <div class="country-name-native">États-Unis</div>
+      <div class="country-count">3 producers</div>
     </div>
     <div class="producer-list-col">
       <div class="producer-entry producer-entry-link" onclick="showPage('producer-nathank',null)">
-        <div class="producer-region-tag">Finger Lakes</div>
+        <div class="producer-region-tag">Finger Lakes, New York</div>
         <div class="producer-name producer-name-clickable">Nathan K</div>
         <div class="producer-entry-arrow">&#8594;</div>
       </div>
       <div class="producer-entry producer-entry-link" onclick="showPage('producer-chepika',null)">
-        <div class="producer-region-tag">Finger Lakes</div>
+        <div class="producer-region-tag">Finger Lakes, New York</div>
         <div class="producer-name producer-name-clickable">chëpìka</div>
         <div class="producer-entry-arrow">&#8594;</div>
       </div>
-    </div>
-  </div>
-  <div class="country-block">
-    <div class="country-label-col">
-      <div class="country-name">California</div>
-      <div class="country-name-native">California</div>
-      <div class="country-count">1 producer</div>
-    </div>
-    <div class="producer-list-col">
       <div class="producer-entry producer-entry-link" onclick="showPage('producer-outward',null)">
-        <div class="producer-region-tag">Wildhorse Valley</div>
+        <div class="producer-region-tag">California</div>
         <div class="producer-name producer-name-clickable">Outward</div>
         <div class="producer-entry-arrow">&#8594;</div>
       </div>
