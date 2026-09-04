@@ -1457,6 +1457,174 @@
 }
 .national-market-inquire:hover { letter-spacing: 0.22em; }
 
+
+/* ══ CONTACT PAGE ══ */
+.ph { display: inline; }
+.ph-d { display: inline; }
+.ph-z {
+  display: inline-block;
+  width: 0;
+  overflow: hidden;
+  opacity: 0;
+  font-size: 0;
+  line-height: 0;
+  user-select: none;
+}
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: calc(100vh - 56px - 280px);
+}
+.contact-left-panel {
+  background: var(--map-paper);
+  padding: 4rem 3rem 4rem 2.5rem;
+  border-right: 2px solid var(--map-terra);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+.contact-brand-statement,
+.contact-details,
+.contact-social-row { position: relative; z-index: 2; }
+.contact-eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--map-terra);
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+.contact-big-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 62px;
+  font-weight: 900;
+  color: var(--map-ink);
+  text-transform: uppercase;
+  line-height: 0.92;
+  letter-spacing: 0.04em;
+}
+.contact-big-title em {
+  font-weight: 400;
+  font-style: italic;
+  text-transform: none;
+  color: var(--map-terra);
+}
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+  margin-top: 3rem;
+}
+.contact-detail-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--map-muted);
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+}
+.contact-phone-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--map-ink);
+  letter-spacing: 0.04em;
+}
+.contact-detail-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--map-ink);
+}
+.contact-modal-btn {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--map-terra);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  padding: 0;
+  transition: letter-spacing 0.2s;
+  text-align: left;
+}
+.contact-modal-btn:hover { letter-spacing: 0.26em; }
+.contact-social-row {
+  display: flex;
+  gap: 1rem;
+  position: relative;
+  z-index: 2;
+}
+.contact-social-btn {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--map-terra);
+  text-decoration: none;
+  border: 1px solid rgba(196,97,74,0.5);
+  padding: 0.5rem 1.1rem;
+  border-radius: 1px;
+  transition: all 0.2s;
+  font-weight: 500;
+}
+.contact-social-btn:hover {
+  background: var(--map-terra);
+  color: var(--map-cream);
+  border-color: var(--map-terra);
+}
+.contact-right-panel {
+  padding: 4rem 3rem;
+  background: var(--map-cream);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.contact-right-eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--map-terra);
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+.contact-panel-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 52px;
+  font-weight: 900;
+  color: var(--map-ink);
+  text-transform: uppercase;
+  line-height: 0.92;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.5rem;
+}
+.contact-panel-title em {
+  font-weight: 400;
+  font-style: italic;
+  text-transform: none;
+  color: var(--map-terra);
+}
+.contact-panel-body {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--map-muted);
+  font-style: italic;
+  max-width: 400px;
+  margin-bottom: 2.5rem;
+  margin-top: 1.5rem;
+}
+
+
 </style>
 </head>
 <body>
@@ -2031,37 +2199,70 @@
 
 <div id="page-contact" class="page">
   <nav class="inner-nav">
-    <div class="inner-nav-brand" onclick="showPage('home',null)"><div class="inner-nav-brand-main">Avant&#8209;Garde</div><div class="inner-nav-brand-sub">Wine &amp; Spirits</div></div>
-    <div class="inner-nav-links"><button class="inner-nav-link" onclick="showPage('producers',null)">Producers</button><button class="inner-nav-link" onclick="showPage('national',null)">National</button><button class="inner-nav-link active">Contact</button></div>
+    <div class="inner-nav-brand" onclick="showPage('home',null)">
+      <div class="inner-nav-brand-main">Avant&#8209;Garde</div>
+      <div class="inner-nav-brand-sub">Wine &amp; Spirits</div>
+    </div>
+    <div class="inner-nav-links">
+      <button class="inner-nav-link" onclick="showPage('producers',null)">Producers</button>
+      <button class="inner-nav-link" onclick="showPage('national',null)">National</button>
+      <button class="inner-nav-link active">Contact</button>
+    </div>
     <button class="inner-nav-cta" onclick="showPage('login',null)">Client Login</button>
   </nav>
-  <div class="two-col-section">
-    <div class="section-left">
-      <div class="section-eyebrow">Avant-Garde Wine &amp; Spirits</div>
-      <div class="section-title-large">Get in</div>
-      <div class="section-title-italic">Touch.</div>
-      <div class="contact-detail"><div class="contact-detail-label">Phone</div><div class="contact-detail-val">646.642.3386</div></div>
-      <div class="contact-detail"><div class="contact-detail-label">Email</div><div class="contact-detail-val" style="font-size:16px">gducroux@avantgarde-ws.com</div></div>
-      <div class="contact-detail"><div class="contact-detail-label">Location</div><div class="contact-detail-val">New York City, NY</div></div>
-      <div style="display:flex;gap:1rem;margin-top:0.5rem">
-        <button style="font-family:'DM Sans',sans-serif;font-size:8.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--map-terra);border:1px solid rgba(196,97,74,0.35);padding:0.5rem 1.1rem;background:none;cursor:pointer;border-radius:1px">Instagram</button>
-        <button style="font-family:'DM Sans',sans-serif;font-size:8.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--map-terra);border:1px solid rgba(196,97,74,0.35);padding:0.5rem 1.1rem;background:none;cursor:pointer;border-radius:1px">Facebook</button>
+
+  <div class="contact-layout">
+
+    <div class="contact-left-panel">
+      <div class="contact-brand-statement">
+        <div class="contact-right-eyebrow" style="color:var(--map-terra)">Avant&#8209;Garde Wine &amp; Spirits</div>
+        <div class="contact-big-title">Get in<br><em>Touch.</em></div>
+      </div>
+
+      <div class="contact-details">
+        <div class="contact-detail-block">
+          <div class="contact-detail-label">Phone</div>
+          <div class="contact-phone-number"><span class="ph">6</span><span class="ph">4</span><span class="ph-z"></span><span class="ph">6</span><span class="ph-d">.</span><span class="ph">6</span><span class="ph-z"></span><span class="ph">4</span><span class="ph">2</span><span class="ph-d">.</span><span class="ph-z"></span><span class="ph">3</span><span class="ph">3</span><span class="ph-z"></span><span class="ph">8</span><span class="ph">6</span></div>
+        </div>
+
+        <div class="contact-detail-block">
+          <div class="contact-detail-label">Location</div>
+          <div class="contact-detail-value">New York City, NY</div>
+        </div>
+
+        <div class="contact-detail-block">
+          <div class="contact-detail-label">Message</div>
+          <button class="contact-modal-btn" onclick="openContactModal()">Send us a message &rarr;</button>
+        </div>
+      </div>
+
+      <div class="contact-social-row">
+        <a href="https://www.instagram.com/avantgardews/" target="_blank" rel="noopener" class="contact-social-btn">Instagram</a>
+        <a href="https://www.facebook.com/profile.php?id=100054472420492" target="_blank" rel="noopener" class="contact-social-btn">Facebook</a>
       </div>
     </div>
-    <div class="section-right">
-      <div class="section-eyebrow">New accounts</div>
-      <div class="section-title-large" style="font-size:34px">Become a</div>
-      <div class="section-title-italic">customer.</div>
-      <p class="section-body" style="margin-top:0">We work with restaurants, wine bars, and independent retailers throughout the US.</p>
-      <div class="form-group"><label class="form-label">Business name</label><input class="form-input" type="text" placeholder="Your establishment"></div>
-      <div class="form-group"><label class="form-label">Email</label><input class="form-input" type="email" placeholder="you@yourbusiness.com"></div>
-      <div class="form-group"><label class="form-label">State / Market</label><input class="form-input" type="text" placeholder="New York, CA, etc."></div>
-      <div class="form-group"><label class="form-label">Message</label><textarea class="form-textarea" style="min-height:80px" placeholder="Tell us about your business."></textarea></div>
-      <button class="btn-map-primary" style="padding:0.9rem 2.5rem" onclick="submitContact()">Send message</button>
-      <div class="success-msg" id="contact-success">✓ Message sent. We'll be in touch within 2 business days.</div>
+
+    <div class="contact-right-panel">
+      <div class="contact-right-eyebrow">New Accounts</div>
+      <div class="contact-panel-title">Become a<br><em>Customer.</em></div>
+      <p class="contact-panel-body">We work with restaurants, wine bars, and independent retailers throughout the US. If you'd like to open an account, we'd love to hear from you.</p>
+      <button class="btn-map-primary" style="align-self:flex-start;padding:1rem 2.5rem" onclick="openCustomerModal()">Apply for an account &rarr;</button>
     </div>
+
   </div>
+
+  <footer  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-col"><div class="footer-col-heading">Contact</div><p class="footer-contact-desc">Questions about our portfolio or distribution?</p><button class="footer-contact-btn" onclick="openContactModal()">Send us a message</button></div>
+      <div class="footer-col"><div class="footer-col-heading">More Information</div><button class="footer-nav-link" onclick="showPage('contact',null)">Employment Opportunities</button><button class="footer-nav-link" onclick="showPage('contact',null)">Become a Customer</button><button class="footer-nav-link" onclick="showPage('national',null)">National Distribution</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Stay in Touch</div><input class="footer-input" type="email" placeholder="Email address*"><input class="footer-input" type="text" placeholder="Name"><button class="footer-subscribe-btn">Subscribe</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Follow</div><div class="footer-social-icons"><a href="https://www.instagram.com/avantgardews/" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/profile.php?id=100054472420492" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
+    </div>
+    <div class="footer-bottom"><div><div class="footer-brand-name">Avant&#8209;Garde</div><div class="footer-brand-sub">Wine &amp; Spirits</div></div><div class="footer-copy">&#169; 2026 Avant-Garde Wine &amp; Spirits. All rights reserved.</div><button class="footer-nav-link" onclick="showPage('login',null)">Client Login</button></div>
+  </footer>
 </div>
+
+
 
 <!-- ══════════════════════════════
      MODAL
@@ -5297,6 +5498,41 @@ function submitModal(){
   },1800);
 }
 function footerSubscribe(id){var e=document.getElementById('footer-email-'+(id||'')).value;if(!e){alert('Please enter your email.');return;}document.getElementById('footer-success-'+(id||'')).style.display='block';}
+
+function openCustomerModal(){
+  document.getElementById('customer-modal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeCustomerModal(e,force){
+  if(force||(e&&e.target===document.getElementById('customer-modal'))){
+    document.getElementById('customer-modal').classList.remove('open');
+    document.body.style.overflow='';
+    document.getElementById('customer-success').style.display='none';
+  }
+}
+function submitCustomerModal(){
+  var biz=document.getElementById('cust-business').value;
+  var name=document.getElementById('cust-name').value;
+  var email=document.getElementById('cust-email').value;
+  var state=document.getElementById('cust-state').value;
+  var msg=document.getElementById('cust-message').value;
+  if(!biz||!name||!email){alert('Please fill in at least your business name, name and email.');return;}
+  var body='Business: '+biz+'\nName: '+name+'\nEmail: '+email+'\nMarket: '+state+'\n\n'+msg;
+  var mailtoLink='mailto:gducroux@avantgarde-ws.com'
+    +'?subject='+encodeURIComponent('[Avant-Garde] New Account Inquiry — '+biz)
+    +'&body='+encodeURIComponent(body);
+  window.location.href=mailtoLink;
+  document.getElementById('customer-success').style.display='block';
+  setTimeout(function(){
+    closeCustomerModal(null,true);
+    document.getElementById('cust-business').value='';
+    document.getElementById('cust-name').value='';
+    document.getElementById('cust-email').value='';
+    document.getElementById('cust-state').value='';
+    document.getElementById('cust-message').value='';
+  },1800);
+}
+
 </script>
 
 <!-- PRODUCER: Emmanuel Brochet -->
@@ -7807,6 +8043,32 @@ function footerSubscribe(id){var e=document.getElementById('footer-email-'+(id||
     </div>
     <div class="footer-bottom"><div><div class="footer-brand-name">Avant&#8209;Garde</div><div class="footer-brand-sub">Wine &amp; Spirits</div></div><div class="footer-copy">&#169; 2026 Avant-Garde Wine &amp; Spirits. All rights reserved.</div><button class="footer-nav-link" onclick="showPage('login',null)">Client Login</button></div>
   </footer>
+</div>
+
+
+<!-- ════ BECOME A CUSTOMER MODAL ════ -->
+<div class="modal-backdrop" id="customer-modal" onclick="closeCustomerModal(event)">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div>
+        <div class="modal-eyebrow">Avant&#8209;Garde Wine &amp; Spirits</div>
+        <div class="modal-title">Become a customer</div>
+      </div>
+      <button class="modal-close" onclick="closeCustomerModal(null,true)">&#10005;</button>
+    </div>
+    <div class="modal-body">
+      <div><label class="modal-label">Business name</label><input class="modal-input" type="text" placeholder="Your establishment" id="cust-business"></div>
+      <div><label class="modal-label">Your name</label><input class="modal-input" type="text" placeholder="Full name" id="cust-name"></div>
+      <div><label class="modal-label">Email</label><input class="modal-input" type="email" placeholder="you@yourbusiness.com" id="cust-email"></div>
+      <div><label class="modal-label">State / Market</label><input class="modal-input" type="text" placeholder="New York, California, etc." id="cust-state"></div>
+      <div><label class="modal-label">Tell us about your business</label><textarea class="modal-input modal-textarea" placeholder="Type of establishment, what you're looking for, current wine program…" id="cust-message"></textarea></div>
+      <div class="modal-actions">
+        <button class="modal-submit" onclick="submitCustomerModal()">Send inquiry</button>
+        <button class="modal-cancel" onclick="closeCustomerModal(null,true)">Cancel</button>
+      </div>
+      <div class="modal-success" id="customer-success">&#10003; Your email client will open &mdash; just hit send.</div>
+    </div>
+  </div>
 </div>
 
 </body>
