@@ -2469,20 +2469,16 @@
       <div class="portal-catalog-label">Current Catalog &amp; Pricing</div>
       <div class="portal-catalog-sub">Avant&#8209;Garde Wine &amp; Spirits &mdash; For trade use only</div>
       <div class="portal-catalog-actions">
-        <a class="portal-open-btn" href="https://avant-garde-three.vercel.app/pdfs/catalog.pdf" target="_blank" rel="noopener">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          View Catalog
-        </a>
-        <a class="portal-dl-btn" href="https://avant-garde-three.vercel.app/pdfs/catalog.pdf" download="AvantGarde-Catalog.pdf" target="_blank" rel="noopener">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Download PDF
-        </a>
+        <button class="portal-open-btn" onclick="openPdfModal('./pdfs/catalog.pdf', 'Avant-Garde Current Catalog')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          View &amp; Download Catalog
+        </button>
       </div>
       <p class="portal-catalog-note">Pricing and availability subject to change. Contact Geoffroy with any questions.</p>
     </div>
   </div>
 
-  <div class="portal-footer-bar"><div class="portal-footer-bar">
+  <div class="portal-footer-bar">
     <div class="portal-footer-note">Current catalog &#8212; for trade use only. Pricing and availability subject to change.</div>
     <button class="portal-logout-link" onclick="doPortalLogout()">Sign out &rarr;</button>
   </div>
