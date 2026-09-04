@@ -2302,16 +2302,15 @@
   </footer>
 </div>
 
-
-
-<!-- ══════════════════════════════
-     MODAL
-══════════════════════════════ -->
+<!-- ════ CONTACT MODAL ════ -->
 <div class="modal-backdrop" id="contact-modal" onclick="closeContactModal(event)">
   <div class="modal-box">
     <div class="modal-header">
-      <div><div class="modal-eyebrow">Avant&#8209;Garde Wine &amp; Spirits</div><div class="modal-title">Get in touch</div></div>
-      <button class="modal-close" onclick="closeContactModal(null,true)">✕</button>
+      <div>
+        <div class="modal-eyebrow">Avant&#8209;Garde Wine &amp; Spirits</div>
+        <div class="modal-title">Get in touch</div>
+      </div>
+      <button class="modal-close" onclick="closeContactModal(null,true)">&#10005;</button>
     </div>
     <div class="modal-body">
       <div><label class="modal-label">Your name</label><input class="modal-input" type="text" placeholder="Full name" id="modal-name"></div>
@@ -2319,22 +2318,72 @@
       <div><label class="modal-label">Subject</label>
         <select class="modal-input modal-select" id="modal-subject">
           <option value="" disabled selected>Select a subject</option>
-          <option>General inquiry</option><option>Become a customer</option>
-          <option>Producer information</option><option>National distribution</option>
-          <option>Employment</option><option>Other</option>
+          <option>General inquiry</option>
+          <option>Become a customer</option>
+          <option>Producer information</option>
+          <option>National distribution</option>
+          <option>Employment</option>
+          <option>Other</option>
         </select>
       </div>
-      <div><label class="modal-label">Message</label><textarea class="modal-input modal-textarea" placeholder="Tell us what you're looking for…" id="modal-message"></textarea></div>
+      <div><label class="modal-label">Message</label><textarea class="modal-input modal-textarea" placeholder="Tell us a bit about what you're looking for&#8230;" id="modal-message"></textarea></div>
       <div class="modal-actions">
         <button class="modal-submit" onclick="submitModal()">Send message</button>
         <button class="modal-cancel" onclick="closeContactModal(null,true)">Cancel</button>
       </div>
-      <div class="modal-success" id="modal-success">✓ Message sent. We'll be in touch shortly.</div>
+      <div class="modal-success" id="modal-success">&#10003; Your email client will open &#8212; just hit send.</div>
     </div>
   </div>
 </div>
 
+<!-- ════ BECOME A CUSTOMER MODAL ════ -->
+<div class="modal-backdrop" id="customer-modal" onclick="closeCustomerModal(event)">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div>
+        <div class="modal-eyebrow">Avant&#8209;Garde Wine &amp; Spirits</div>
+        <div class="modal-title">Become a customer</div>
+      </div>
+      <button class="modal-close" onclick="closeCustomerModal(null,true)">&#10005;</button>
+    </div>
+    <div class="modal-body">
+      <div><label class="modal-label">Business name</label><input class="modal-input" type="text" placeholder="Your establishment" id="cust-business"></div>
+      <div><label class="modal-label">Your name</label><input class="modal-input" type="text" placeholder="Full name" id="cust-name"></div>
+      <div><label class="modal-label">Email</label><input class="modal-input" type="email" placeholder="you@yourbusiness.com" id="cust-email"></div>
+      <div><label class="modal-label">State / Market</label><input class="modal-input" type="text" placeholder="New York, California, etc." id="cust-state"></div>
+      <div><label class="modal-label">Tell us about your business</label><textarea class="modal-input modal-textarea" placeholder="Type of establishment, what you&#8217;re looking for&#8230;" id="cust-message"></textarea></div>
+      <div class="modal-actions">
+        <button class="modal-submit" onclick="submitCustomerModal()">Send inquiry</button>
+        <button class="modal-cancel" onclick="closeCustomerModal(null,true)">Cancel</button>
+      </div>
+      <div class="modal-success" id="customer-success">&#10003; Your email client will open &#8212; just hit send.</div>
+    </div>
+  </div>
+</div>
 
+<!-- ════ PDF VIEWER MODAL ════ -->
+<div class="modal-backdrop" id="pdf-modal" onclick="closePdfModal(event)">
+  <div class="pdf-modal-box">
+    <div class="pdf-modal-header">
+      <div>
+        <div class="modal-eyebrow">Avant&#8209;Garde Wine &amp; Spirits</div>
+        <div class="pdf-modal-title" id="pdf-modal-title">Tech Sheet</div>
+      </div>
+      <div class="pdf-modal-actions">
+        <a class="pdf-download-btn" id="pdf-download-link" href="#" download target="_blank">
+          <svg width="13" height="14" viewBox="0 0 13 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6.5 1v9M3 7l3.5 3.5L10 7"/><path d="M1 13h11"/>
+          </svg>
+          Download PDF
+        </a>
+        <button class="pdf-close-btn" onclick="closePdfModal(null,true)">&#10005;</button>
+      </div>
+    </div>
+    <div class="pdf-modal-body">
+      <iframe id="pdf-iframe" src="" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
 
 <!-- PRODUCER: Emmanuel Brochet -->
 <div id="page-producer-emmanuelbrochet" class="page">
@@ -4938,12 +4987,7 @@ function submitModal(){
     document.getElementById('modal-message').value='';
   },1800);
 }
-function footerSubscribe(id){var e=document.getElementById('footer-email-'+(id||'')).value;if(!e){alert('Please enter your email.');return;}document.getElementById('footer-success-'+(id||'')).style.display='block';}
-
-function openCustomerModal(){
-  document.getElementById('customer-modal').classList.add('open');
-  document.body.style.overflow='hidden';
-}
+function openCustomerModal(){document.getElementById('customer-modal').classList.add('open');document.body.style.overflow='hidden';}
 function closeCustomerModal(e,force){
   if(force||(e&&e.target===document.getElementById('customer-modal'))){
     document.getElementById('customer-modal').classList.remove('open');
@@ -4960,7 +5004,7 @@ function submitCustomerModal(){
   if(!biz||!name||!email){alert('Please fill in at least your business name, name and email.');return;}
   var body='Business: '+biz+'\nName: '+name+'\nEmail: '+email+'\nMarket: '+state+'\n\n'+msg;
   var mailtoLink='mailto:gducroux@avantgarde-ws.com'
-    +'?subject='+encodeURIComponent('[Avant-Garde] New Account Inquiry — '+biz)
+    +'?subject='+encodeURIComponent('[Avant-Garde] New Account Inquiry \u2014 '+biz)
     +'&body='+encodeURIComponent(body);
   window.location.href=mailtoLink;
   document.getElementById('customer-success').style.display='block';
@@ -4973,27 +5017,23 @@ function submitCustomerModal(){
     document.getElementById('cust-message').value='';
   },1800);
 }
-
-
-function openPdfModal(pdfPath, wineName) {
-  document.getElementById('pdf-modal-title').textContent = wineName;
-  document.getElementById('pdf-iframe').src = pdfPath;
-  document.getElementById('pdf-download-link').href = pdfPath;
-  document.getElementById('pdf-download-link').setAttribute('download', wineName.replace(/[^a-z0-9]/gi, '-').toLowerCase() + '.pdf');
+function openPdfModal(pdfPath,wineName){
+  document.getElementById('pdf-modal-title').textContent=wineName;
+  document.getElementById('pdf-iframe').src=pdfPath;
+  document.getElementById('pdf-download-link').href=pdfPath;
+  document.getElementById('pdf-download-link').setAttribute('download',wineName.replace(/[^a-z0-9]/gi,'-').toLowerCase()+'.pdf');
   document.getElementById('pdf-modal').classList.add('open');
-  document.body.style.overflow = 'hidden';
+  document.body.style.overflow='hidden';
 }
-function closePdfModal(e, force) {
-  if (force || (e && e.target === document.getElementById('pdf-modal'))) {
+function closePdfModal(e,force){
+  if(force||(e&&e.target===document.getElementById('pdf-modal'))){
     document.getElementById('pdf-modal').classList.remove('open');
-    document.getElementById('pdf-iframe').src = '';
-    document.body.style.overflow = '';
+    document.getElementById('pdf-iframe').src='';
+    document.body.style.overflow='';
   }
 }
-
+function footerSubscribe(){var e=document.getElementById('footer-email').value;if(!e){alert('Please enter your email.');return;}document.getElementById('footer-success').style.display='block';}
 </script>
-
-
 
 </body>
 </html>
