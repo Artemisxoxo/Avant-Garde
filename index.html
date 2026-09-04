@@ -1706,6 +1706,282 @@
   display: block;
 }
 
+
+/* ══ LOGIN PAGE ══ */
+.login-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: calc(100vh - 56px);
+}
+.login-left {
+  background: var(--map-ink);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 4rem 3rem 4rem 2.5rem;
+}
+.login-map-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: url('./larmat-map.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.07;
+  filter: sepia(1);
+}
+.login-left-content {
+  position: relative;
+  z-index: 2;
+}
+.login-eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--map-terra);
+  font-weight: 500;
+  margin-bottom: 0.85rem;
+}
+.login-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 58px;
+  font-weight: 900;
+  color: var(--map-cream);
+  text-transform: uppercase;
+  line-height: 0.92;
+  letter-spacing: 0.04em;
+  margin-bottom: 2rem;
+}
+.login-title em {
+  font-weight: 400;
+  font-style: italic;
+  text-transform: none;
+  color: var(--map-terra);
+}
+.login-body {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 14px;
+  line-height: 1.9;
+  color: rgba(244,237,216,0.7);
+  font-style: italic;
+  max-width: 380px;
+  margin-bottom: 1rem;
+}
+.login-body-small {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  color: rgba(244,237,216,0.4);
+  margin-top: 1.5rem;
+  letter-spacing: 0.04em;
+}
+.login-apply-link {
+  background: none;
+  border: none;
+  color: var(--map-terra);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  cursor: pointer;
+  padding: 0;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.login-right {
+  background: var(--map-paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 3rem;
+}
+.login-form-wrap {
+  width: 100%;
+  max-width: 380px;
+}
+.login-form-eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--map-terra);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+.login-form-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--map-ink);
+  margin-bottom: 2.5rem;
+}
+.login-field {
+  margin-bottom: 1.25rem;
+}
+.login-label {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--map-muted);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+.login-input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--map-rule-dark);
+  background: var(--map-cream);
+  font-family: 'Libre Baskerville', serif;
+  font-size: 14px;
+  color: var(--map-ink);
+  border-radius: 1px;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+.login-input:focus { border-color: var(--map-terra); }
+.login-error {
+  display: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  color: var(--map-terra);
+  margin-bottom: 1rem;
+  letter-spacing: 0.04em;
+}
+.login-btn {
+  width: 100%;
+  padding: 1rem;
+  background: var(--map-ink);
+  color: var(--map-cream);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  border-radius: 1px;
+  transition: background 0.2s;
+  margin-top: 0.5rem;
+}
+.login-btn:hover { background: var(--map-terra); }
+.login-help {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  color: rgba(122,104,72,0.6);
+  margin-top: 1.5rem;
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+
+/* ══ PORTAL PAGE ══ */
+.portal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 2.5rem;
+  background: var(--map-paper);
+  border-bottom: 2px solid var(--map-terra);
+}
+.portal-eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--map-terra);
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+}
+.portal-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--map-ink);
+}
+.portal-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 9.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--map-cream);
+  background: var(--map-terra);
+  text-decoration: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 1px;
+  transition: background 0.2s;
+}
+.portal-download-btn:hover { background: #b5684a; }
+.portal-viewer {
+  position: relative;
+  height: calc(100vh - 56px - 90px - 52px);
+  background: #525659;
+}
+#portal-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+.portal-fallback {
+  display: none;
+  position: absolute;
+  inset: 0;
+  background: var(--map-paper);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.portal-fallback-icon { color: var(--map-rule-dark); }
+.portal-fallback-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--map-ink);
+  font-style: italic;
+}
+.portal-fallback-body {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 13px;
+  color: var(--map-muted);
+  font-style: italic;
+  text-align: center;
+  line-height: 1.9;
+  max-width: 400px;
+}
+.portal-footer-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 2.5rem;
+  background: var(--map-ink);
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.portal-footer-note {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: rgba(244,237,216,0.4);
+}
+.portal-logout-link {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--map-terra);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: letter-spacing 0.2s;
+}
+.portal-logout-link:hover { letter-spacing: 0.24em; }
+
 </style>
 </head>
 <body>
@@ -2051,107 +2327,97 @@
 
 <div id="page-login" class="page">
   <nav class="inner-nav">
-    <div class="inner-nav-brand" onclick="showPage('home',null)"><div class="inner-nav-brand-main">Avant&#8209;Garde</div><div class="inner-nav-brand-sub">Wine &amp; Spirits</div></div>
-    <div class="inner-nav-links"><button class="inner-nav-link" onclick="showPage('producers',null)">Producers</button><button class="inner-nav-link" onclick="showPage('national',null)">National</button><button class="inner-nav-link" onclick="showPage('contact',null)">Contact</button></div>
-    <button class="inner-nav-cta" onclick="showPage('login',null)">Client Login</button>
+    <div class="inner-nav-brand" onclick="showPage('home',null)">
+      <div class="inner-nav-brand-main">Avant&#8209;Garde</div>
+      <div class="inner-nav-brand-sub">Wine &amp; Spirits</div>
+    </div>
+    <div class="inner-nav-links">
+      <button class="inner-nav-link" onclick="showPage('producers',null)">Producers</button>
+      <button class="inner-nav-link" onclick="showPage('national',null)">National</button>
+      <button class="inner-nav-link" onclick="showPage('contact',null)">Contact</button>
+    </div>
+    <button class="inner-nav-cta active">Client Login</button>
   </nav>
-  <div class="login-outer">
-    <div class="login-map-panel">
-      <div class="login-map-bg"></div>
+
+  <div class="login-layout">
+    <div class="login-left">
       <div class="login-map-overlay"></div>
-      <div class="login-map-content">
-        <div class="login-map-quote">"Wine is the most civilized thing in the world."</div>
-        <div class="login-map-attr">Ernest Hemingway</div>
+      <div class="login-left-content">
+        <div class="login-eyebrow">Client Portal</div>
+        <div class="login-title">Portfolio<br><em>Access.</em></div>
+        <p class="login-body">Pricing, availability and the current catalog — exclusively for trade accounts.</p>
+        <p class="login-body-small">Not yet a customer? <button class="login-apply-link" onclick="openCustomerModal()">Apply for an account &rarr;</button></p>
       </div>
     </div>
-    <div class="login-form-panel">
-      <div class="login-eyebrow">Client Portal</div>
-      <div class="login-title">Sign in</div>
-      <div class="login-subtitle">Access your account to view current pricing, catalog availability, and place orders.</div>
-      <div class="form-group"><label class="form-label">Account email</label><input class="form-input" type="email" placeholder="you@yourrestaurant.com" id="login-email"></div>
-      <div class="form-group"><label class="form-label">Password</label><input class="form-input" type="password" placeholder="••••••••"></div>
-      <button class="btn-map-primary" style="width:100%;padding:1rem;margin-top:0.25rem" onclick="doLogin()">Sign in</button>
-      <div class="login-note">Not a client? <button class="login-note-link" onclick="showPage('contact',null)">Apply for an account →</button></div>
-      <div class="demo-note">Prototype: enter any email and password to explore the portal.</div>
+
+    <div class="login-right">
+      <div class="login-form-wrap">
+        <div class="login-form-eyebrow">Avant&#8209;Garde Wine &amp; Spirits</div>
+        <div class="login-form-title">Sign in</div>
+        <div class="login-field">
+          <label class="login-label">Access code</label>
+          <input class="login-input" type="password" id="login-code" placeholder="Enter your access code" onkeydown="if(event.key==='Enter')doPortalLogin()">
+        </div>
+        <div class="login-error" id="login-error">Incorrect access code. Please try again.</div>
+        <button class="login-btn" onclick="doPortalLogin()">Enter portal</button>
+        <p class="login-help">Need access? Contact <button class="login-apply-link" onclick="openContactModal()">Geoffroy Ducroux</button></p>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- ══════════════════════════════
-     PORTAL
-══════════════════════════════ -->
 <div id="page-portal" class="page">
   <nav class="inner-nav">
-    <div class="inner-nav-brand" onclick="showPage('home',null)"><div class="inner-nav-brand-main">Avant&#8209;Garde</div><div class="inner-nav-brand-sub">Wine &amp; Spirits</div></div>
-    <div class="inner-nav-links"><button class="inner-nav-link" onclick="showPage('producers',null)">Producers</button><button class="inner-nav-link" onclick="showPage('national',null)">National</button><button class="inner-nav-link" onclick="showPage('contact',null)">Contact</button></div>
-    <button class="inner-nav-cta" onclick="showPage('home',null)">Sign out</button>
+    <div class="inner-nav-brand" onclick="showPage('home',null)">
+      <div class="inner-nav-brand-main">Avant&#8209;Garde</div>
+      <div class="inner-nav-brand-sub">Wine &amp; Spirits</div>
+    </div>
+    <div class="inner-nav-links">
+      <button class="inner-nav-link" onclick="showPage('producers',null)">Producers</button>
+      <button class="inner-nav-link" onclick="showPage('national',null)">National</button>
+      <button class="inner-nav-link" onclick="showPage('contact',null)">Contact</button>
+    </div>
+    <button class="inner-nav-cta" onclick="doPortalLogout()">Sign out</button>
   </nav>
+
   <div class="portal-header">
-    <div><div class="portal-acct">Welcome back, <strong>Gramercy Tavern</strong></div><div style="font-size:10px;color:var(--map-muted);margin-top:2px;font-family:'DM Sans',sans-serif">Account #GT-0042 · New York, NY</div></div>
-    <button class="btn-map-outline" style="color:var(--map-ink);background:var(--map-paper);border-color:var(--map-rule-dark);font-size:8.5px;padding:0.45rem 1.1rem" onclick="showPage('home',null)">Sign out</button>
-  </div>
-  <div class="portal-tabs">
-    <button class="portal-tab active" onclick="switchTab('catalog',this)">Catalog &amp; Pricing</button>
-    <button class="portal-tab" onclick="switchTab('order',this)">Place an Order</button>
-    <button class="portal-tab" onclick="switchTab('history',this)">Order History</button>
-  </div>
-  <div id="tab-catalog" class="tab-content active">
-    <div class="filter-bar"><button class="filter-pill active" onclick="setFilter(this)">All</button><button class="filter-pill" onclick="setFilter(this)">Champagne</button><button class="filter-pill" onclick="setFilter(this)">Burgundy</button><button class="filter-pill" onclick="setFilter(this)">Loire</button><button class="filter-pill" onclick="setFilter(this)">Rhône</button><button class="filter-pill" onclick="setFilter(this)">Italy</button><button class="filter-pill" onclick="setFilter(this)">Spain</button><button class="filter-pill" onclick="setFilter(this)">USA</button></div>
-    <div style="padding:0 2.5rem 2.5rem"><table class="catalog-table"><thead><tr><th>Wine</th><th>Vintage</th><th>Format</th><th>Bottle</th><th>Case</th><th></th></tr></thead><tbody>
-      <tr><td><div class="cat-producer">Emmanuel Brochet · Champagne</div><div class="cat-wine">Le Mont Benoit Brut Nature</div></td><td><span class="cat-meta">NV</span></td><td><span class="cat-meta">750ml · 12/cs</span></td><td><div class="cat-price">$62</div></td><td><div class="cat-case">$744</div></td><td><button class="add-btn" onclick="switchTab('order',document.querySelector('.portal-tab:nth-child(2)'))">+ Order</button></td></tr>
-      <tr><td><div class="cat-producer">Vouette &amp; Sorbée · Champagne</div><div class="cat-wine">Blanc d'Argile Extra Brut</div></td><td><span class="cat-meta">NV</span></td><td><span class="cat-meta">750ml · 6/cs</span></td><td><div class="cat-price">$85</div></td><td><div class="cat-case">$510</div></td><td><button class="add-btn" onclick="switchTab('order',document.querySelector('.portal-tab:nth-child(2)'))">+ Order</button></td></tr>
-      <tr><td><div class="cat-producer">Pierre-Henri Rougeot · Burgundy</div><div class="cat-wine">Bourgogne Blanc</div></td><td><span class="cat-meta">2022</span></td><td><span class="cat-meta">750ml · 12/cs</span></td><td><div class="cat-price">$38</div></td><td><div class="cat-case">$456</div></td><td><button class="add-btn" onclick="switchTab('order',document.querySelector('.portal-tab:nth-child(2)'))">+ Order</button></td></tr>
-      <tr><td><div class="cat-producer">Benoît Courault · Loire</div><div class="cat-wine">Les Noëls de Montbenault</div></td><td><span class="cat-meta">2022</span></td><td><span class="cat-meta">750ml · 12/cs</span></td><td><div class="cat-price">$44</div></td><td><div class="cat-case">$528</div></td><td><button class="add-btn" onclick="switchTab('order',document.querySelector('.portal-tab:nth-child(2)'))">+ Order</button></td></tr>
-      <tr><td><div class="cat-producer">Gourt de Mautens · Rhône</div><div class="cat-wine">Rasteau Rouge</div></td><td><span class="cat-meta">2021</span></td><td><span class="cat-meta">750ml · 12/cs</span></td><td><div class="cat-price">$56</div></td><td><div class="cat-case">$672</div></td><td><button class="add-btn" onclick="switchTab('order',document.querySelector('.portal-tab:nth-child(2)'))">+ Order</button></td></tr>
-      <tr><td><div class="cat-producer">Nicola Gatta · Lombardia</div><div class="cat-wine">Franciacorta Brut</div></td><td><span class="cat-meta">NV</span></td><td><span class="cat-meta">750ml · 6/cs</span></td><td><div class="cat-price">$42</div></td><td><div class="cat-case">$252</div></td><td><button class="add-btn" onclick="switchTab('order',document.querySelector('.portal-tab:nth-child(2)'))">+ Order</button></td></tr>
-      <tr><td><div class="cat-producer">Alta Alella · Catalunya</div><div class="cat-wine">Brunus Rosé</div></td><td><span class="cat-meta">2023</span></td><td><span class="cat-meta">750ml · 12/cs</span></td><td><div class="cat-price">$22</div></td><td><div class="cat-case">$264</div></td><td><button class="add-btn" onclick="switchTab('order',document.querySelector('.portal-tab:nth-child(2)'))">+ Order</button></td></tr>
-      <tr><td><div class="cat-producer">Outward · California</div><div class="cat-wine">Pinot Noir, Wildhorse Valley</div></td><td><span class="cat-meta">2022</span></td><td><span class="cat-meta">750ml · 12/cs</span></td><td><div class="cat-price">$48</div></td><td><div class="cat-case">$576</div></td><td><button class="add-btn" onclick="switchTab('order',document.querySelector('.portal-tab:nth-child(2)'))">+ Order</button></td></tr>
-    </tbody></table></div>
-  </div>
-  <div id="tab-order" class="tab-content">
-    <div class="order-panel">
-      <div class="order-form-col">
-        <div class="order-title">Place an order</div>
-        <div class="order-subtitle">Submit your request. We confirm availability and send an invoice within one business day.</div>
-        <div class="order-row"><div class="form-group"><label class="form-label">Account name</label><input class="form-input" type="text" value="Gramercy Tavern" readonly></div><div class="form-group"><label class="form-label">Delivery address</label><input class="form-input" type="text" placeholder="Street, City, State, ZIP"></div></div>
-        <div class="order-row"><div class="form-group"><label class="form-label">Requested delivery date</label><input class="form-input" type="date"></div><div class="form-group"><label class="form-label">Receiving contact</label><input class="form-input" type="text" placeholder="Name at delivery"></div></div>
-        <div class="form-group"><label class="form-label">Order details</label><textarea class="form-textarea" style="min-height:140px" placeholder="List producers, wines, vintages, and quantities.&#10;· Emmanuel Brochet Le Mont Benoit NV — 2 cases&#10;· Gourt de Mautens Rasteau Rouge 2021 — 1 case"></textarea></div>
-        <div class="form-group"><label class="form-label">Notes</label><textarea class="form-textarea" style="min-height:65px" placeholder="Substitutions, scheduling, or other requests."></textarea></div>
-        <button class="btn-map-primary" style="padding:0.95rem 2.5rem" onclick="submitOrder()">Send order request</button>
-        <div class="success-msg" id="order-success">✓ Order request sent. Expect confirmation within one business day.</div>
-      </div>
-      <div class="order-sidebar">
-        <div class="sidebar-label">How it works</div>
-        <div class="sidebar-tip">Submit your request with producers, wines, and quantities. We verify availability and confirm by email — usually same day.</div>
-        <div class="sidebar-contact-label">Direct line</div>
-        <div class="sidebar-contact-val">646.642.3386</div>
-        <div class="sidebar-contact-label">Email</div>
-        <div class="sidebar-contact-val" style="font-size:12px">gducroux@avantgarde-ws.com</div>
-        <div style="margin-top:1.5rem;padding:1rem;border:1px solid var(--map-rule);font-family:'DM Sans',sans-serif;font-size:10.5px;color:var(--map-muted);line-height:1.7;border-radius:1px">Orders are requests, not confirmed purchases. Pricing reflects current catalog rates at confirmation.</div>
-      </div>
+    <div class="portal-header-left">
+      <div class="portal-eyebrow">Client Portal</div>
+      <div class="portal-title">Current Catalog &amp; Pricing</div>
+    </div>
+    <div class="portal-header-right">
+      <a class="portal-download-btn" id="portal-download-btn" href="./pdfs/catalog.pdf" download="AvantGarde-Catalog.pdf" target="_blank">
+        <svg width="13" height="15" viewBox="0 0 13 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6.5 1v9M3 7l3.5 3.5L10 7"/><path d="M1 13h11"/>
+        </svg>
+        Download PDF
+      </a>
     </div>
   </div>
-  <div id="tab-history" class="tab-content">
-    <div style="padding:2rem 2.5rem"><div class="order-title" style="margin-bottom:0.3rem">Order history</div><div class="order-subtitle">Your recent orders.</div></div>
-    <table class="history-table"><thead><tr><th>Order</th><th>Date</th><th>Contents</th><th>Total</th><th>Status</th></tr></thead><tbody>
-      <tr><td style="font-family:'DM Sans',sans-serif;font-size:11px;color:var(--map-muted)">#ORD-2284</td><td style="font-family:'DM Sans',sans-serif;font-size:12px;color:var(--map-muted)">May 12, 2025</td><td><div style="font-family:'Libre Baskerville',serif;font-size:14px;font-style:italic">3 cases — Brochet, Rougeot, Courault</div></td><td><div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:700">$1,728</div></td><td><span class="status-badge">Delivered</span></td></tr>
-      <tr><td style="font-family:'DM Sans',sans-serif;font-size:11px;color:var(--map-muted)">#ORD-2201</td><td style="font-family:'DM Sans',sans-serif;font-size:12px;color:var(--map-muted)">Apr 3, 2025</td><td><div style="font-family:'Libre Baskerville',serif;font-size:14px;font-style:italic">5 cases — Vouette &amp; Sorbée, Gourt de Mautens</div></td><td><div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:700">$3,060</div></td><td><span class="status-badge">Delivered</span></td></tr>
-    </tbody></table>
-  </div>
-  <footer class="site-footer">
-    <div class="footer-main">
-      <div class="footer-col"><div class="footer-col-heading">Contact</div><p class="footer-contact-desc">Questions about our portfolio or distribution?</p><button class="footer-contact-btn" onclick="openContactModal()">Send us a message</button></div>
-      <div class="footer-col"><div class="footer-col-heading">More Information</div><button class="footer-nav-link" onclick="showPage('contact',null)">Employment Opportunities</button><button class="footer-nav-link" onclick="showPage('contact',null)">Become a Customer</button><button class="footer-nav-link" onclick="showPage('national',null)">National Distribution</button></div>
-      <div class="footer-col"><div class="footer-col-heading">Stay in Touch</div><input class="footer-input" type="email" placeholder="Email address*" id="footer-email-portal"><input class="footer-input" type="text" placeholder="Name"><button class="footer-subscribe-btn" onclick="footerSubscribe('portal')">Subscribe</button><div class="footer-subscribe-success" id="footer-success-portal">&#10003; Subscribed.</div></div>
-      <div class="footer-col"><div class="footer-col-heading">Follow</div><div class="footer-social-icons"><a href="https://www.instagram.com/avantgardews/" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/profile.php?id=100054472420492" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
+
+  <div class="portal-viewer">
+    <iframe id="portal-iframe" src="./pdfs/catalog.pdf" frameborder="0"></iframe>
+    <div class="portal-fallback" id="portal-fallback">
+      <div class="portal-fallback-icon">
+        <svg width="40" height="48" viewBox="0 0 40 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M24 2H6a3 3 0 0 0-3 3v38a3 3 0 0 0 3 3h28a3 3 0 0 0 3-3V16L24 2z"/>
+          <path d="M24 2v14h14"/>
+          <line x1="12" y1="26" x2="28" y2="26"/>
+          <line x1="12" y1="32" x2="28" y2="32"/>
+          <line x1="12" y1="38" x2="22" y2="38"/>
+        </svg>
+      </div>
+      <div class="portal-fallback-title">Current Catalog</div>
+      <p class="portal-fallback-body">The catalog PDF will appear here once uploaded to GitHub.<br>In the meantime, use the download button above.</p>
     </div>
-    <div class="footer-bottom"><div><div class="footer-brand-name">Avant&#8209;Garde</div><div class="footer-brand-sub">Wine &amp; Spirits</div></div><div class="footer-copy">&#169; 2026 Avant-Garde Wine &amp; Spirits. All rights reserved.</div><button class="footer-nav-link" onclick="showPage('login',null)">Client Login</button></div>
-  </footer>
+  </div>
+
+  <div class="portal-footer-bar">
+    <div class="portal-footer-note">Current catalog &#8212; for trade use only. Pricing and availability subject to change.</div>
+    <button class="portal-logout-link" onclick="doPortalLogout()">Sign out &rarr;</button>
+  </div>
 </div>
 
-<!-- ══════════════════════════════
-     NATIONAL PAGE
-══════════════════════════════ -->
 <div id="page-national" class="page">
   <nav class="inner-nav">
     <div class="inner-nav-brand" onclick="showPage('home',null)">
@@ -4568,12 +4834,23 @@ function showPage(id,navEl){
   if(navEl)navEl.classList.add('active');
   window.scrollTo(0,0);
 }
-function doLogin(){
-  var e=document.getElementById('login-email').value;
-  if(!e){alert('Please enter your email.');return;}
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById('page-portal').classList.add('active');
-  window.scrollTo(0,0);
+function doPortalLogin(){
+  var code=document.getElementById('login-code').value;
+  if(code==='Avant-GardeClient'){
+    document.getElementById('login-error').style.display='none';
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    document.getElementById('page-portal').classList.add('active');
+    window.scrollTo(0,0);
+  } else {
+    document.getElementById('login-error').style.display='block';
+    document.getElementById('login-code').value='';
+    document.getElementById('login-code').focus();
+  }
+}
+function doPortalLogout(){
+  document.getElementById('login-code').value='';
+  document.getElementById('login-error').style.display='none';
+  showPage('login',null);
 }
 function switchTab(id,btn){
   document.querySelectorAll('.portal-tab').forEach(t=>t.classList.remove('active'));
