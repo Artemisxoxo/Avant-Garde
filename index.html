@@ -1342,6 +1342,121 @@
   transform: translateY(-50%) translateX(4px);
 }
 
+
+/* ══ NATIONAL PAGE ══ */
+.national-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: calc(100vh - 56px - 280px);
+}
+.national-left {
+  padding: 4rem 3rem 4rem 2.5rem;
+  background: var(--map-paper);
+  border-right: 2px solid var(--map-terra);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.national-eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--map-terra);
+  font-weight: 500;
+  margin-bottom: 0.85rem;
+}
+.national-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 52px;
+  font-weight: 900;
+  color: var(--map-ink);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 0.95;
+  margin-bottom: 0.5rem;
+}
+.national-title em {
+  font-weight: 400;
+  font-style: italic;
+  text-transform: none;
+  color: var(--map-terra);
+}
+.national-body {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--map-muted);
+  font-style: italic;
+  max-width: 400px;
+  margin-top: 1.5rem;
+}
+.national-right {
+  padding: 3.5rem 3rem 3.5rem 3rem;
+  background: var(--map-cream);
+  display: flex;
+  flex-direction: column;
+}
+.national-markets-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--map-terra);
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--map-terra);
+}
+.national-market-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--map-rule);
+  gap: 2rem;
+}
+.national-market-row-last {
+  border-bottom: none;
+}
+.national-market-states {
+  font-family: 'Playfair Display', serif;
+  font-size: 19px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--map-ink);
+  flex-shrink: 0;
+  min-width: 180px;
+}
+.national-market-distributor {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  color: var(--map-muted);
+  font-weight: 400;
+  text-align: right;
+  letter-spacing: 0.02em;
+}
+.national-market-link {
+  text-decoration: none;
+  color: var(--map-terra);
+  transition: opacity 0.2s;
+  font-weight: 500;
+}
+.national-market-link:hover { opacity: 0.7; }
+.national-market-inquire {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--map-terra);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  padding: 0;
+  transition: letter-spacing 0.2s;
+}
+.national-market-inquire:hover { letter-spacing: 0.22em; }
+
 </style>
 </head>
 <body>
@@ -1831,30 +1946,89 @@
 ══════════════════════════════ -->
 <div id="page-national" class="page">
   <nav class="inner-nav">
-    <div class="inner-nav-brand" onclick="showPage('home',null)"><div class="inner-nav-brand-main">Avant&#8209;Garde</div><div class="inner-nav-brand-sub">Wine &amp; Spirits</div></div>
-    <div class="inner-nav-links"><button class="inner-nav-link" onclick="showPage('producers',null)">Producers</button><button class="inner-nav-link active">National</button><button class="inner-nav-link" onclick="showPage('contact',null)">Contact</button></div>
+    <div class="inner-nav-brand" onclick="showPage('home',null)">
+      <div class="inner-nav-brand-main">Avant&#8209;Garde</div>
+      <div class="inner-nav-brand-sub">Wine &amp; Spirits</div>
+    </div>
+    <div class="inner-nav-links">
+      <button class="inner-nav-link" onclick="showPage('producers',null)">Producers</button>
+      <button class="inner-nav-link active">National</button>
+      <button class="inner-nav-link" onclick="showPage('contact',null)">Contact</button>
+    </div>
     <button class="inner-nav-cta" onclick="showPage('login',null)">Client Login</button>
   </nav>
-  <div class="two-col-section">
-    <div class="section-left">
-      <div class="section-eyebrow">Distribution</div>
-      <div class="section-title-large">Find Our</div>
-      <div class="section-title-italic">Wines.</div>
-      <p class="section-body">Our portfolio is available through select distributors and direct accounts across the United States. Reach out to find coverage in your market.</p>
-      <button class="btn-map-primary" style="align-self:flex-start" onclick="showPage('contact',null)">Contact us</button>
+
+  <div class="national-layout">
+
+    <div class="national-left">
+      <div class="national-eyebrow">Distribution</div>
+      <div class="national-title">Find Our<br><em>Wines.</em></div>
+      <p class="national-body">Our portfolio is available through select distributors across the United States. Reach out to find coverage in your market.</p>
+      <button class="btn-map-primary" style="align-self:flex-start;margin-top:1rem" onclick="openContactModal()">Get in touch</button>
     </div>
-    <div class="section-right">
-      <div class="section-eyebrow">Availability by market</div>
-      <div class="state-row"><div><div class="state-name">New York</div><div class="state-detail" style="margin-top:3px">Direct · Avant-Garde</div></div><div class="state-detail">646.642.3386</div></div>
-      <div class="state-row" style="border-bottom:none"><div><div class="state-name">Other markets</div><div class="state-detail" style="margin-top:3px">Contact for distributor</div></div><div style="font-family:'DM Sans',sans-serif;font-size:11px;color:var(--map-terra);cursor:pointer" onclick="showPage('contact',null)">Inquire →</div></div>
+
+    <div class="national-right">
+      <div class="national-markets-label">Availability by Market</div>
+
+      <div class="national-market-row">
+        <div class="national-market-states">New York &nbsp;&middot;&nbsp; New Jersey &nbsp;&middot;&nbsp; California</div>
+        <div class="national-market-distributor">Direct &mdash; Avant&#8209;Garde Wine &amp; Spirits</div>
+      </div>
+
+      <div class="national-market-row">
+        <div class="national-market-states">Texas</div>
+        <div class="national-market-distributor">David Mayfield Selection</div>
+      </div>
+
+      <div class="national-market-row">
+        <div class="national-market-states">Florida</div>
+        <a href="https://www.dfrosati.com" target="_blank" rel="noopener" class="national-market-distributor national-market-link">DF Rosati</a>
+      </div>
+
+      <div class="national-market-row">
+        <div class="national-market-states">Georgia</div>
+        <a href="https://www.rivegauchewine.com/" target="_blank" rel="noopener" class="national-market-distributor national-market-link">Rive-Gauche</a>
+      </div>
+
+      <div class="national-market-row">
+        <div class="national-market-states">Maine</div>
+        <a href="https://www.centraldistributors.com/" target="_blank" rel="noopener" class="national-market-distributor national-market-link">Central Distributions</a>
+      </div>
+
+      <div class="national-market-row">
+        <div class="national-market-states">Vermont</div>
+        <a href="https://www.802distributors.com" target="_blank" rel="noopener" class="national-market-distributor national-market-link">802 Distributors</a>
+      </div>
+
+      <div class="national-market-row">
+        <div class="national-market-states">Connecticut</div>
+        <a href="https://ungraftedselections.com" target="_blank" rel="noopener" class="national-market-distributor national-market-link">Ungrafted Selections</a>
+      </div>
+
+      <div class="national-market-row">
+        <div class="national-market-states">Massachusetts</div>
+        <a href="https://areniwineselections.com/" target="_blank" rel="noopener" class="national-market-distributor national-market-link">Areni Selections</a>
+      </div>
+
+      <div class="national-market-row national-market-row-last">
+        <div class="national-market-states">Other markets</div>
+        <button class="national-market-distributor national-market-inquire" onclick="openContactModal()">Inquire &rarr;</button>
+      </div>
     </div>
+
   </div>
-  <footer class="site-footer"><div class="footer-bottom"><div><div class="footer-brand-name">Avant&#8209;Garde</div><div class="footer-brand-sub">Wine &amp; Spirits</div></div><div class="footer-copy">© 2026 Avant-Garde Wine &amp; Spirits. All rights reserved.</div></div></footer>
+
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-col"><div class="footer-col-heading">Contact</div><p class="footer-contact-desc">Questions about our portfolio or distribution?</p><button class="footer-contact-btn" onclick="openContactModal()">Send us a message</button></div>
+      <div class="footer-col"><div class="footer-col-heading">More Information</div><button class="footer-nav-link" onclick="showPage('contact',null)">Employment Opportunities</button><button class="footer-nav-link" onclick="showPage('contact',null)">Become a Customer</button><button class="footer-nav-link" onclick="showPage('national',null)">National Distribution</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Stay in Touch</div><input class="footer-input" type="email" placeholder="Email address*"><input class="footer-input" type="text" placeholder="Name"><button class="footer-subscribe-btn">Subscribe</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Follow</div><div class="footer-social-icons"><a href="https://www.instagram.com/avantgardews/" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/profile.php?id=100054472420492" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
+    </div>
+    <div class="footer-bottom"><div><div class="footer-brand-name">Avant&#8209;Garde</div><div class="footer-brand-sub">Wine &amp; Spirits</div></div><div class="footer-copy">&#169; 2026 Avant-Garde Wine &amp; Spirits. All rights reserved.</div><button class="footer-nav-link" onclick="showPage('login',null)">Client Login</button></div>
+  </footer>
 </div>
 
-<!-- ══════════════════════════════
-     CONTACT PAGE
-══════════════════════════════ -->
 <div id="page-contact" class="page">
   <nav class="inner-nav">
     <div class="inner-nav-brand" onclick="showPage('home',null)"><div class="inner-nav-brand-main">Avant&#8209;Garde</div><div class="inner-nav-brand-sub">Wine &amp; Spirits</div></div>
@@ -5103,10 +5277,24 @@ function closeContactModal(e,force){
   }
 }
 function submitModal(){
-  var name=document.getElementById('modal-name').value,email=document.getElementById('modal-email').value,subject=document.getElementById('modal-subject').value,message=document.getElementById('modal-message').value;
+  var name=document.getElementById('modal-name').value;
+  var email=document.getElementById('modal-email').value;
+  var subject=document.getElementById('modal-subject').value;
+  var message=document.getElementById('modal-message').value;
   if(!name||!email||!subject||!message){alert('Please fill in all fields.');return;}
+  var body='Name: '+name+'\nEmail: '+email+'\n\n'+message;
+  var mailtoLink='mailto:gducroux@avantgarde-ws.com'
+    +'?subject='+encodeURIComponent('[Avant-Garde] '+subject)
+    +'&body='+encodeURIComponent(body);
+  window.location.href=mailtoLink;
   document.getElementById('modal-success').style.display='block';
-  setTimeout(function(){closeContactModal(null,true);document.getElementById('modal-name').value='';document.getElementById('modal-email').value='';document.getElementById('modal-subject').value='';document.getElementById('modal-message').value='';},2200);
+  setTimeout(function(){
+    closeContactModal(null,true);
+    document.getElementById('modal-name').value='';
+    document.getElementById('modal-email').value='';
+    document.getElementById('modal-subject').value='';
+    document.getElementById('modal-message').value='';
+  },1800);
 }
 function footerSubscribe(id){var e=document.getElementById('footer-email-'+(id||'')).value;if(!e){alert('Please enter your email.');return;}document.getElementById('footer-success-'+(id||'')).style.display='block';}
 </script>
