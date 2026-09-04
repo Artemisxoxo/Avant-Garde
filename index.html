@@ -1916,45 +1916,12 @@
   transition: background 0.2s;
 }
 .portal-download-btn:hover { background: #b5684a; }
-.portal-viewer {
-  position: relative;
-  height: calc(100vh - 56px - 90px - 52px);
-  background: #525659;
-}
-#portal-iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-  display: block;
-}
-.portal-fallback {
-  display: none;
-  position: absolute;
-  inset: 0;
-  background: var(--map-paper);
-  align-items: center;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-}
-.portal-fallback-icon { color: var(--map-rule-dark); }
-.portal-fallback-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--map-ink);
-  font-style: italic;
-}
-.portal-fallback-body {
-  font-family: 'Libre Baskerville', serif;
-  font-size: 13px;
-  color: var(--map-muted);
-  font-style: italic;
-  text-align: center;
-  line-height: 1.9;
-  max-width: 400px;
-}
+
+
+
+
+
+
 .portal-footer-bar {
   display: flex;
   align-items: center;
@@ -1981,6 +1948,99 @@
   transition: letter-spacing 0.2s;
 }
 .portal-logout-link:hover { letter-spacing: 0.24em; }
+
+
+/* ══ PORTAL CLEAN VIEWER ══ */
+.portal-viewer-clean {
+  flex: 1;
+  background: var(--map-cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  min-height: calc(100vh - 56px - 90px - 52px);
+}
+.portal-catalog-card {
+  background: var(--map-paper);
+  border: 1px solid var(--map-rule-dark);
+  border-top: 3px solid var(--map-terra);
+  padding: 3.5rem 4rem;
+  text-align: center;
+  max-width: 520px;
+  width: 100%;
+}
+.portal-catalog-icon {
+  color: var(--map-terra);
+  margin-bottom: 1.5rem;
+  opacity: 0.7;
+}
+.portal-catalog-label {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--map-ink);
+  margin-bottom: 0.5rem;
+}
+.portal-catalog-sub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--map-muted);
+  margin-bottom: 2.5rem;
+}
+.portal-catalog-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.portal-open-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--map-cream);
+  background: var(--map-ink);
+  text-decoration: none;
+  padding: 0.85rem 1.75rem;
+  border-radius: 1px;
+  transition: background 0.2s;
+}
+.portal-open-btn:hover { background: var(--map-terra); }
+.portal-dl-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--map-terra);
+  background: none;
+  text-decoration: none;
+  padding: 0.85rem 1.75rem;
+  border-radius: 1px;
+  border: 1px solid rgba(196,97,74,0.4);
+  transition: all 0.2s;
+}
+.portal-dl-btn:hover {
+  background: var(--map-terra);
+  color: var(--map-cream);
+  border-color: var(--map-terra);
+}
+.portal-catalog-note {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--map-muted);
+  line-height: 1.7;
+}
 
 </style>
 </head>
@@ -2395,24 +2455,34 @@
     </div>
   </div>
 
-  <div class="portal-viewer">
-    <iframe id="portal-iframe" src="https://docs.google.com/viewer?url=https://avant-garde-three.vercel.app/pdfs/catalog.pdf&embedded=true" frameborder="0"></iframe>
-    <div class="portal-fallback" id="portal-fallback">
-      <div class="portal-fallback-icon">
-        <svg width="40" height="48" viewBox="0 0 40 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M24 2H6a3 3 0 0 0-3 3v38a3 3 0 0 0 3 3h28a3 3 0 0 0 3-3V16L24 2z"/>
-          <path d="M24 2v14h14"/>
-          <line x1="12" y1="26" x2="28" y2="26"/>
-          <line x1="12" y1="32" x2="28" y2="32"/>
-          <line x1="12" y1="38" x2="22" y2="38"/>
+  <div class="portal-viewer-clean">
+    <div class="portal-catalog-card">
+      <div class="portal-catalog-icon">
+        <svg width="48" height="56" viewBox="0 0 48 56" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M28 2H8a4 4 0 0 0-4 4v44a4 4 0 0 0 4 4h32a4 4 0 0 0 4-4V20L28 2z"/>
+          <path d="M28 2v18h18"/>
+          <line x1="14" y1="30" x2="34" y2="30"/>
+          <line x1="14" y1="38" x2="34" y2="38"/>
+          <line x1="14" y1="46" x2="26" y2="46"/>
         </svg>
       </div>
-      <div class="portal-fallback-title">Current Catalog</div>
-      <p class="portal-fallback-body">The catalog PDF will appear here once uploaded to GitHub.<br>In the meantime, use the download button above.</p>
+      <div class="portal-catalog-label">Current Catalog &amp; Pricing</div>
+      <div class="portal-catalog-sub">Avant&#8209;Garde Wine &amp; Spirits &mdash; For trade use only</div>
+      <div class="portal-catalog-actions">
+        <a class="portal-open-btn" href="https://avant-garde-three.vercel.app/pdfs/catalog.pdf" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          View Catalog
+        </a>
+        <a class="portal-dl-btn" href="https://avant-garde-three.vercel.app/pdfs/catalog.pdf" download="AvantGarde-Catalog.pdf" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download PDF
+        </a>
+      </div>
+      <p class="portal-catalog-note">Pricing and availability subject to change. Contact Geoffroy with any questions.</p>
     </div>
   </div>
 
-  <div class="portal-footer-bar">
+  <div class="portal-footer-bar"><div class="portal-footer-bar">
     <div class="portal-footer-note">Current catalog &#8212; for trade use only. Pricing and availability subject to change.</div>
     <button class="portal-logout-link" onclick="doPortalLogout()">Sign out &rarr;</button>
   </div>
