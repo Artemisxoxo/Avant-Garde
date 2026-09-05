@@ -2102,6 +2102,7 @@
 
 
 
+
 /* ══════════════════════════════════════════════
    MOBILE RESPONSIVE  —  max-width: 768px
    ══════════════════════════════════════════════ */
@@ -2109,70 +2110,65 @@
 
   /* ── NAV ── */
   .inner-nav {
-    padding: 0.75rem 1.25rem;
-    gap: 0.5rem;
+    padding: 0.75rem 1rem;
   }
   .inner-nav-links { display: none; }
-  .inner-nav-brand-main { font-size: 15px; }
-  .inner-nav-brand-sub  { font-size: 8px; }
-  .inner-nav-cta { font-size: 9px; padding: 0.5rem 0.9rem; }
+  .inner-nav-brand-main { font-size: 14px; }
+  .inner-nav-brand-sub  { font-size: 7.5px; }
+  .inner-nav-cta { font-size: 9px; padding: 0.45rem 0.8rem; }
 
-  /* ── HOME HERO ── */
-  .home-hero { min-height: 100svh; overflow: hidden; }
-  .home-hero-title {
-    font-size: clamp(36px, 10vw, 56px) !important;
-    letter-spacing: 0.04em;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: clip;
-    width: 100%;
-    text-align: center;
+  /* ── HOME ── */
+  .home-hero { height: 100svh; min-height: unset; }
+  .home-lockup { padding: 0 1.5rem; width: 100%; }
+  .home-title {
+    font-size: clamp(32px, 9vw, 56px) !important;
+    letter-spacing: 0.06em;
+    line-height: 1;
   }
-  .home-hero-sub {
-    font-size: 8px;
-    letter-spacing: 0.2em;
+  .home-subtitle {
+    font-size: clamp(18px, 5vw, 28px) !important;
+    letter-spacing: 0.08em;
+    margin-top: 0.5rem;
   }
-  .home-hero-divider { width: 60px; }
-  .home-hero-buttons {
+  .home-buttons {
     flex-direction: column;
     gap: 0.75rem;
+    width: 100%;
     align-items: center;
-    width: 100%;
-    padding: 0 1.5rem;
-    box-sizing: border-box;
+    margin-top: 1.5rem;
   }
-  .home-hero-btn {
+  .btn-map-primary,
+  .btn-map-outline {
     width: 100%;
-    max-width: 280px;
+    max-width: 260px;
     text-align: center;
-    justify-content: center;
+    padding: 0.9rem 1rem;
+    font-size: 10px;
   }
-  .home-hero-content {
-    padding: 1.5rem;
-    width: 100%;
-    box-sizing: border-box;
-    align-items: center;
-  }
+  .home-bottom-strip { display: none; }
 
   /* ── PRODUCERS LIST ── */
-  .producers-section { padding: 2rem 1.25rem; }
+  .producers-header { padding: 2rem 1.25rem 1rem; }
+  .producers-title { font-size: 28px; }
   .producers-intro { font-size: 13px; }
-  .country-label-col { padding: 1.5rem 1.25rem 0.5rem; }
-  .country-label { font-size: 10px; }
+  .country-block { flex-direction: column; }
+  .country-label-col { padding: 1.25rem 1.25rem 0.25rem; }
+  .country-name { font-size: 22px; }
   .producer-list-col {
     grid-template-columns: 1fr;
     padding: 0.25rem 1.25rem;
   }
-  .producer-list-item { font-size: 18px; padding: 0.6rem 0; }
+  .producer-name { font-size: 17px; }
+  .producer-region-tag { font-size: 9px; }
 
   /* ── PRODUCER PAGE ── */
   .producer-header {
-    padding: 0.75rem 1.25rem;
+    padding: 0.75rem 1rem;
     flex-wrap: wrap;
-    gap: 0.4rem;
+    gap: 0.35rem;
   }
-  .producer-name-main {
-    font-size: clamp(22px, 7vw, 38px) !important;
+  .producer-name-title {
+    font-size: clamp(20px, 6.5vw, 36px) !important;
     letter-spacing: 0.03em;
     line-height: 1;
   }
@@ -2180,61 +2176,71 @@
   .producer-back-btn { font-size: 9px; }
   .producer-body { grid-template-columns: 1fr !important; }
   .producer-details-col {
-    padding: 2rem 1.25rem;
+    padding: 1.75rem 1.25rem;
     border-right: none;
     border-bottom: 1px solid var(--map-rule-dark);
   }
-  .producer-right-col { padding: 2rem 1.25rem; }
-  .producer-story-para { font-size: 13px; }
-  .producer-detail-label { font-size: 9.5px; }
+  .producer-right-col { padding: 1.75rem 1.25rem; }
+  .producer-story-para { font-size: 13px; line-height: 1.8; }
+  .producer-detail-label { font-size: 9px; }
   .producer-detail-val { font-size: 13px; }
   .wines-grid { grid-template-columns: 1fr !important; }
   .wine-entry-name { font-size: 14px; }
   .wine-entry-grapes { font-size: 11px; }
+  .wine-pdf-btn { font-size: 9px; padding: 0.4rem 0.6rem; }
 
   /* ── LOGIN ── */
   .login-layout { grid-template-columns: 1fr; }
   .login-left { display: none; }
-  .login-right { padding: 3rem 1.5rem; min-height: 80svh; }
+  .login-right { padding: 2.5rem 1.5rem; }
   .login-form-wrap { max-width: 100%; }
-  .login-form-title { font-size: 28px; }
+  .login-form-title { font-size: 26px; }
+  .login-btn { font-size: 9px; }
 
   /* ── PORTAL ── */
   .portal-header {
     padding: 1.25rem;
     flex-direction: column;
     align-items: flex-start;
-    gap: 1rem;
+    gap: 0.75rem;
   }
-  .portal-title { font-size: 20px; }
-  .portal-catalog-card { padding: 2.5rem 1.5rem; }
+  .portal-title { font-size: 18px; }
+  .portal-catalog-card { padding: 2rem 1.25rem; }
   .portal-catalog-actions { flex-direction: column; align-items: center; }
+  .portal-catalog-label { font-size: 20px; }
 
   /* ── NATIONAL ── */
   .national-layout { grid-template-columns: 1fr; }
   .national-left {
-    padding: 2.5rem 1.25rem;
+    padding: 2rem 1.25rem;
     border-right: none;
     border-bottom: 2px solid var(--map-terra);
   }
-  .national-right { padding: 2.5rem 1.25rem; }
-  .national-title { font-size: 30px; }
-  .distributor-grid { grid-template-columns: 1fr !important; }
+  .national-right { padding: 2rem 1.25rem; }
+  .national-title { font-size: 28px; }
+  .national-body { font-size: 13px; }
+  .national-market-row {
+    flex-direction: column;
+    gap: 0.15rem;
+    padding: 0.75rem 0;
+  }
 
   /* ── CONTACT ── */
   .contact-layout { grid-template-columns: 1fr; }
-  .contact-left {
-    padding: 2.5rem 1.25rem;
+  .contact-left-panel {
+    padding: 2rem 1.25rem;
     border-right: none;
     border-bottom: 2px solid var(--map-terra);
   }
-  .contact-right { padding: 2.5rem 1.25rem; }
-  .contact-title { font-size: 30px; }
+  .contact-right-panel { padding: 2rem 1.25rem; }
+  .contact-big-title,
+  .contact-brand-statement { font-size: 28px; }
+  .contact-detail-label { font-size: 9px; }
+  .contact-phone-number { font-size: 22px; }
 
   /* ── FOOTER ── */
   .footer-main {
     grid-template-columns: 1fr 1fr;
-    overflow: hidden;
   }
   .footer-col {
     padding: 1.5rem 1rem;
@@ -2242,33 +2248,29 @@
     border-bottom: 1px solid rgba(196,97,74,0.12);
   }
   .footer-col-title { font-size: 9px; }
-  .footer-link { font-size: 13px; }
+  .footer-link { font-size: 12px; }
   .footer-bottom {
     flex-direction: column;
-    gap: 0.6rem;
+    gap: 0.5rem;
     padding: 1rem 1.25rem;
     text-align: center;
-    overflow: hidden;
   }
-  .footer-brand-name { font-size: 14px; letter-spacing: 0.12em; }
-  .footer-brand-sub { font-size: 7.5px; }
-  .footer-copy { font-size: 10px; }
-  .footer-nav-link { font-size: 10px; }
+  .footer-brand-name { font-size: 13px; letter-spacing: 0.1em; }
+  .footer-brand-sub { font-size: 7px; }
+  .footer-copy { font-size: 9.5px; }
+  .footer-nav-link { font-size: 9.5px; }
 
   /* ── MODALS ── */
-  .pdf-modal-content { width: 96vw; height: 88svh; }
-  .modal-content { width: 92vw; padding: 2rem 1.5rem; }
-  .contact-modal-title,
-  .customer-modal-title { font-size: 22px; }
+  .pdf-modal-content { width: 95vw; height: 85svh; }
+  .modal-content { width: 90vw; padding: 1.75rem 1.25rem; }
 }
 
-/* ── Extra small ── */
 @media (max-width: 420px) {
-  .home-hero-title { font-size: clamp(30px, 9vw, 44px) !important; }
+  .home-title { font-size: clamp(28px, 8.5vw, 40px) !important; }
+  .home-subtitle { font-size: clamp(16px, 4.5vw, 22px) !important; }
   .footer-main { grid-template-columns: 1fr; }
-  .producer-name-main { font-size: clamp(20px, 8vw, 32px) !important; }
+  .producer-name-title { font-size: clamp(18px, 7vw, 28px) !important; }
 }
-
 </style>
 </head>
 <body>
