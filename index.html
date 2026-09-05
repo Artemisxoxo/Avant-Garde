@@ -1043,7 +1043,7 @@
   background: var(--map-paper);
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 0.75rem;
 }
 .producer-detail-block-label {
   font-family: 'DM Sans', sans-serif;
@@ -1052,15 +1052,15 @@
   text-transform: uppercase;
   color: var(--map-terra);
   font-weight: 500;
-  margin-bottom: 1.25rem;
-  padding-bottom: 0.6rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.4rem;
   border-bottom: 1px solid var(--map-rule-dark);
 }
 .producer-detail-row {
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
-  margin-bottom: 1.1rem;
+  gap: 0.15rem;
+  margin-bottom: 0.5rem;
 }
 .producer-detail-label {
   font-family: 'DM Sans', sans-serif;
@@ -2327,6 +2327,15 @@
       </div>
     </div>
   </div>
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-col"><div class="footer-col-heading">Contact</div><p class="footer-contact-desc">Questions about our portfolio or distribution?</p><button class="footer-contact-btn" onclick="openContactModal()">Send us a message</button></div>
+      <div class="footer-col"><div class="footer-col-heading">More Information</div><button class="footer-nav-link" onclick="showPage('contact',null)">Employment Opportunities</button><button class="footer-nav-link" onclick="showPage('contact',null)">Become a Customer</button><button class="footer-nav-link" onclick="showPage('national',null)">National Distribution</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Stay in Touch</div><input class="footer-input" type="email" placeholder="Email address*"><input class="footer-input" type="text" placeholder="Name"><button class="footer-subscribe-btn">Subscribe</button></div>
+      <div class="footer-col"><div class="footer-col-heading">Follow</div><div class="footer-social-icons"><a href="https://www.instagram.com/avantgardews/" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/profile.php?id=100054472420492" target="_blank" rel="noopener" class="footer-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
+    </div>
+    <div class="footer-bottom"><div><div class="footer-brand-name">Avant&#8209;Garde</div><div class="footer-brand-sub">Wine &amp; Spirits</div></div><div class="footer-copy">&#169; 2026 Avant-Garde Wine &amp; Spirits. All rights reserved.</div><button class="footer-nav-link" onclick="showPage('login',null)">Client Login</button></div>
+  </footer>
 </div>
 
 <!-- ══════════════════════════════
