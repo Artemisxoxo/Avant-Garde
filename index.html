@@ -272,7 +272,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 26px;
     font-weight: 900;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: #F8F7F4;
     line-height: 1;
@@ -280,9 +280,9 @@
   .inner-nav-brand-sub {
     font-family: 'DM Sans', sans-serif;
     font-size: 11px;
-    letter-spacing: 0.28em;
+    letter-spacing: 0.32em;
     text-transform: uppercase;
-    color: rgba(248,247,244,0.7);
+    color: var(--map-terra);
     font-weight: 400;
   }
   .inner-nav-links {
@@ -295,11 +295,11 @@
     font-size: 13px;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: #F8F7F4;
+    color: rgba(244,237,216,0.55);
     cursor: pointer;
     border: none;
     background: none;
-    font-weight: 500;
+    font-weight: 600;
     transition: color 0.2s;
     padding: 0;
   }
@@ -905,7 +905,9 @@
     padding: 1.3rem 2.5rem;
     border-top: 1px solid rgba(244,237,216,0.15);
   }
-  Rpx;
+  .footer-brand-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
     font-weight: 900;
     letter-spacing: 0.2em;
     text-transform: uppercase;
@@ -982,7 +984,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 1rem 2.5rem;
-  background: #5C6B52;
+  background: var(--map-paper);
   border-bottom: 1px solid var(--map-rule-dark);
 }
 .producer-back-btn {
@@ -990,7 +992,7 @@
   font-size: 10px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(248,247,244,0.75);
+  color: rgba(248,247,244,0.8);
   background: none;
   border: none;
   cursor: pointer;
@@ -1061,13 +1063,17 @@
   gap: 0.15rem;
   margin-bottom: 0.5rem;
 }
-Jpx;
+.producer-detail-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--map-muted);
   font-weight: 500;
 }
-Mpx;
+.producer-detail-val {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
   color: var(--map-ink);
   line-height: 1.6;
 }
@@ -1098,7 +1104,9 @@ Mpx;
   flex-direction: column;
   gap: 0;
 }
-Npx;
+.producer-story-para {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
   line-height: 2;
   color: var(--map-ink);
   margin-bottom: 1.75rem;
@@ -1137,7 +1145,7 @@ Npx;
   align-items: center;
   justify-content: space-between;
   padding: 0.9rem 2.5rem;
-  background: #5C6B52;
+  background: var(--map-paper);
   border-bottom: 1px solid var(--map-rule-dark);
 }
 .producer-back-btn {
@@ -1145,7 +1153,7 @@ Npx;
   font-size: 10.5px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--map-terra);
+  color: rgba(248,247,244,0.8);
   background: none;
   border: none;
   cursor: pointer;
@@ -1212,13 +1220,17 @@ Npx;
   gap: 0.25rem;
   margin-bottom: 1.4rem;
 }
-Jpx;
+.producer-detail-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--map-muted);
   font-weight: 500;
 }
-Mpx;
+.producer-detail-val {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
   color: var(--map-ink);
   line-height: 1.55;
 }
@@ -1231,7 +1243,9 @@ Mpx;
   background: var(--map-cream);
   flex: 1;
 }
-Npx;
+.producer-story-para {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
   line-height: 2;
   color: var(--map-ink);
   margin-bottom: 1.75rem;
@@ -1272,13 +1286,17 @@ Npx;
   padding-right: 0;
   border-left: 1px solid var(--map-rule);
 }
-Rpx;
+.wine-entry-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 21px;
   font-weight: 400;
   font-style: italic;
   color: var(--map-ink);
   margin-bottom: 0.25rem;
 }
-Lpx;
+.wine-entry-grapes {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
   color: var(--map-muted);
   letter-spacing: 0.04em;
   line-height: 1.5;
@@ -2096,9 +2114,9 @@ Lpx;
     padding: 0.75rem 1rem;
   }
   .inner-nav-links { display: none; }
-  Vpx; }
-  Jpx; }
-  .inner-nav-cta { font-size: 9px; padding: 0.45rem 0.8rem; }
+  .inner-nav-brand-main { font-size: 26px; }
+  .inner-nav-brand-sub  { font-size: 11px; }
+  .inner-nav-cta { font-size: 12px; padding: 0.45rem 0.8rem; }
 
   /* ── HOME ── */
   .home-hero { height: 100svh; min-height: unset; }
@@ -2200,12 +2218,12 @@ Lpx;
     border-bottom: 1px solid var(--map-rule-dark);
   }
   .producer-right-col { padding: 1.75rem 1.25rem; }
-  Npx; line-height: 1.8; }
-  Jpx; }
-  Mpx; }
+  .producer-story-para { font-size: 16px; line-height: 1.8; }
+  .producer-detail-label { font-size: 12px; }
+  .producer-detail-val { font-size: 15px; }
   .wines-grid { grid-template-columns: 1fr !important; }
-  Rpx; }
-  Lpx; }
+  .wine-entry-name { font-size: 21px; }
+  .wine-entry-grapes { font-size: 14px; }
   .wine-pdf-btn { font-size: 9px; padding: 0.4rem 0.6rem; }
 
   /* ── LOGIN ── */
@@ -2266,15 +2284,15 @@ Lpx;
     border-right: none;
     border-bottom: 1px solid rgba(139,58,74,0.12);
   }
-  .footer-col-title { font-size: 9px; }
-  Npx; }
+  .footer-col-title { font-size: 12px; }
+  .footer-link { font-size: 16px; }
   .footer-bottom {
     flex-direction: column;
     gap: 0.5rem;
     padding: 1rem 1.25rem;
     text-align: center;
   }
-  Rpx; letter-spacing: 0.1em; }
+  .footer-brand-name { font-size: 22px; letter-spacing: 0.1em; }
   .footer-brand-sub { font-size: 7px; }
   .footer-copy { font-size: 9.5px; }
   .footer-nav-link { font-size: 9.5px; }
@@ -2319,7 +2337,7 @@ Lpx;
     </div>
 
     <div class="home-bottom-strip">
-      <div class="home-strip-left">&nbsp;&middot;&nbsp; Est. 2011</div>
+      <div class="home-strip-left">New York &nbsp;&middot;&nbsp; Est. 2011</div>
       <div class="home-strip-center">Avant&#8209;Garde Wine &amp; Spirits</div>
       <div class="home-strip-right">
         <button class="home-strip-link" onclick="showPage('producers',null)">Producers</button>
@@ -2614,12 +2632,12 @@ Lpx;
     </div>
     <div class="producer-list-col">
       <div class="producer-entry producer-entry-link" onclick="showPage('producer-nathank',null)">
-        <div class="producer-region-tag">Finger Lakes, </div>
+        <div class="producer-region-tag">Finger Lakes, New York</div>
         <div class="producer-name producer-name-clickable">Nathan K</div>
         <div class="producer-entry-arrow">&#8594;</div>
       </div>
       <div class="producer-entry producer-entry-link" onclick="showPage('producer-chepika',null)">
-        <div class="producer-region-tag">Finger Lakes, </div>
+        <div class="producer-region-tag">Finger Lakes, New York</div>
         <div class="producer-name producer-name-clickable">chëpìka</div>
         <div class="producer-entry-arrow">&#8594;</div>
       </div>
@@ -2768,7 +2786,7 @@ Lpx;
       <div class="national-markets-label">Availability by Market</div>
 
       <div class="national-market-row">
-        <div class="national-market-states">&nbsp;&middot;&nbsp; New Jersey &nbsp;&middot;&nbsp; California</div>
+        <div class="national-market-states">New York &nbsp;&middot;&nbsp; New Jersey &nbsp;&middot;&nbsp; California</div>
         <div class="national-market-distributor">Direct &mdash; Avant&#8209;Garde Wine &amp; Spirits</div>
       </div>
 
@@ -2789,7 +2807,7 @@ Lpx;
 
       <div class="national-market-row">
         <div class="national-market-states">Maine</div>
-        Central Distributions
+        <a href="https://www.centraldistributors.com/" target="_blank" rel="noopener" class="national-market-distributor national-market-link">Central Distributions</a>
       </div>
 
       <div class="national-market-row">
@@ -2856,8 +2874,7 @@ Lpx;
 
         <div class="contact-detail-block">
           <div class="contact-detail-label">Location</div>
-          <div class="contact-detail-value"></div>
-        </div>
+          </div>
 
         <div class="contact-detail-block">
           <div class="contact-detail-label">Message</div>
@@ -2939,7 +2956,7 @@ Lpx;
       <div><label class="modal-label">Business name</label><input class="modal-input" type="text" placeholder="Your establishment" id="cust-business"></div>
       <div><label class="modal-label">Your name</label><input class="modal-input" type="text" placeholder="Full name" id="cust-name"></div>
       <div><label class="modal-label">Email</label><input class="modal-input" type="email" placeholder="you@yourbusiness.com" id="cust-email"></div>
-      <div><label class="modal-label">State / Market</label><input class="modal-input" type="text" placeholder="California, etc." id="cust-state"></div>
+      <div><label class="modal-label">State / Market</label><input class="modal-input" type="text" placeholder="New York, California, etc." id="cust-state"></div>
       <div><label class="modal-label">Tell us about your business</label><textarea class="modal-input modal-textarea" placeholder="Type of establishment, what you&#8217;re looking for&#8230;" id="cust-message"></textarea></div>
       <div class="modal-actions">
         <button class="modal-submit" onclick="submitCustomerModal()">Send inquiry</button>
@@ -5131,7 +5148,7 @@ Lpx;
   </nav>
   <div class="producer-header">
     <button class="producer-back-btn" onclick="showPage('producers',null)">&#8592; All Producers</button>
-    <div class="producer-header-region">&middot; USA</div>
+    <div class="producer-header-region">New York &middot; USA</div>
   </div>
   <div class="producer-name-banner">
     <h1 class="producer-name-title">Nathan K</h1>
@@ -5237,7 +5254,7 @@ Lpx;
   </nav>
   <div class="producer-header">
     <button class="producer-back-btn" onclick="showPage('producers',null)">&#8592; All Producers</button>
-    <div class="producer-header-region">&middot; USA</div>
+    <div class="producer-header-region">New York &middot; USA</div>
   </div>
   <div class="producer-name-banner">
     <h1 class="producer-name-title">ch&#235;p&#236;ka</h1>
