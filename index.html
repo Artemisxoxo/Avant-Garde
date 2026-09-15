@@ -449,7 +449,7 @@
   }
   .login-map-content {
     position: relative;
-    z-index: 2;
+    z-index: 3;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -1726,6 +1726,12 @@
   opacity: 1;
   filter: sepia(0.1) contrast(1.0) saturate(0.8);
 }
+.login-map-dim {
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.45);
+  z-index: 1;
+}
 .login-left-content {
   position: relative;
   z-index: 2;
@@ -1741,7 +1747,7 @@
 }
 .login-title {
   font-family: 'Times New Roman', Times, serif;
-  font-size: 58px;
+  font-size: 96px;
   font-weight: 900;
   color: #0A0A0A;
   text-transform: uppercase;
@@ -1750,7 +1756,8 @@
   margin-bottom: 2rem;
 }
 .login-title em {
-  font-weight: 500;
+  font-size: 80px;
+  font-weight: 800;
   font-style: italic;
   text-transform: none;
   color: var(--map-terra);
@@ -2682,6 +2689,7 @@
   <div class="login-layout">
     <div class="login-left">
       <div class="login-map-overlay"></div>
+    <div class="login-map-dim"></div>
       <div class="login-left-content">
         <div class="login-eyebrow">Client Portal</div>
         <div class="login-title">Portfolio<br><em>Access.</em></div>
