@@ -362,7 +362,7 @@
   }
   .country-name {
     font-family: 'Times New Roman', Times, serif;
-    font-size: 24px;
+    font-size: 36px;
     font-weight: 900;
     color: var(--map-ink);
     text-transform: uppercase;
@@ -405,7 +405,7 @@
   }
   .producer-region-tag {
     font-family: 'Inter', sans-serif;
-    font-size: 9px;
+    font-size: 13px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--map-terra);
@@ -414,7 +414,7 @@
   }
   .producer-name {
     font-family: 'Times New Roman', Times, serif;
-    font-size: 17px;
+    font-size: 26px;
     font-weight: 500;
     font-style: italic;
     color: var(--map-ink);
@@ -438,14 +438,14 @@
     position: absolute;
     inset: 0;
     background-image: url('./larmat-map.jpg');
-    background-size: 200%;
-    background-position: 80% 30%;
+    background-size: cover;
+    background-position: 40% 60%;
     filter: contrast(1.02);
   }
   .login-map-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(28,20,8,0.28);
+    background: rgba(255,255,255,0.0);
   }
   .login-map-content {
     position: relative;
@@ -2166,7 +2166,7 @@
     padding: 1.5rem 1.25rem 0.75rem;
     border-bottom: 1px solid var(--map-rule-dark);
   }
-  .country-name { font-size: 22px; }
+  .country-name { font-size: 36px; }
   .country-name-native { font-size: 13px; }
   .country-count { font-size: 10px; }
   .producer-list-col {
@@ -2179,8 +2179,8 @@
     flex-direction: column;
     gap: 0.15rem;
   }
-  .producer-name { font-size: 20px; }
-  .producer-region-tag { font-size: 9px; }
+  .producer-name { font-size: 26px; }
+  .producer-region-tag { font-size: 13px; }
   .producer-entry-arrow { display: none; }
 
   /* ── PRODUCER PAGE ── */
@@ -2269,7 +2269,7 @@
     border-right: none;
     border-bottom: 1px solid rgba(139,58,74,0.12);
   }
-  .footer-col-title { font-size: 15px; }
+  .footer-col-title { font-size: 11px; }
   .footer-link { font-size: 19px; }
   .footer-bottom {
     flex-direction: column;
@@ -2316,6 +2316,16 @@
 }
 
 
+
+  .footer-col a, .footer-col button.footer-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0.01em;
+    color: #0A0A0A;
+    text-decoration: none;
+  }
 </style>
 </head>
 <body>
@@ -2393,8 +2403,7 @@
     <div class="country-label-col">
       <div class="country-name">Champagne</div>
       <div class="country-name-native">Le Champagne</div>
-      <div class="country-count">6 producers</div>
-    </div>
+      </div>
     <div class="producer-list-col">
       <div class="producer-entry producer-entry-link" onclick="showPage('producer-emmanuelbrochet',null)">
         <div class="producer-region-tag">Montagne de Reims</div>
@@ -2432,8 +2441,7 @@
     <div class="country-label-col">
       <div class="country-name">Alsace</div>
       <div class="country-name-native">L'Alsace</div>
-      <div class="country-count">2 producers</div>
-    </div>
+      </div>
     <div class="producer-list-col">
       <div class="producer-entry producer-entry-link" onclick="showPage('producer-valentinzusslin',null)">
         <div class="producer-region-tag">Orschwihr</div>
@@ -2441,7 +2449,7 @@
         <div class="producer-entry-arrow">&#8594;</div>
       </div>
       <div class="producer-entry producer-entry-link" onclick="showPage('producer-lagrangeoncle',null)">
-        <div class="producer-region-tag">Dambach-la-Ville</div>
+        <div class="producer-region-tag">Haut-Rhin</div>
         <div class="producer-name producer-name-clickable">La Grange de l'Oncle Charles</div>
         <div class="producer-entry-arrow">&#8594;</div>
       </div>
@@ -2451,8 +2459,7 @@
     <div class="country-label-col">
       <div class="country-name">Beaujolais</div>
       <div class="country-name-native">Le Beaujolais</div>
-      <div class="country-count">1 producer</div>
-    </div>
+      </div>
     <div class="producer-list-col">
       <div class="producer-entry producer-entry-link" onclick="showPage('producer-auxardents',null)">
         <div class="producer-region-tag">Fleurie · Moulin-à-Vent</div>
@@ -2465,8 +2472,7 @@
     <div class="country-label-col">
       <div class="country-name">Bordeaux</div>
       <div class="country-name-native">Le Bordelais</div>
-      <div class="country-count">1 producer</div>
-    </div>
+      </div>
     <div class="producer-list-col">
       <div class="producer-entry producer-entry-link" onclick="showPage('producer-uchida',null)">
         <div class="producer-region-tag">Haut-Médoc</div>
@@ -2479,8 +2485,7 @@
     <div class="country-label-col">
       <div class="country-name">Burgundy</div>
       <div class="country-name-native">La Bourgogne</div>
-      <div class="country-count">1 producer</div>
-    </div>
+      </div>
     <div class="producer-list-col">
       <div class="producer-entry producer-entry-link" onclick="showPage('producer-pierrerougeot',null)">
         <div class="producer-region-tag">Côte de Beaune</div>
@@ -2493,12 +2498,11 @@
     <div class="country-label-col">
       <div class="country-name">Jura</div>
       <div class="country-name-native">Le Jura</div>
-      <div class="country-count">2 producers</div>
-    </div>
+      </div>
     <div class="producer-list-col">
       <div class="producer-entry producer-entry-link" onclick="showPage('producer-coteauxdusorne',null)">
         <div class="producer-region-tag">Lons-le-Saunier</div>
-        <div class="producer-name producer-name-clickable">Domaine des Coteaux du Sorne</div>
+        <div class="producer-name producer-name-clickable">Les Coteaux du Val de Sorne</div>
         <div class="producer-entry-arrow">&#8594;</div>
       </div>
       <div class="producer-entry producer-entry-link" onclick="showPage('producer-lapatelle',null)">
@@ -2512,8 +2516,7 @@
     <div class="country-label-col">
       <div class="country-name">Loire Valley</div>
       <div class="country-name-native">La Loire</div>
-      <div class="country-count">6 producers</div>
-    </div>
+      </div>
     <div class="producer-list-col">
       <div class="producer-entry producer-entry-link" onclick="showPage('producer-benoitcourault',null)">
         <div class="producer-region-tag">Anjou</div>
@@ -2551,8 +2554,7 @@
     <div class="country-label-col">
       <div class="country-name">Provence</div>
       <div class="country-name-native">La Provence</div>
-      <div class="country-count">1 producer</div>
-    </div>
+      </div>
     <div class="producer-list-col">
       <div class="producer-entry producer-entry-link" onclick="showPage('producer-domainemilan',null)">
         <div class="producer-region-tag">Les Baux-de-Provence</div>
@@ -2565,8 +2567,7 @@
     <div class="country-label-col">
       <div class="country-name">Rhône Valley</div>
       <div class="country-name-native">Le Rhône</div>
-      <div class="country-count">1 producer</div>
-    </div>
+      </div>
     <div class="producer-list-col">
       <div class="producer-entry producer-entry-link" onclick="showPage('producer-gourtdemautens',null)">
         <div class="producer-region-tag">Rasteau</div>
@@ -2579,8 +2580,7 @@
     <div class="country-label-col">
       <div class="country-name">South West</div>
       <div class="country-name-native">Le Sud-Ouest</div>
-      <div class="country-count">1 producer</div>
-    </div>
+      </div>
     <div class="producer-list-col">
       <div class="producer-entry producer-entry-link" onclick="showPage('producer-moutheslebihan',null)">
         <div class="producer-region-tag">Côtes de Duras</div>
@@ -2593,8 +2593,7 @@
     <div class="country-label-col">
       <div class="country-name">Italy</div>
       <div class="country-name-native">L'Italia</div>
-      <div class="country-count">2 producers</div>
-    </div>
+      </div>
     <div class="producer-list-col">
       <div class="producer-entry producer-entry-link" onclick="showPage('producer-tenutalanovella',null)">
         <div class="producer-region-tag">Maremma, Tuscany</div>
@@ -2612,16 +2611,15 @@
     <div class="country-label-col">
       <div class="country-name">Spain</div>
       <div class="country-name-native">España</div>
-      <div class="country-count">3 producers</div>
-    </div>
+      </div>
     <div class="producer-list-col">
       <div class="producer-entry producer-entry-link" onclick="showPage('producer-altaalella',null)">
         <div class="producer-region-tag">DO Alella, Catalunya</div>
-        <div class="producer-name producer-name-clickable">Alta Alella</div>
+        <div class="producer-name producer-name-clickable">Art Laieta</div>
         <div class="producer-entry-arrow">&#8594;</div>
       </div>
       <div class="producer-entry producer-entry-link" onclick="showPage('producer-cellerdelesaus',null)">
-        <div class="producer-region-tag">DO Penedès, Catalunya</div>
+        <div class="producer-region-tag">DO Alella · Catalunya, Catalunya</div>
         <div class="producer-name producer-name-clickable">Celler de Les Aus</div>
         <div class="producer-entry-arrow">&#8594;</div>
       </div>
@@ -2636,12 +2634,11 @@
     <div class="country-label-col">
       <div class="country-name">United States</div>
       <div class="country-name-native">États-Unis</div>
-      <div class="country-count">3 producers</div>
-    </div>
+      </div>
     <div class="producer-list-col">
       <div class="producer-entry producer-entry-link" onclick="showPage('producer-nathank',null)">
         <div class="producer-region-tag">Finger Lakes, New York</div>
-        <div class="producer-name producer-name-clickable">Nathan K</div>
+        <div class="producer-name producer-name-clickable">Nathan K.</div>
         <div class="producer-entry-arrow">&#8594;</div>
       </div>
       <div class="producer-entry producer-entry-link" onclick="showPage('producer-chepika',null)">
@@ -2651,7 +2648,7 @@
       </div>
       <div class="producer-entry producer-entry-link" onclick="showPage('producer-outward',null)">
         <div class="producer-region-tag">California</div>
-        <div class="producer-name producer-name-clickable">Outward</div>
+        <div class="producer-name producer-name-clickable">Outward Wines</div>
         <div class="producer-entry-arrow">&#8594;</div>
       </div>
     </div>
@@ -3191,7 +3188,7 @@
   </div>
   <div class="producer-name-banner">
     <h1 class="producer-name-title">Laurent B&#233;nard</h1>
-    <div class="producer-name-sub">C&#244;te des Bar &middot; Les Riceys</div>
+    <div class="producer-name-sub">Vall&#233;e de la Marne &middot; Les Riceys</div>
   </div>
   <div class="producer-body">
     <div class="producer-details-col">
@@ -3423,7 +3420,7 @@
   </div>
   <div class="producer-name-banner">
     <h1 class="producer-name-title">Maison J&#233;r&#244;me Lef&#232;vre</h1>
-    <div class="producer-name-sub">Montagne de Reims</div>
+    <div class="producer-name-sub">Vall&#233;e de la Marne</div>
   </div>
   <div class="producer-body">
     <div class="producer-details-col">
@@ -3521,7 +3518,7 @@
   </div>
   <div class="producer-name-banner">
     <h1 class="producer-name-title">Valentin Zusslin</h1>
-    <div class="producer-name-sub">Orschwihr</div>
+    <div class="producer-name-sub">Haut-Rhin</div>
   </div>
   <div class="producer-body">
     <div class="producer-details-col">
@@ -3639,7 +3636,7 @@
   </div>
   <div class="producer-name-banner">
     <h1 class="producer-name-title">La Grange de l'Oncle Charles</h1>
-    <div class="producer-name-sub">Dambach-la-Ville</div>
+    <div class="producer-name-sub">Haut-Rhin</div>
   </div>
   <div class="producer-body">
     <div class="producer-details-col">
@@ -3711,7 +3708,7 @@
   </nav>
   <div class="producer-header">
     <button class="producer-back-btn" onclick="showPage('producers',null)">&#8592; All Producers</button>
-    <div class="producer-header-region">Beaujolais &middot; France</div>
+    <div class="producer-header-region">Brouilly &middot; France</div>
   </div>
   <div class="producer-name-banner">
     <h1 class="producer-name-title">Domaine Aux Ardents</h1>
@@ -3731,9 +3728,9 @@
     </div>
     <div class="producer-right-col">
       <div class="producer-story-section">
-        <p class="producer-story-para">Domaine Aux Ardents was introduced to me by a close friend who runs the renowned bouchon Le Merci&#232;re in Lyon &#8212; a restaurant deeply rooted in Beaujolais.</p>
+        <p class="producer-story-para">Domaine Aux Ardents was introduced to me by a close friend who runs the renowned bouchon Le Merci&#232;re in Lyon &#8212; a restaurant deeply rooted in Brouilly.</p>
         <p class="producer-story-para">After tasting the first samples in early 2025, I traveled to the region to meet the winemakers. The estate is owned and run by a husband-and-wife team, Myl&#232;ne (a lawyer) and Thomas (a car mechanic). Both are natives of the region, though neither came from the wine world. In 2019, driven by curiosity and a shared vision, they decided to take the leap and create Domaine Aux Ardents.</p>
-        <p class="producer-story-para">The winery is based in Odenas, with approximately 80% of the vineyards located around their house in Brouilly, and the remaining 20% in Marchampt, Beaujolais-Villages. The total vineyard surface is 2.2 hectares.</p>
+        <p class="producer-story-para">The winery is based in Brouilly, with approximately 80% of the vineyards located around their house in Brouilly, and the remaining 20% in Marchampt, Brouilly-Villages. The total vineyard surface is 2.2 hectares.</p>
         <p class="producer-story-para">The estate has been farmed organically since its inception and officially certified in 2022. Beyond organic farming, Myl&#232;ne and Thomas are committed to increasing biodiversity by planting trees &#8212; almond, cherry, chestnut, and fig &#8212; and by installing beehives throughout the vineyards, creating a living, balanced ecosystem.</p>
         <p class="producer-story-para">This attention to terroir continues through a philosophy of minimal intervention: hand-harvested grapes, gentle pressing in a horizontal wooden-cage press, native yeast fermentation, and no added sulfites until bottling.</p>
       </div>
@@ -3908,12 +3905,12 @@
   </div>
   <div class="producer-name-banner">
     <h1 class="producer-name-title">Pierre-Henri Rougeot</h1>
-    <div class="producer-name-sub">C&#244;te de Beaune &middot; Meursault</div>
+    <div class="producer-name-sub">C&#244;te de Beaune &middot; C&#244;te d&#8217;Or</div>
   </div>
   <div class="producer-body">
     <div class="producer-details-col">
       <div class="producer-detail-block-label">The Estate</div>
-      <div class="producer-detail-row"><span class="producer-detail-label">Appellation</span><span class="producer-detail-val">Bourgogne, Meursault</span></div>
+      <div class="producer-detail-row"><span class="producer-detail-label">Appellation</span><span class="producer-detail-val">Bourgogne, C&#244;te d&#8217;Or</span></div>
       <div class="producer-detail-row"><span class="producer-detail-label">Grapes</span><span class="producer-detail-val">Chardonnay, Pinot Noir</span></div>
       <div class="producer-detail-row"><span class="producer-detail-label">Surface</span><span class="producer-detail-val">5 ha</span></div>
       <div class="producer-detail-row"><span class="producer-detail-label">Farming</span><span class="producer-detail-val">Organic</span></div>
@@ -3924,7 +3921,7 @@
     </div>
     <div class="producer-right-col">
       <div class="producer-story-section">
-        <p class="producer-story-para">Introducing Pierre-Henri Rougeot&#8217;s boutique production from organic vineyards in Volnay, Meursault, Pommard and Gevrey. 2017 is Pierre-Henri&#8217;s first vintage, partly whole-cluster, wild yeasts fermentation, no SO2 until bottling, no fining and no filtration.</p>
+        <p class="producer-story-para">Introducing Pierre-Henri Rougeot&#8217;s boutique production from organic vineyards in Volnay, C&#244;te d&#8217;Or, Pommard and Gevrey. 2017 is Pierre-Henri&#8217;s first vintage, partly whole-cluster, wild yeasts fermentation, no SO2 until bottling, no fining and no filtration.</p>
         <p class="producer-story-para">Pierre-Henri Rougeot is a young vigneron with generations of family roots in the town of Meursault. He grew up learning farming and the craft of winemaking with his father and by studying in Beaune.</p>
         <p class="producer-story-para">In 2017, he decided to add one more activity, a small n&#233;goce where he could make wines his way. The fruits come from his family estate, vineyards which are farmed organically. The production is really small, one barrel here of one cuv&#233;e, two over there, max 4 barrels of Gevrey. Pierre-Henri makes his wines with little intervention meaning no SO2 until bottling, no fining and no filtration, the reds are macerated with whole-cluster and age in neutral barrels, the whites are pressed directly in barrels, no b&#226;tonnage and aging sur lees. 2017 was a great vintage and his first.</p>
       </div>
@@ -3988,7 +3985,7 @@
   </footer>
 </div>
 
-<!-- ═══ PRODUCER: Domaine des Coteaux du Sorne ═══ -->
+<!-- ═══ PRODUCER: Les Coteaux du Val de Sorne ═══ -->
 <div id="page-producer-coteauxdusorne" class="page">
   <nav class="inner-nav">
     <div class="inner-nav-brand" onclick="showPage('home',null)"><div class="inner-nav-brand-main">Avant&#8209;Garde</div><div class="inner-nav-brand-sub">Wine &amp; Spirits</div></div>
@@ -4004,7 +4001,7 @@
     <div class="producer-header-region">Jura &middot; France</div>
   </div>
   <div class="producer-name-banner">
-    <h1 class="producer-name-title">Domaine des Coteaux du Sorne</h1>
+    <h1 class="producer-name-title">Les Coteaux du Val de Sorne</h1>
     <div class="producer-name-sub">Lons-le-Saunier</div>
   </div>
   <div class="producer-body">
@@ -4021,8 +4018,8 @@
     </div>
     <div class="producer-right-col">
       <div class="producer-story-section">
-        <p class="producer-story-para">Jean-Fran&#231;ois is the 14th generation of vignerons located in the village of Vernantois. He started in 1987 and released his first wines in 1992. The small estate has a surface of 2.68ha (Poulsard, Savagnin, Trousseau and Chardonnay). He has always farmed organically and the Domaine was certified in 2003.</p>
-        <p class="producer-story-para">The village of Vernantois is situated in a secluded area South of Lons-le-Saunier at the end of the valley of the Sorne and surrounded by scenic hills. The vineyards are on slopes going up to 300m elevation. The soil is composed of marl from the Jurassic and Triassic period. Until the French Revolution, the vineyards of Vernantois were part of an ancient estate that belonged to the abbey of Saint-Claude and were among the largest area of production in the Jura.</p>
+        <p class="producer-story-para">Jean-Fran&#231;ois is the 14th generation of vignerons located in the village of Le Revermont. He started in 1987 and released his first wines in 1992. The small estate has a surface of 2.68ha (Poulsard, Savagnin, Trousseau and Chardonnay). He has always farmed organically and the Domaine was certified in 2003.</p>
+        <p class="producer-story-para">The village of Le Revermont is situated in a secluded area South of Lons-le-Saunier at the end of the valley of the Sorne and surrounded by scenic hills. The vineyards are on slopes going up to 300m elevation. The soil is composed of marl from the Jurassic and Triassic period. Until the French Revolution, the vineyards of Le Revermont were part of an ancient estate that belonged to the abbey of Saint-Claude and were among the largest area of production in the Jura.</p>
         <p class="producer-story-para">In the cellar, which is within the village in a 17th-century building, the work is done with minimum intervention, without additives of any sort and minimum to no SO2 used.</p>
         <p class="producer-story-para">Jean-Fran&#231;ois is an exciting person to know &#8212; he has tremendous culture, combined with a sharp mind and a sarcastic humor. He is an historian by training and still practices to this day. A side note about the label of his wines: it depicts Saint Vernier who was the patron saint of the vintners during the Habsburg period. On this picture found in a local church you see him harvesting Poulsard.</p>
       </div>
@@ -4082,7 +4079,7 @@
   </div>
   <div class="producer-name-banner">
     <h1 class="producer-name-title">Domaine La Patelle</h1>
-    <div class="producer-name-sub">Poligny</div>
+    <div class="producer-name-sub">Arbois</div>
   </div>
   <div class="producer-body">
     <div class="producer-details-col">
@@ -4326,7 +4323,7 @@
     <div class="producer-right-col">
       <div class="producer-story-section">
         <p class="producer-story-para">Sylvain Dittiere, nicknamed &#8220;TonTon&#8221;, grew up in Saumur where his parents were growing roses. After studying oenology, he interned with Gerard Gauby, Marc Tempe, Thierry Germain and Antoine Foucault.</p>
-        <p class="producer-story-para">Upon returning to the Loire in 2010, Sylvain started La Porte Saint Jean. He was able to find a vineyard in Saumur-Champigny that was organically farmed and yields that were no more than 40hl/ha. The Cabernet Franc is planted on sand, silt, clay with a subsoil of limestone. From this parcel, he crafts two cuv&#233;es; La Porte Saint Jean &amp; Les Beaugrands. Recently, Sylvain added 2 more vineyards; Les Cormiers planted with Cabernet Franc in the AOC Saumur and his white parcel planted with old vines of Sauvignon Blanc and Chenin Blanc respectively called Saut Mignon and La Perl&#233;e.</p>
+        <p class="producer-story-para">Upon returning to the Loire in 2010, Sylvain started La Porte Saint Jean. He was able to find a vineyard in Saumur that was organically farmed and yields that were no more than 40hl/ha. The Cabernet Franc is planted on sand, silt, clay with a subsoil of limestone. From this parcel, he crafts two cuv&#233;es; La Porte Saint Jean &amp; Les Beaugrands. Recently, Sylvain added 2 more vineyards; Les Cormiers planted with Cabernet Franc in the AOC Saumur and his white parcel planted with old vines of Sauvignon Blanc and Chenin Blanc respectively called Saut Mignon and La Perl&#233;e.</p>
         <p class="producer-story-para">Sylvain makes no concessions; the work in the vineyards is intense and precise to reach each year&#8217;s ripeness and balance. Detail-oriented &#8220;TonTon&#8221; makes a strict sorting. In terms of vinification, all natural with a bit of SO2 at the end, bottled without filtration or fining, the aging takes place in a combination of used barrels from Bordeaux, Burgundy and the Rh&#244;ne.</p>
         <p class="producer-story-para">Clearly within a few years, Sylvain has become one of the most talented vignerons in the region.</p>
       </div>
@@ -4847,7 +4844,7 @@
   </div>
   <div class="producer-name-banner">
     <h1 class="producer-name-title">Tenuta La Novella</h1>
-    <div class="producer-name-sub">Chianti Classico &middot; Greve in Chianti</div>
+    <div class="producer-name-sub">Chianti Classico &middot; Greve</div>
   </div>
   <div class="producer-body">
     <div class="producer-details-col">
@@ -4928,12 +4925,12 @@
   </div>
   <div class="producer-name-banner">
     <h1 class="producer-name-title">Nicola Gatta</h1>
-    <div class="producer-name-sub">Franciacorta</div>
+    <div class="producer-name-sub">Gussago &middot; Lombardia &middot; Lombardia</div>
   </div>
   <div class="producer-body">
     <div class="producer-details-col">
       <div class="producer-detail-block-label">The Estate</div>
-      <div class="producer-detail-row"><span class="producer-detail-label">Appellation</span><span class="producer-detail-val">Franciacorta DOCG</span></div>
+      <div class="producer-detail-row"><span class="producer-detail-label">Appellation</span><span class="producer-detail-val">Gussago &middot; Lombardia &middot; Lombardia DOCG</span></div>
       <div class="producer-detail-row"><span class="producer-detail-label">Grapes</span><span class="producer-detail-val">Chardonnay, Pinot Nero, Pinot Bianco</span></div>
       <div class="producer-detail-row"><span class="producer-detail-label">Surface</span><span class="producer-detail-val">8 ha</span></div>
       <div class="producer-detail-row"><span class="producer-detail-label">Farming</span><span class="producer-detail-val">Organic</span></div>
@@ -4944,7 +4941,7 @@
     </div>
     <div class="producer-right-col">
       <div class="producer-story-section">
-        <p class="producer-story-para">Nestled in the hills of Gussago overlooking the Po valley sits the artisan vigneron Nicola Gatta and his winery. For the last 3 decades, Nicola has been one of the few winemakers changing the face of Italian traditional method sparkling wines in his region. For Nicola, everything starts in the vineyard &#8212; the understanding of the soil, altitude, exposure, rootstocks, grapes inform the farming and time of harvest.</p>
+        <p class="producer-story-para">Nestled in the hills of Gussago &middot; Lombardia overlooking the Po valley sits the artisan vigneron Nicola Gatta and his winery. For the last 3 decades, Nicola has been one of the few winemakers changing the face of Italian traditional method sparkling wines in his region. For Nicola, everything starts in the vineyard &#8212; the understanding of the soil, altitude, exposure, rootstocks, grapes inform the farming and time of harvest.</p>
         <p class="producer-story-para">The estate consists of 4 main crus situated high in elevation, in an amphitheater with two additional lieu-dits coming.</p>
         <p class="producer-story-para"><em>Campiani:</em> 2 parcels: one faces East planted with 32 year old Pinot Noir, on 220 million year old soil made of clay rich in iron with a calcareous subsoil. The West facing parcel is planted with 80% Chardonnay and 20% Pinot Noir, same soil type.</p>
         <p class="producer-story-para"><em>Cudula:</em> In the heart of the amphitheater, the cru is divided into a West &amp; East parcel. The age of the soil is 150 million years old and made of a clearer clay with more loose limestone. According to Nicola there is a great amount of cation in this soil along with a small amount of gypsum supplying acidity and sapidity.</p>
@@ -4998,7 +4995,7 @@
   </footer>
 </div>
 
-<!-- ═══ PRODUCER: Alta Alella ═══ -->
+<!-- ═══ PRODUCER: Art Laieta ═══ -->
 <div id="page-producer-altaalella" class="page">
   <nav class="inner-nav">
     <div class="inner-nav-brand" onclick="showPage('home',null)"><div class="inner-nav-brand-main">Avant&#8209;Garde</div><div class="inner-nav-brand-sub">Wine &amp; Spirits</div></div>
@@ -5014,7 +5011,7 @@
     <div class="producer-header-region">Catalunya &middot; Spain</div>
   </div>
   <div class="producer-name-banner">
-    <h1 class="producer-name-title">Alta Alella</h1>
+    <h1 class="producer-name-title">Art Laieta</h1>
     <div class="producer-name-sub">DO Alella &middot; North of Barcelona</div>
   </div>
   <div class="producer-body">
@@ -5031,10 +5028,10 @@
     </div>
     <div class="producer-right-col">
       <div class="producer-story-section">
-        <p class="producer-story-para">Alta Alella is a family-run project which started more than twenty years ago by the enologist Josep Maria Pujol-Busquets and his wife Cristina Guillen. Alta Alella is the closest winery to Barcelona (10 km), located within the agricultural area of a natural park known as the &#8220;Serralada de Marina&#8221;. The estate is just two km away from the Mediterranean Sea and the vineyards are planted on slopes and terraces between 100 and 250 meters above sea level.</p>
-        <p class="producer-story-para">The vines are grown on Saul&#243; soil which is one of the most important elements that determines the character of wines from Alta Alella: an acidic white granite-based sand with low limestone content, low organic matter and good drainage.</p>
+        <p class="producer-story-para">Art Laieta is a family-run project which started more than twenty years ago by the enologist Josep Maria Pujol-Busquets and his wife Cristina Guillen. Art Laieta is the closest winery to Barcelona (10 km), located within the agricultural area of a natural park known as the &#8220;Serralada de Marina&#8221;. The estate is just two km away from the Mediterranean Sea and the vineyards are planted on slopes and terraces between 100 and 250 meters above sea level.</p>
+        <p class="producer-story-para">The vines are grown on Saul&#243; soil which is one of the most important elements that determines the character of wines from Art Laieta: an acidic white granite-based sand with low limestone content, low organic matter and good drainage.</p>
         <p class="producer-story-para">Fleeing from standardization, year after year, Josep Maria&#8217;s aim is to produce &#8216;transparent&#8217; wines that reflect soil and vintage characteristics. The harvest is carried out by hand, paying individual attention to each plant.</p>
-        <p class="producer-story-para">Currently Alta Alella farms 60 ha within the D.O Alella (the smallest D.O. in Spain) and the D.O. Cava. The winery works with micro-vinifications, many different grape varieties and innovative techniques, producing up to 50 different wines every year. The cava ages on the lees between 15 and 60 months and is released on the market just after being disgorged &#8212; the disgorgement date appears on every bottle.</p>
+        <p class="producer-story-para">Currently Art Laieta farms 60 ha within the D.O Alella (the smallest D.O. in Spain) and the D.O. Cava. The winery works with micro-vinifications, many different grape varieties and innovative techniques, producing up to 50 different wines every year. The cava ages on the lees between 15 and 60 months and is released on the market just after being disgorged &#8212; the disgorgement date appears on every bottle.</p>
       </div>
       <div class="producer-wines-section">
                 <div class="producer-wines-label">The Wines</div>
@@ -5099,12 +5096,12 @@
   </div>
   <div class="producer-name-banner">
     <h1 class="producer-name-title">Celler de Les Aus</h1>
-    <div class="producer-name-sub">DO Pened&#232;s</div>
+    <div class="producer-name-sub">DO Alella &middot; Catalunya</div>
   </div>
   <div class="producer-body">
     <div class="producer-details-col">
       <div class="producer-detail-block-label">The Estate</div>
-      <div class="producer-detail-row"><span class="producer-detail-label">Appellation</span><span class="producer-detail-val">DO Pened&#232;s</span></div>
+      <div class="producer-detail-row"><span class="producer-detail-label">Appellation</span><span class="producer-detail-val">DO Alella &middot; Catalunya</span></div>
       <div class="producer-detail-row"><span class="producer-detail-label">Grapes</span><span class="producer-detail-val">Xarel&#183;lo, Garnatxa Blanca, Ull de Llebre</span></div>
       <div class="producer-detail-row"><span class="producer-detail-label">Surface</span><span class="producer-detail-val">6 ha</span></div>
       <div class="producer-detail-row"><span class="producer-detail-label">Farming</span><span class="producer-detail-val">Organic</span></div>
@@ -5115,9 +5112,9 @@
     </div>
     <div class="producer-right-col">
       <div class="producer-story-section">
-        <p class="producer-story-para">Celler de les Aus is part of the winery Alta Alella. Starting in 1992, the family winery farmed organically (certified) from inception and is now led by Josep&#8217;s daughter Mireia Pujol-Busquets. Alta Alella&#8217;s winemaking practices incorporate understanding and adapting in a sustainable way to the present and future impacts of climate change. For example, the family has a natural seed study and selection practice which discovers the most resistant seeds to mildew and drought.</p>
+        <p class="producer-story-para">Celler de les Aus is part of the winery Art Laieta. Starting in 1992, the family winery farmed organically (certified) from inception and is now led by Josep&#8217;s daughter Mireia Pujol-Busquets. Art Laieta&#8217;s winemaking practices incorporate understanding and adapting in a sustainable way to the present and future impacts of climate change. For example, the family has a natural seed study and selection practice which discovers the most resistant seeds to mildew and drought.</p>
         <p class="producer-story-para">In the early 2000s, Josep partnered with a friend to craft a Cava made with no addition of external yeasts, no external sugar, and no addition of SO2. A Natural Cava. This was accomplished by using the must of Pansa Blanca (Xarel-lo) for the second fermentation. At first the wine was called NU. Many years later, the name changed to Bruant which is the name of a local bird. All of Celler de les Aus&#8217;s wines are named after the birds that live in the Serralada de Marina&#8217;s Natural Park.</p>
-        <p class="producer-story-para">The process of making wine without addition of SO2 was new for Josep. He began with Pansa Blanca and named the wine Tallarol. Years later, Celler de les Aus &amp; Alta Alella separated to demonstrate that the wines were made in different locations and did not influence each other.</p>
+        <p class="producer-story-para">The process of making wine without addition of SO2 was new for Josep. He began with Pansa Blanca and named the wine Tallarol. Years later, Celler de les Aus &amp; Art Laieta separated to demonstrate that the wines were made in different locations and did not influence each other.</p>
         <p class="producer-story-para">Today, Josep and Mireia produce a few cavas: Capsigrany made with a rare varietal Pansa Rosada (there are only 5ha left of Pansa Rosada in the world), Merla made with the grape Matar&#243; and a p&#233;tillant naturel called &#8220;Aus&#8221;.</p>
       </div>
       <div class="producer-wines-section">
@@ -5250,7 +5247,7 @@
   </footer>
 </div>
 
-<!-- ═══ PRODUCER: Nathan K ═══ -->
+<!-- ═══ PRODUCER: Nathan K. ═══ -->
 <div id="page-producer-nathank" class="page">
   <nav class="inner-nav">
     <div class="inner-nav-brand" onclick="showPage('home',null)"><div class="inner-nav-brand-main">Avant&#8209;Garde</div><div class="inner-nav-brand-sub">Wine &amp; Spirits</div></div>
@@ -5266,7 +5263,7 @@
     <div class="producer-header-region">New York &middot; USA</div>
   </div>
   <div class="producer-name-banner">
-    <h1 class="producer-name-title">Nathan K</h1>
+    <h1 class="producer-name-title">Nathan K.</h1>
     <div class="producer-name-sub">Finger Lakes &middot; Seneca Lake</div>
   </div>
   <div class="producer-body">
@@ -5458,10 +5455,10 @@
   </nav>
   <div class="producer-header">
     <button class="producer-back-btn" onclick="showPage('producers',null)">&#8592; All Producers</button>
-    <div class="producer-header-region">California &middot; USA</div>
+    <div class="producer-header-region">Central Coast California &middot; USA</div>
   </div>
   <div class="producer-name-banner">
-    <h1 class="producer-name-title">Outward</h1>
+    <h1 class="producer-name-title">Outward Wines</h1>
     <div class="producer-name-sub">Wildhorse Valley &middot; Sonoma Coast</div>
   </div>
   <div class="producer-body">
@@ -5478,8 +5475,8 @@
     </div>
     <div class="producer-right-col">
       <div class="producer-story-section">
-        <p class="producer-story-para">Natalie Siddique and Ryan Pace started Outward Wines in 2016 to share their love of Syrah and the Central Coast of California. Partners in life and in business, Natalie and Ryan are incredible rock climbers (El Capitan in 15 hours!) and avid travelers who love to explore wine regions the world over. They bring that focus and inspiration to their winemaking and have created a unique and surprising portrait of Central Coast wine.</p>
-        <p class="producer-story-para">Since that first vintage Outward has grown to use 10 different grape varieties from coastal sites spanning San Luis Obispo, Santa Barbara, and Monterey counties. Each wine is single variety and single site, making Outward one of the most terroir-focused wineries in the area. Diverse places like Shell Creek Vineyard in Paso Robles (some of the first vines in SLO County, planted 1971) to biodynamic practicing hillside Bassi Vineyard near Avila Beach and ancient sand dunes turned vineyard Presqu&#8217;ile in Santa Maria Valley are just a few of the snapshots of the county from Outward.</p>
+        <p class="producer-story-para">Natalie Siddique and Ryan Pace started Outward Wines in 2016 to share their love of Syrah and the Central Coast of Central Coast California. Partners in life and in business, Natalie and Ryan are incredible rock climbers (El Capitan in 15 hours!) and avid travelers who love to explore wine regions the world over. They bring that focus and inspiration to their winemaking and have created a unique and surprising portrait of Central Coast wine.</p>
+        <p class="producer-story-para">Since that first vintage Outward has grown to use 10 different grape varieties from coastal sites spanning Central Coast California, Santa Barbara, and Monterey counties. Each wine is single variety and single site, making Outward one of the most terroir-focused wineries in the area. Diverse places like Shell Creek Vineyard in Paso Robles (some of the first vines in Central Coast County, planted 1971) to biodynamic practicing hillside Bassi Vineyard near Avila Beach and ancient sand dunes turned vineyard Presqu&#8217;ile in Santa Maria Valley are just a few of the snapshots of the county from Outward.</p>
         <p class="producer-story-para">Most of the vineyards they source from are practicing or certified organic. Natalie and Ryan are supporting other growers through their certification process and encouraging them through the farming transition, part of their long-term goal to bring more organic farming to the area. The vineyards range from 200 to 1500ft and include marine-based soil types, mostly sandy loam. All wines are made in neutral oak barrels, are unfined, and unfiltered.</p>
       </div>
       <div class="producer-wines-section">
@@ -5515,10 +5512,10 @@
           </div>
           <div class="wine-entry-new">
             <div class="wine-entry-info">
-              <div class="wine-entry-name">SLO Coast Chardonnay</div>
+              <div class="wine-entry-name">Central Coast Coast Chardonnay</div>
               <div class="wine-entry-grapes">100% Chardonnay</div>
             </div>
-            <button class="wine-pdf-btn" onclick="openPdfModal('./pdfs/outward-chardonnay.pdf', 'SLO Coast Chardonnay')"><svg width="12" height="14" viewBox="0 0 12 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1H2a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V5L7 1z"/><path d="M7 1v4h4"/><line x1="4" y1="8" x2="8" y2="8"/><line x1="4" y1="10.5" x2="8" y2="10.5"/></svg>PDF</button>
+            <button class="wine-pdf-btn" onclick="openPdfModal('./pdfs/outward-chardonnay.pdf', 'Central Coast Coast Chardonnay')"><svg width="12" height="14" viewBox="0 0 12 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1H2a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V5L7 1z"/><path d="M7 1v4h4"/><line x1="4" y1="8" x2="8" y2="8"/><line x1="4" y1="10.5" x2="8" y2="10.5"/></svg>PDF</button>
           </div>
         </div>
       </div>
