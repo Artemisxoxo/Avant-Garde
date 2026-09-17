@@ -4003,6 +4003,34 @@
             </div>
             <button class="wine-pdf-btn" onclick="openPdfModal('./pdfs/rougeot-corton.pdf', 'Corton Grand Cru')"><svg width="12" height="14" viewBox="0 0 12 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1H2a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V5L7 1z"/><path d="M7 1v4h4"/><line x1="4" y1="8" x2="8" y2="8"/><line x1="4" y1="10.5" x2="8" y2="10.5"/></svg>PDF</button>
           </div>
+          <div class="wine-entry-new">
+            <div class="wine-entry-info">
+              <div class="wine-entry-name">Corton Charlemagne Grand Cru</div>
+              <div class="wine-entry-grapes">100% Chardonnay &middot; 300 bottles</div>
+            </div>
+            <button class="wine-pdf-btn" onclick="openPdfModal('./pdfs/RougeotCortonCharlemagne.pdf', 'Corton Charlemagne Grand Cru')"><svg width="12" height="14" viewBox="0 0 12 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1H2a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V5L7 1z"/><path d="M7 1v4h4"/><line x1="4" y1="8" x2="8" y2="8"/><line x1="4" y1="10.5" x2="8" y2="10.5"/></svg>PDF</button>
+          </div>
+          <div class="wine-entry-new">
+            <div class="wine-entry-info">
+              <div class="wine-entry-name">Gevrey-Chambertin Aux Etelois</div>
+              <div class="wine-entry-grapes">100% Pinot Noir &middot; 900 bottles</div>
+            </div>
+            <button class="wine-pdf-btn" onclick="openPdfModal('./pdfs/rougeotauxetelois.pdf', 'Gevrey-Chambertin Aux Etelois')"><svg width="12" height="14" viewBox="0 0 12 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1H2a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V5L7 1z"/><path d="M7 1v4h4"/><line x1="4" y1="8" x2="8" y2="8"/><line x1="4" y1="10.5" x2="8" y2="10.5"/></svg>PDF</button>
+          </div>
+          <div class="wine-entry-new">
+            <div class="wine-entry-info">
+              <div class="wine-entry-name">Gevrey-Chambertin La Justice</div>
+              <div class="wine-entry-grapes">100% Pinot Noir &middot; 600 bottles</div>
+            </div>
+            <button class="wine-pdf-btn" onclick="openPdfModal('./pdfs/rougeotlajustice.pdf', 'Gevrey-Chambertin La Justice')"><svg width="12" height="14" viewBox="0 0 12 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1H2a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V5L7 1z"/><path d="M7 1v4h4"/><line x1="4" y1="8" x2="8" y2="8"/><line x1="4" y1="10.5" x2="8" y2="10.5"/></svg>PDF</button>
+          </div>
+          <div class="wine-entry-new">
+            <div class="wine-entry-info">
+              <div class="wine-entry-name">Nuits-Saint-Georges Les Longecourts</div>
+              <div class="wine-entry-grapes">100% Pinot Noir &middot; 1,000 bottles</div>
+            </div>
+            <button class="wine-pdf-btn" onclick="openPdfModal('./pdfs/RougeotNuitsStGeorgesLesLongecourts.pdf', 'Nuits-Saint-Georges Les Longecourts')"><svg width="12" height="14" viewBox="0 0 12 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1H2a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V5L7 1z"/><path d="M7 1v4h4"/><line x1="4" y1="8" x2="8" y2="8"/><line x1="4" y1="10.5" x2="8" y2="10.5"/></svg>PDF</button>
+          </div>
         </div>
       </div>
     </div>
@@ -5616,7 +5644,7 @@ window.addEventListener('DOMContentLoaded',function(){
 });
 function doPortalLogin(){
   var code=document.getElementById('login-code').value;
-  if(code==='Avant-GardeClient'){
+  if(code==='AvantGardeClient'){
     document.getElementById('login-error').style.display='none';
     document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
     document.getElementById('page-portal').classList.add('active');
