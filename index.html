@@ -2402,7 +2402,28 @@
   margin: 0;
   padding: 0;
 }
-</style>
+
+/* Force white text on all dark/burgundy buttons */
+.portal-open-btn, .portal-open-btn:visited,
+.portal-download-btn, .portal-download-btn:visited,
+.btn-map-primary,
+.login-btn,
+.inner-nav-cta,
+.footer-contact-btn,
+.footer-subscribe-btn,
+.contact-modal-btn,
+.contact-cta-btn,
+.customer-cta-btn,
+.footer-contact-btn,
+.pdf-coming-soon-btn { color: #FFFFFF !important; }
+.wine-pdf-btn { color: #0A0A0A !important; }
+
+/* Login btn specifically */
+.login-btn { color: #FFFFFF !important; background: #0A0A0A !important; }
+
+/* Any button with dark/burgundy background */
+button[style*="background:#0A0A0A"],
+button[style*="background: #0A0A0A"] { color: #FFFFFF !important; }</style>
 </head>
 <body>
 
@@ -2765,7 +2786,7 @@
           <input class="login-input" type="password" id="login-code" placeholder="Enter your access code" onkeydown="if(event.key==='Enter')doPortalLogin()">
         </div>
         <div class="login-error" id="login-error">Incorrect access code. Please try again.</div>
-        <button class="login-btn" onclick="doPortalLogin()">Enter portal</button>
+        <button class="login-btn" onclick="doPortalLogin()" style="color:#FFFFFF !important;">Enter portal</button>
         <p class="login-help">Need access? Contact <button class="login-apply-link" onclick="openContactModal()">Geoffroy Ducroux</button></p>
       </div>
     </div>
