@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Avant-Garde Wine & Spirits</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
@@ -93,14 +94,14 @@
   }
 
   .home-title {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 120px;
     font-weight: 900;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: #0A0A0A;
+    color: #FFFFFF;
     line-height: 0.9;
-    
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
   }
 
   .home-subtitle {
@@ -109,7 +110,7 @@
     font-weight: 300;
     font-style: italic;
     letter-spacing: 0.15em;
-    color: #0A0A0A;
+    color: #FFFFFF;
     margin-top: 0.75rem;
     
   }
@@ -354,7 +355,7 @@
     gap: 0.4rem;
   }
   .country-name {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 42px;
     font-weight: 900;
     color: var(--map-ink);
@@ -2173,7 +2174,7 @@
     border-bottom: 1px solid var(--map-rule-dark);
   }
   .country-name {
-    font-family: 'Times New Roman', Times, serif !important;
+    font-family: 'Poppins', sans-serif;
     font-size: 36px !important;
     font-weight: 900 !important;
     text-transform: uppercase !important;
@@ -2488,6 +2489,33 @@ button[style*="background: #0A0A0A"] { color: #FFFFFF !important; }
 
   /* OUR PRODUCERS: slightly larger */
   .producers-hero-title { font-size: clamp(38px, 10.5vw, 68px) !important; line-height: 0.88 !important; }
+}
+
+/* Override burgundy buttons with dark charcoal */
+.btn-map-primary,
+.inner-nav-cta,
+.login-btn,
+.footer-contact-btn,
+.footer-subscribe-btn,
+.contact-modal-btn,
+.contact-cta-btn,
+.customer-cta-btn,
+.pdf-coming-soon-btn,
+.portal-open-btn,
+.portal-download-btn { 
+  background: #1A1A1A !important; 
+  color: #FFFFFF !important;
+  border: none !important;
+}
+.btn-map-primary:hover,
+.inner-nav-cta:hover,
+.login-btn:hover { background: #333333 !important; }
+
+/* Wine PDF buttons: light grey */
+.wine-pdf-btn {
+  background: #F0F0F0 !important;
+  color: #0A0A0A !important;
+  border: 1px solid #DDDDDD !important;
 }
 </style>
 </head>
@@ -5056,11 +5084,11 @@ button[style*="background: #0A0A0A"] { color: #FFFFFF !important; }
   </nav>
   <div class="producer-header">
     <button class="producer-back-btn" onclick="showPage('producers',null)">&#8592; All Producers</button>
-    <div class="producer-header-region">Tuscany &middot; Italy</div>
+    <div class="producer-header-region">Italy</div>
   </div>
   <div class="producer-name-banner">
     <h1 class="producer-name-title">Tenuta La Novella</h1>
-    <div class="producer-name-sub">Chianti Classico &middot; Greve</div>
+    <div class="producer-name-sub">Greve &middot; Tuscany</div>
   </div>
   <div class="producer-body">
     <div class="producer-details-col">
