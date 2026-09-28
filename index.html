@@ -56,7 +56,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  }
+    align-items: center;}
 
   /* Map as background — zoomed into Médoc region */
   .home-map-bg {
@@ -83,6 +83,9 @@
     align-items: center;
     text-align: center;
     gap: 0;
+    padding: 2rem;
+    width: 100%;
+    max-width: 1200px;
   }
 
   .home-rule-top {
@@ -125,14 +128,14 @@
   .home-divider-line {
     flex: 1;
     height: 1.5px;
-    background: var(--map-terra);
+    background: rgba(255,255,255,0.6);
     opacity: 0.75;
   }
   .home-divider-dot {
     width: 5px;
     height: 5px;
     border-radius: 50%;
-    background: var(--map-terra);
+    background: rgba(255,255,255,0.8);
     opacity: 0.7;
   }
 
@@ -163,8 +166,8 @@
     font-weight: 700;
     letter-spacing: 0.24em;
     text-transform: uppercase;
-    color: var(--map-ink);
-    background: #F0F0F0;
+    color: #0A0A0A;
+    background: rgba(255,255,255,0.9);
     border: 1px solid var(--map-rule-dark);
     padding: 1.1rem 2.8rem;
     cursor: pointer;
