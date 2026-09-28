@@ -56,7 +56,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    align-items: center;}
+  }
 
   /* Map as background — zoomed into Médoc region */
   .home-map-bg {
@@ -104,18 +104,21 @@
     text-transform: uppercase;
     color: #FFFFFF;
     line-height: 0.9;
-    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+    text-shadow: 
+      2px 2px 0 rgba(0,0,0,0.5),
+      -1px -1px 0 rgba(0,0,0,0.3),
+      0 0 30px rgba(0,0,0,0.4);
   }
 
   .home-subtitle {
     font-family: 'Times New Roman', Times, serif;
     font-size: 48px;
-    font-weight: 300;
+    font-weight: 400;
     font-style: italic;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.12em;
     color: #FFFFFF;
-    margin-top: 0.75rem;
-    
+    text-shadow: 1px 1px 8px rgba(0,0,0,0.5);
+    margin-top: 0.3rem;
   }
 
   .home-divider {
@@ -146,17 +149,16 @@
 
   .btn-map-primary {
     font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.24em;
+    font-size: 11px;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: #F8F7F4;
-    background: var(--map-terra);
+    font-weight: 700;
+    color: #FFFFFF !important;
+    background: #1A1A1A !important;
     border: none;
-    padding: 1.1rem 2.8rem;
+    padding: 1rem 2.5rem;
     cursor: pointer;
     transition: background 0.2s;
-    border-radius: 1px;
   }
   .btn-map-primary:hover { background: #a84e38; }
 
@@ -360,7 +362,7 @@
   .country-name {
     font-family: 'Poppins', sans-serif;
     font-size: 42px;
-    font-weight: 900;
+    font-weight: 600;
     color: var(--map-ink);
     text-transform: uppercase;
     letter-spacing: 0.04em;
@@ -2119,7 +2121,7 @@
   .inner-nav-cta { font-size: 12px; padding: 0.45rem 0.8rem; }
 
   /* ── HOME ── */
-  .home-hero { height: 100svh; min-height: unset; }
+  .home-hero { height: 100svh; min-height: unset; justify-content: center; align-items: center; }
   .home-map-bg {
     background-position: 65% 55% !important;
     background-size: cover !important;
@@ -2179,7 +2181,7 @@
   .country-name {
     font-family: 'Poppins', sans-serif;
     font-size: 36px !important;
-    font-weight: 900 !important;
+    font-weight: 600 !important;
     text-transform: uppercase !important;
     letter-spacing: 0.04em !important;
     color: var(--map-ink) !important;
@@ -2520,6 +2522,21 @@ button[style*="background: #0A0A0A"] { color: #FFFFFF !important; }
   color: #0A0A0A !important;
   border: 1px solid #DDDDDD !important;
 }
+
+/* Home page text always visible */
+.home-title {
+  color: #FFFFFF !important;
+  text-shadow: 2px 2px 0 rgba(0,0,0,0.5), 0 0 30px rgba(0,0,0,0.4) !important;
+}
+.home-subtitle {
+  color: #FFFFFF !important;
+  text-shadow: 1px 1px 8px rgba(0,0,0,0.5) !important;
+}
+.home-divider-line { background: rgba(255,255,255,0.7) !important; }
+.home-divider-dot { background: rgba(255,255,255,0.9) !important; }
+.home-buttons { display: flex !important; gap: 1rem !important; flex-wrap: wrap; justify-content: center; }
+.btn-map-primary { display: inline-flex !important; }
+.btn-map-outline { display: inline-flex !important; }
 </style>
 </head>
 <body>
