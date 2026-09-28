@@ -827,14 +827,18 @@
     color: #FFFFFF;
     background: var(--map-terra);
     border: none;
-    padding: 0.75rem 1.5rem;
+    padding: 0.9rem 2.5rem;
     cursor: pointer;
     font-weight: 700;
     transition: background 0.2s;
     border-radius: 1px;
     align-self: flex-start;
     margin-top: 0.5rem;
-  }
+  
+    display: inline-block;
+    width: auto;
+    align-self: flex-start;
+}
   .footer-contact-btn:hover { background: var(--map-salmon); }
   .footer-nav-link {
     font-family: 'Inter', sans-serif;
@@ -1485,7 +1489,7 @@
 }
 .contact-brand-statement,
 .contact-details,
-.contact-social-row { position: relative; z-index: 2; }
+.contact-social-row { position: relative; z-index: 2; margin-top: 2.5rem; }
 .contact-eyebrow {
   font-family: 'Inter', sans-serif;
   font-size: 11px;
@@ -1542,18 +1546,22 @@
 }
 .contact-modal-btn {
   font-family: 'Inter', sans-serif;
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--map-terra);
-  background: none;
+  color: #FFFFFF;
+  background: #1A1A1A;
   border: none;
   cursor: pointer;
   font-weight: 700;
-  padding: 0;
-  transition: letter-spacing 0.2s;
-  text-align: left;
+  padding: 1rem 2.5rem;
+  transition: background 0.2s;
+  text-align: center;
+  display: inline-block;
+  width: auto;
+  align-self: flex-start;
 }
+.contact-modal-btn:hover { background: #333333; }
 .contact-modal-btn:hover { letter-spacing: 0.26em; }
 .contact-social-row {
   display: flex;
@@ -1569,7 +1577,7 @@
   color: var(--map-terra);
   text-decoration: none;
   border: 1px solid rgba(139,58,74,0.5);
-  padding: 0.5rem 1.1rem;
+  padding: 0.8rem 2rem;
   border-radius: 1px;
   transition: all 0.2s;
   font-weight: 500;
