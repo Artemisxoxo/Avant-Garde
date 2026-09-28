@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Avant-Garde Wine & Spirits</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -71,8 +74,6 @@
 
   /* Subtle vignette so text reads clean at center */
   .home-map-vignette { background: none; }
-    z-index: 1;
-  }
 
   /* Center lockup */
   .home-lockup {
@@ -83,37 +84,33 @@
     align-items: center;
     text-align: center;
     gap: 0;
-    padding: 2rem;
+    padding: 3rem 2rem;
     width: 100%;
     max-width: 1200px;
   }
 
   .home-rule-top {
     width: 1px;
-    height: 60px;
-    background: var(--map-terra);
-    margin-bottom: 1.5rem;
-    opacity: 0.7;
+    height: 40px;
+    background: rgba(255,255,255,0.6);
+    margin-bottom: 1.2rem;
   }
 
   .home-title {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Urbanist', sans-serif;
     font-size: 120px;
-    font-weight: 900;
-    letter-spacing: 0.06em;
+    font-weight: 300;
+    letter-spacing: 0.02em;
     text-transform: uppercase;
     color: #FFFFFF;
     line-height: 0.9;
-    text-shadow: 
-      2px 2px 0 rgba(0,0,0,0.5),
-      -1px -1px 0 rgba(0,0,0,0.3),
-      0 0 30px rgba(0,0,0,0.4);
+    
   }
 
   .home-subtitle {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Urbanist', sans-serif;
     font-size: 48px;
-    font-weight: 400;
+    font-weight: 300;
     font-style: italic;
     letter-spacing: 0.12em;
     color: #FFFFFF;
@@ -175,16 +172,14 @@
     cursor: pointer;
     transition: all 0.2s;
     border-radius: 1px;
-    backdrop-filter: blur(4px);
   }
   .btn-map-outline:hover { background: rgba(244,237,216,0.95); }
 
   .home-rule-bottom {
     width: 1px;
-    height: 60px;
-    background: var(--map-terra);
-    margin-top: 1.5rem;
-    opacity: 0.7;
+    height: 40px;
+    background: rgba(255,255,255,0.6);
+    margin-top: 1.2rem;
   }
 
   /* Bottom strip — location line */
@@ -257,9 +252,9 @@
     gap: 1px;
   }
   .inner-nav-brand-main {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Urbanist', sans-serif;
     font-size: 26px;
-    font-weight: 900;
+    font-weight: 300;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: #0A0A0A;
@@ -360,7 +355,7 @@
     gap: 0.4rem;
   }
   .country-name {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Urbanist', sans-serif;
     font-size: 42px;
     font-weight: 600;
     color: var(--map-ink);
@@ -370,7 +365,7 @@
     padding-left: 2.5rem;
   }
   .country-name-native {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Urbanist', sans-serif;
     font-size: 14px;
     font-style: italic;
     font-weight: 500;
@@ -2179,9 +2174,9 @@
     border-bottom: 1px solid var(--map-rule-dark);
   }
   .country-name {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Urbanist', sans-serif;
     font-size: 36px !important;
-    font-weight: 600 !important;
+    font-weight: 300 !important;
     text-transform: uppercase !important;
     letter-spacing: 0.04em !important;
     color: var(--map-ink) !important;
@@ -2526,7 +2521,7 @@ button[style*="background: #0A0A0A"] { color: #FFFFFF !important; }
 /* Home page text always visible */
 .home-title {
   color: #FFFFFF !important;
-  text-shadow: 2px 2px 0 rgba(0,0,0,0.5), 0 0 30px rgba(0,0,0,0.4) !important;
+  
 }
 .home-subtitle {
   color: #FFFFFF !important;
@@ -2567,7 +2562,7 @@ button[style*="background: #0A0A0A"] { color: #FFFFFF !important; }
 
     <div class="home-bottom-strip">
       <div class="home-strip-left">New York &nbsp;&middot;&nbsp; Est. 2011</div>
-      <div class="home-strip-center">Avant&#8209;Garde Wine &amp; Spirits</div>
+      
       <div class="home-strip-right">
         <button class="home-strip-link" onclick="showPage('producers',null)">Producers</button>
         <button class="home-strip-link" onclick="showPage('national',null)">National</button>
