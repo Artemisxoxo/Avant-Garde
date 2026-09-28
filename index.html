@@ -355,7 +355,7 @@
     gap: 0.4rem;
   }
   .country-name {
-    font-family: 'Urbanist', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 42px;
     font-weight: 600;
     color: var(--map-ink);
@@ -365,7 +365,7 @@
     padding-left: 2.5rem;
   }
   .country-name-native {
-    font-family: 'Urbanist', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 14px;
     font-style: italic;
     font-weight: 500;
@@ -893,8 +893,8 @@
   .footer-brand-name {
     font-family: 'Urbanist', Times, serif;
     font-size: 25px;
-    font-weight: 900;
-    letter-spacing: 0.2em;
+    font-weight: 300;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: #0A0A0A;
     line-height: 1;
@@ -2174,7 +2174,7 @@
     border-bottom: 1px solid var(--map-rule-dark);
   }
   .country-name {
-    font-family: 'Urbanist', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 36px !important;
     font-weight: 300 !important;
     text-transform: uppercase !important;
@@ -2292,7 +2292,7 @@
     padding: 1rem 1.25rem;
     text-align: center;
   }
-  .footer-brand-name { font-size: 25px; letter-spacing: 0.1em; }
+  .footer-brand-name { font-size: 25px; letter-spacing: 0.08em; }
   .footer-brand-sub { font-size: 10px; }
   .footer-copy { font-size: 12px; }
   .footer-nav-link { font-size: 12px; }
@@ -2565,6 +2565,35 @@ button[style*="background: #0A0A0A"] { color: #FFFFFF !important; }
   }
 
   .producers-hero-sub { color: #FFFFFF !important; font-weight: 700 !important; }
+
+@media (max-width: 768px) {
+  /* Wines grid: single column, no stagger */
+  .wines-grid {
+    grid-template-columns: 1fr !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .wine-entry-new {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    justify-content: space-between !important;
+    padding: 1rem 0 !important;
+    border: none !important;
+    border-bottom: 1px solid #E0E0E0 !important;
+    background: none !important;
+    margin: 0 !important;
+  }
+  .wine-entry-new:nth-child(even) {
+    background: none !important;
+    padding-left: 0 !important;
+    border-left: none !important;
+  }
+  .wine-entry-info { flex: 1; }
+  .wine-entry-name { font-size: 16px !important; }
+  .wine-entry-grapes { font-size: 12px !important; }
+  .wine-pdf-btn { flex-shrink: 0; align-self: center; }
+}
 </style>
 </head>
 <body>
@@ -2826,7 +2855,7 @@ button[style*="background: #0A0A0A"] { color: #FFFFFF !important; }
       </div>
     <div class="producer-list-col">
       <div class="producer-entry producer-entry-link" onclick="showPage('producer-tenutalanovella',null)">
-        <div class="producer-region-tag">Maremma, Tuscany</div>
+        <div class="producer-region-tag">Greve, Tuscany</div>
         <div class="producer-name producer-name-clickable">Tenuta La Novella</div>
         <div class="producer-entry-arrow">&#8594;</div>
       </div>
@@ -3441,13 +3470,6 @@ button[style*="background: #0A0A0A"] { color: #FFFFFF !important; }
       <div class="producer-wines-section">
                 <div class="producer-wines-label">The Wines</div>
         <div class="wines-grid">
-          <div class="wine-entry-new">
-            <div class="wine-entry-info">
-              <div class="wine-entry-name">Vibrato, Les 7 Arpents Blanc de Blancs Extra Brut, Premier Cru</div>
-              <div class="wine-entry-grapes">45% Pinot Noir, 40% Meunier, 15% Chardonnay</div>
-            </div>
-            <button class="wine-pdf-btn" onclick="openPdfModal('./pdfs/laurentbenard-vibrato.pdf', 'Vibrato, Les 7 Arpents Blanc de Blancs Extra Brut, Premier Cru')"><svg width="12" height="14" viewBox="0 0 12 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1H2a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V5L7 1z"/><path d="M7 1v4h4"/><line x1="4" y1="8" x2="8" y2="8"/><line x1="4" y1="10.5" x2="8" y2="10.5"/></svg>PDF</button>
-          </div>
           <div class="wine-entry-new">
             <div class="wine-entry-info">
               <div class="wine-entry-name">Vendage, Extra Brut Premier Cru</div>
