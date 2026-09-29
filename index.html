@@ -823,24 +823,23 @@
   }
   .footer-contact-btn {
     font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    letter-spacing: 0.2em;
+    font-size: 8.5px;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: #FFFFFF;
     background: var(--map-terra);
     border: none;
-    padding: 0.9rem 2.5rem;
+    padding: 0.65rem 1.1rem;
     cursor: pointer;
     font-weight: 700;
     transition: background 0.2s;
     border-radius: 1px;
-    align-self: flex-start;
-    margin-top: 0.5rem;
-  
+    margin-top: 0.75rem;
     display: inline-block;
     width: auto;
+    white-space: nowrap;
     align-self: flex-start;
-}
+  }
   .footer-contact-btn:hover { background: var(--map-salmon); }
   .footer-nav-link {
     font-family: 'Inter', sans-serif;
@@ -2519,6 +2518,17 @@ button[style*="background: #0A0A0A"] { color: #FFFFFF !important; }
 }
 .inner-nav-cta:hover,
 .login-btn:hover { background: #333333 !important; }
+
+/* Mobile: align Send Us a Message + Subscribe as a matching pair */
+@media (max-width: 768px) {
+  .footer-contact-btn,
+  .footer-subscribe-btn {
+    align-self: flex-start;
+    min-width: 11rem;
+    text-align: center;
+    margin-top: 0.75rem;
+  }
+}
 
 /* Wine PDF buttons: light grey */
 .wine-pdf-btn {
