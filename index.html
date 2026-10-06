@@ -2653,6 +2653,32 @@ button[style*="background: #0A0A0A"] { color: #FFFFFF !important; }
     font-style: italic !important;
   }
 }
+
+/* ── Hero alignment: center "&" on the divider dot, buttons on the same axis ── */
+.home-subtitle {
+  display: grid !important;
+  grid-template-columns: 1fr auto 1fr;
+  column-gap: 0.3em;
+  width: 100%;
+}
+.home-subtitle .sub-l { text-align: right; }
+.home-subtitle .sub-r { text-align: left; }
+.home-subtitle .sub-amp { letter-spacing: 0 !important; }
+@media (min-width: 769px) {
+  .home-buttons { justify-content: center !important; gap: 1rem !important; }
+  .home-buttons .btn-map-primary,
+  .home-buttons .btn-map-outline {
+    width: 240px !important;
+    min-width: 0 !important;
+    padding: 1rem 0 !important;
+    justify-content: center !important;
+    box-sizing: border-box;
+  }
+}
+
+/* Smaller copyright line */
+.footer-copy { font-size: 11px !important; }
+@media (max-width: 768px) { .footer-copy { font-size: 10px !important; } }
 </style>
 </head>
 <body>
@@ -2668,7 +2694,7 @@ button[style*="background: #0A0A0A"] { color: #FFFFFF !important; }
     <div class="home-lockup">
       <div class="home-rule-top"></div>
       <div class="home-title">Avant&#8209;Garde</div>
-      <div class="home-subtitle">Wine &amp; Spirits</div>
+      <div class="home-subtitle"><span class="sub-l">Wine</span><span class="sub-amp">&amp;</span><span class="sub-r">Spirits</span></div>
       <div class="home-divider">
         <div class="home-divider-line"></div>
         <div class="home-divider-dot"></div>
