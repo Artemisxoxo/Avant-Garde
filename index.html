@@ -6107,19 +6107,24 @@ function footerSubscribe(btn){
   var msg=col.querySelector('.footer-sub-msg');
   var e=(email.value||'').trim();
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)){msg.textContent='Please enter a valid email address.';msg.className='footer-sub-msg is-error';email.focus();return;}
-  var fd=new FormData();
-  fd.append('email_address',e);
-  if(name.value.trim()) fd.append('fields[first_name]',name.value.trim());
+  // Submit exactly like a standard Kit HTML embed form (urlencoded POST) into a hidden iframe
+  var frameName='kit-frame-'+Date.now();
+  var frame=document.createElement('iframe');
+  frame.name=frameName;frame.style.display='none';document.body.appendChild(frame);
+  var f=document.createElement('form');
+  f.method='POST';f.action='https://app.convertkit.com/forms/'+KIT_FORM_ID+'/subscriptions';
+  f.target=frameName;f.style.display='none';
+  var add=function(k,v){var i=document.createElement('input');i.type='hidden';i.name=k;i.value=v;f.appendChild(i);};
+  add('email_address',e);
+  if(name.value.trim()) add('fields[first_name]',name.value.trim());
+  document.body.appendChild(f);
   btn.disabled=true;btn.textContent='Sending…';msg.textContent='';msg.className='footer-sub-msg';
-  fetch('https://app.convertkit.com/forms/'+KIT_FORM_ID+'/subscriptions',{method:'POST',body:fd,mode:'no-cors'})
-    .then(function(){
-      msg.textContent='Thank you! Please check your inbox to confirm.';msg.className='footer-sub-msg is-ok';
-      email.value='';name.value='';btn.textContent='Subscribed';
-    })
-    .catch(function(){
-      msg.textContent='Something went wrong. Please try again.';msg.className='footer-sub-msg is-error';
-      btn.disabled=false;btn.textContent='Subscribe';
-    });
+  f.submit();
+  setTimeout(function(){
+    msg.textContent='Thank you for subscribing.';msg.className='footer-sub-msg is-ok';
+    email.value='';name.value='';btn.textContent='Subscribed';
+    setTimeout(function(){f.remove();frame.remove();},10000);
+  },800);
 }
 </script>
 
