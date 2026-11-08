@@ -6111,7 +6111,7 @@ function footerSubscribe(btn){
   fd.append('email_address',e);
   if(name.value.trim()) fd.append('fields[first_name]',name.value.trim());
   btn.disabled=true;btn.textContent='Sending…';msg.textContent='';msg.className='footer-sub-msg';
-  fetch('https://app.kit.com/forms/'+KIT_FORM_ID+'/subscriptions',{method:'POST',body:fd,mode:'no-cors'})
+  fetch('https://app.convertkit.com/forms/'+KIT_FORM_ID+'/subscriptions',{method:'POST',body:fd,mode:'no-cors'})
     .then(function(){
       msg.textContent='Thank you! Please check your inbox to confirm.';msg.className='footer-sub-msg is-ok';
       email.value='';name.value='';btn.textContent='Subscribed';
