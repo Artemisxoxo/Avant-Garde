@@ -75,7 +75,13 @@
   }
 
   /* Subtle vignette so text reads clean at center */
-  .home-map-vignette { background: none; }
+  .home-map-vignette {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: rgba(0,0,0,0.15); /* darken photo 15% so title pops */
+  }
 
   /* Center lockup */
   .home-lockup {
