@@ -2692,6 +2692,12 @@ button[style*="background: #0A0A0A"] { color: #FFFFFF !important; }
 .footer-sub-msg:empty { display: none; }
 .footer-subscribe-btn:disabled { opacity: 0.6; cursor: default; }
 @media (max-width: 768px) { .footer-sub-msg { align-self: flex-start; text-align: left; } }
+
+/* Two portfolio sign-ins */
+.login-form-title { margin-bottom: 1.75rem; }
+.login-block { padding: 1.5rem 0; border-top: 1px solid rgba(139,58,74,0.22); }
+.login-block + .login-block { margin-top: 0.5rem; }
+.login-block-title { font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--map-ink); font-weight: 600; margin-bottom: 1rem; }
 </style>
 </head>
 <body>
@@ -3050,12 +3056,27 @@ button[style*="background: #0A0A0A"] { color: #FFFFFF !important; }
       <div class="login-form-wrap">
         <div class="login-form-eyebrow">Avant&#8209;Garde Wine &amp; Spirits</div>
         <div class="login-form-title">Sign in</div>
-        <div class="login-field">
-          <label class="login-label">Access code</label>
-          <input class="login-input" type="password" id="login-code" placeholder="Enter your access code" onkeydown="if(event.key==='Enter')doPortalLogin()">
+
+        <div class="login-block">
+          <div class="login-block-title">NY Wholesale Portfolio</div>
+          <div class="login-field">
+            <label class="login-label" for="login-code">Access code</label>
+            <input class="login-input" type="password" id="login-code" placeholder="Enter your access code" onkeydown="if(event.key==='Enter')doPortalLogin('ny')">
+          </div>
+          <div class="login-error" id="login-error">Incorrect access code. Please try again.</div>
+          <button class="login-btn" onclick="doPortalLogin('ny')" style="color:#FFFFFF !important;">Enter NY Wholesale</button>
         </div>
-        <div class="login-error" id="login-error">Incorrect access code. Please try again.</div>
-        <button class="login-btn" onclick="doPortalLogin()" style="color:#FFFFFF !important;">Enter portal</button>
+
+        <div class="login-block">
+          <div class="login-block-title">National Portfolio</div>
+          <div class="login-field">
+            <label class="login-label" for="login-code-national">Access code</label>
+            <input class="login-input" type="password" id="login-code-national" placeholder="Enter your access code" onkeydown="if(event.key==='Enter')doPortalLogin('national')">
+          </div>
+          <div class="login-error" id="login-error-national">Incorrect access code. Please try again.</div>
+          <button class="login-btn" onclick="doPortalLogin('national')" style="color:#FFFFFF !important;">Enter National</button>
+        </div>
+
         <p class="login-help">Need access? Contact <button class="login-apply-link" onclick="openContactModal()">Geoffroy Ducroux</button></p>
       </div>
     </div>
@@ -3079,7 +3100,7 @@ button[style*="background: #0A0A0A"] { color: #FFFFFF !important; }
   <div class="portal-header">
     <div class="portal-header-left">
       <div class="portal-eyebrow">Client Portal</div>
-      <div class="portal-title">Current Catalog &amp; Pricing</div>
+      <div class="portal-title" id="portal-title">NY Wholesale Portfolio</div>
     </div>
     <div class="portal-header-right">
       <a class="portal-download-btn" id="portal-download-btn" style="color:#FFFFFF !important;" href="./pdfs/catalog.pdf" download="AvantGarde-Catalog.pdf" target="_blank">
@@ -3102,10 +3123,10 @@ button[style*="background: #0A0A0A"] { color: #FFFFFF !important; }
           <line x1="14" y1="46" x2="26" y2="46"/>
         </svg>
       </div>
-      <div class="portal-catalog-label">Current Catalog &amp; Pricing</div>
+      <div class="portal-catalog-label" id="portal-catalog-label">NY Wholesale Catalog &amp; Pricing</div>
       <div class="portal-catalog-sub">Avant&#8209;Garde Wine &amp; Spirits &mdash; For trade use only</div>
       <div class="portal-catalog-actions">
-        <button class="portal-open-btn" style="color:#FFFFFF !important;" onclick="openPdfModal('./pdfs/catalog.pdf', 'Avant-Garde Current Catalog')">
+        <button class="portal-open-btn" id="portal-open-btn" style="color:#FFFFFF !important;" onclick="openPdfModal(PORTFOLIOS[currentPortfolio].pdf, PORTFOLIOS[currentPortfolio].name)">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
           View &amp; Download Catalog
         </button>
@@ -3346,7 +3367,7 @@ button[style*="background: #0A0A0A"] { color: #FFFFFF !important; }
       </div>
     </div>
     <div class="pdf-modal-body">
-      <iframe id="pdf-iframe" src="" frameborder="0" allowfullscreen onload="checkPdfLoaded(this)"></iframe>
+      <iframe id="pdf-iframe" src="" frameborder="0" allowfullscreen></iframe>
       <div class="pdf-coming-soon" id="pdf-coming-soon">
         <div class="pdf-coming-soon-icon">
           <svg width="40" height="48" viewBox="0 0 40 48" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
@@ -5979,22 +6000,35 @@ window.addEventListener('DOMContentLoaded',function(){
   history.replaceState({page:startPage},'',window.location.pathname+(startPage!=='home'?'#'+startPage:''));
   showPage(startPage,null,true);
 });
-function doPortalLogin(){
-  var code=document.getElementById('login-code').value;
-  if(code==='AvantGardeClient'){
-    document.getElementById('login-error').style.display='none';
+// Two portfolios, each with its own access code and catalog PDF
+var PORTFOLIOS={
+  ny:{code:'AvantGardeClient',name:'NY Wholesale Portfolio',label:'NY Wholesale Catalog & Pricing',pdf:'./pdfs/catalog.pdf',file:'AvantGarde-NY-Wholesale-Portfolio.pdf',input:'login-code',error:'login-error'},
+  national:{code:'AGDistributor',name:'National Portfolio',label:'National Catalog & Pricing',pdf:'./pdfs/national-catalog.pdf',file:'AvantGarde-National-Portfolio.pdf',input:'login-code-national',error:'login-error-national'}
+};
+var currentPortfolio='ny';
+function doPortalLogin(which){
+  which=which||'ny';
+  var P=PORTFOLIOS[which];
+  var input=document.getElementById(P.input), err=document.getElementById(P.error);
+  if(input.value===P.code){
+    err.style.display='none';
+    currentPortfolio=which;
+    document.getElementById('portal-title').textContent=P.name;
+    document.getElementById('portal-catalog-label').textContent=P.label;
+    var dl=document.getElementById('portal-download-btn');
+    dl.href=P.pdf; dl.setAttribute('download',P.file);
     document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
     document.getElementById('page-portal').classList.add('active');
     window.scrollTo(0,0);
   } else {
-    document.getElementById('login-error').style.display='block';
-    document.getElementById('login-code').value='';
-    document.getElementById('login-code').focus();
+    err.style.display='block';
+    input.value='';
+    input.focus();
   }
 }
 function doPortalLogout(){
-  document.getElementById('login-code').value='';
-  document.getElementById('login-error').style.display='none';
+  ['login-code','login-code-national'].forEach(function(id){document.getElementById(id).value='';});
+  ['login-error','login-error-national'].forEach(function(id){document.getElementById(id).style.display='none';});
   showPage('login',null);
 }
 function switchTab(id,btn){
