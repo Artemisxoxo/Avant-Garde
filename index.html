@@ -2698,6 +2698,27 @@ button[style*="background: #0A0A0A"] { color: #FFFFFF !important; }
 .login-block { padding: 1.5rem 0; border-top: 1px solid rgba(139,58,74,0.22); }
 .login-block + .login-block { margin-top: 0.5rem; }
 .login-block-title { font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--map-ink); font-weight: 600; margin-bottom: 1rem; }
+
+/* Producers page: remove empty space above OUR PRODUCERS */
+.producers-hero { height: auto !important; min-height: 0 !important; }
+.producers-hero-content { padding-top: 3.5rem !important; padding-bottom: 2.5rem !important; }
+@media (max-width: 768px) {
+  .producers-hero-content { padding-top: 2rem !important; padding-bottom: 1.5rem !important; }
+}
+
+/* Homepage: very slow cinematic drift (Ken Burns) on the vineyard photo */
+@keyframes agSlowDrift {
+  0%   { transform: scale(1.00) translate(0%, 0%); }
+  100% { transform: scale(1.12) translate(-1.5%, -1%); }
+}
+.home-map-bg {
+  transform-origin: 55% 50%;
+  animation: agSlowDrift 45s ease-in-out infinite alternate;
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-map-bg { animation: none; }
+}
 </style>
 </head>
 <body>
@@ -6003,7 +6024,7 @@ window.addEventListener('DOMContentLoaded',function(){
 // Two portfolios, each with its own access code and catalog PDF
 var PORTFOLIOS={
   ny:{code:'AvantGardeClient',name:'NY Wholesale Portfolio',label:'NY Wholesale Catalog & Pricing',pdf:'./pdfs/catalog.pdf',file:'AvantGarde-NY-Wholesale-Portfolio.pdf',input:'login-code',error:'login-error'},
-  national:{code:'AGDistributor',name:'National Portfolio',label:'National Catalog & Pricing',pdf:'./pdfs/national-catalog.pdf',file:'AvantGarde-National-Portfolio.pdf',input:'login-code-national',error:'login-error-national'}
+  national:{code:'AGNational',name:'National Portfolio',label:'National Catalog & Pricing',pdf:'./pdfs/national-catalog.pdf',file:'AvantGarde-National-Portfolio.pdf',input:'login-code-national',error:'login-error-national'}
 };
 var currentPortfolio='ny';
 function doPortalLogin(which){
